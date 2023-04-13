@@ -4,6 +4,6 @@ abstract class TestPassingRepository{
 
   TestResults sendTest(TestAttempt userTestAttempt);
 
-  Test? getTest(String testId); 
+  Test getTest(String testId); 
 
 }
