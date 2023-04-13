@@ -28,9 +28,9 @@ class Const {
   static const paddingBetweenStandart = 16.0;
   static const paddingBetweenLarge = 32.0;
 
-  static const fontSizeSecondary = 12;
-  static const fontSizeBody = 16;
-  static const fontSizeButton = 20;
-  static const fontSizeAppBarTitle = 24;
-  static const fontSizeBodyTitle = 32;
+  static const fontSizeSecondary = 12.0;
+  static const fontSizeBody = 16.0;
+  static const fontSizeButton = 20.0;
+  static const fontSizeAppBarTitle = 24.0;
+  static const fontSizeBodyTitle = 32.0;
 }
