@@ -1,14 +1,15 @@
 class UserCredentials{
 
-  final String login;
-  final String passHash;
-
-  final Map<String, String> extraParams;
+  final String username;
+  final String password;
+  final String? firstname;
+  final String? lastname;
 
   const UserCredentials({
-    required this.login,
-    required this.passHash,
-    this.extraParams = const <String, String>{},
+    required this.username,
+    required this.password,
+    this.firstname,
+    this.lastname,
   });
 
 }
