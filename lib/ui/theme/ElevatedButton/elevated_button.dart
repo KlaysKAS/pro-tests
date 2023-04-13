@@ -7,8 +7,18 @@ class ElevatedButtonThemes {
     style: ElevatedButton.styleFrom(
       foregroundColor: Const.tertiaryColor,
       backgroundColor: Const.primaryColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Const.borderRadiusStandart),
+      ),
+    ),
+  );
+
+  static final dark = ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      foregroundColor: Const.backgroundColor,
+      backgroundColor: Const.darkPrimaryColor,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Const.borderRadiusStandart),
       ),
     ),
   );
