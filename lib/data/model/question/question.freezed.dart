@@ -23,7 +23,6 @@ mixin _$Question {
   int get id => throw _privateConstructorUsedError;
   String get question => throw _privateConstructorUsedError;
   List<String> get answers => throw _privateConstructorUsedError;
-  String get answer => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +35,7 @@ abstract class $QuestionCopyWith<$Res> {
   factory $QuestionCopyWith(Question value, $Res Function(Question) then) =
       _$QuestionCopyWithImpl<$Res, Question>;
   @useResult
-  $Res call({int id, String question, List<String> answers, String answer});
+  $Res call({int id, String question, List<String> answers});
 }
 
 /// @nodoc
@@ -55,7 +54,6 @@ class _$QuestionCopyWithImpl<$Res, $Val extends Question>
     Object? id = null,
     Object? question = null,
     Object? answers = null,
-    Object? answer = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -70,10 +68,6 @@ class _$QuestionCopyWithImpl<$Res, $Val extends Question>
           ? _value.answers
           : answers // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      answer: null == answer
-          ? _value.answer
-          : answer // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 }
@@ -85,7 +79,7 @@ abstract class _$$_QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
       __$$_QuestionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String question, List<String> answers, String answer});
+  $Res call({int id, String question, List<String> answers});
 }
 
 /// @nodoc
@@ -102,7 +96,6 @@ class __$$_QuestionCopyWithImpl<$Res>
     Object? id = null,
     Object? question = null,
     Object? answers = null,
-    Object? answer = null,
   }) {
     return _then(_$_Question(
       id: null == id
@@ -117,10 +110,6 @@ class __$$_QuestionCopyWithImpl<$Res>
           ? _value._answers
           : answers // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      answer: null == answer
-          ? _value.answer
-          : answer // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -131,8 +120,7 @@ class _$_Question implements _Question {
   const _$_Question(
       {required this.id,
       required this.question,
-      required final List<String> answers,
-      required this.answer})
+      required final List<String> answers})
       : _answers = answers;
 
   factory _$_Question.fromJson(Map<String, dynamic> json) =>
@@ -151,11 +139,8 @@ class _$_Question implements _Question {
   }
 
   @override
-  final String answer;
-
-  @override
   String toString() {
-    return 'Question(id: $id, question: $question, answers: $answers, answer: $answer)';
+    return 'Question(id: $id, question: $question, answers: $answers)';
   }
 
   @override
@@ -166,14 +151,13 @@ class _$_Question implements _Question {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.question, question) ||
                 other.question == question) &&
-            const DeepCollectionEquality().equals(other._answers, _answers) &&
-            (identical(other.answer, answer) || other.answer == answer));
+            const DeepCollectionEquality().equals(other._answers, _answers));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, question,
-      const DeepCollectionEquality().hash(_answers), answer);
+  int get hashCode => Object.hash(
+      runtimeType, id, question, const DeepCollectionEquality().hash(_answers));
 
   @JsonKey(ignore: true)
   @override
@@ -193,8 +177,7 @@ abstract class _Question implements Question {
   const factory _Question(
       {required final int id,
       required final String question,
-      required final List<String> answers,
-      required final String answer}) = _$_Question;
+      required final List<String> answers}) = _$_Question;
 
   factory _Question.fromJson(Map<String, dynamic> json) = _$_Question.fromJson;
 
@@ -204,8 +187,6 @@ abstract class _Question implements Question {
   String get question;
   @override
   List<String> get answers;
-  @override
-  String get answer;
   @override
   @JsonKey(ignore: true)
   _$$_QuestionCopyWith<_$_Question> get copyWith =>

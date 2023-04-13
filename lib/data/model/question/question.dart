@@ -10,7 +10,6 @@ class Question with _$Question {
     required int id,
     required String question,
     required List<String> answers,
-    required String answer,
   }) = _Question;
 
   factory Question.fromJson(Map<String, Object?> json) => _$QuestionFromJson(json);
