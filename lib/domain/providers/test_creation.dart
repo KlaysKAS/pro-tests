@@ -1,6 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class TestCreationStateNotifier extends StateNotifier<TestInfo?> {
+import '../repository/test_creation.dart';
+
+class TestCreationStateNotifier extends StateNotifier<TestInfo> {
   TestCreationRepository? repo;
 
   TestCreationStateNotifier(
