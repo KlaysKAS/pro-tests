@@ -1,5 +1,4 @@
-abstract class TestCreationRepository{
-
+abstract class TestCreationRepository {
   TestInfo createTest(String name, String description);
 
   TestInfo addQuestion(String testId, Question question);
@@ -7,5 +6,4 @@ abstract class TestCreationRepository{
   List<TestInfo> getUsersTests(String userId);
 
   String deleteTest(String testId);
-
 }

@@ -1,5 +1,4 @@
-class UserCredentials{
-
+class UserCredentials {
   final String username;
   final String password;
   final String? firstname;
@@ -11,5 +10,4 @@ class UserCredentials{
     this.firstname,
     this.lastname,
   });
-
 }
