@@ -1,5 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../repository/test_passing.dart';
+
 class TestAttemptStateNotifier extends StateNotifier<TestAttempt> {
   final TestPassingRepository? repo;
 
@@ -29,12 +31,11 @@ class TestAttemptStateNotifier extends StateNotifier<TestAttempt> {
   }
 
   Future<bool> beginTest(String testId) {
-    // createAttempt
     final test = repo?.getTest(testId);
     if (test != null) {
       _updateState(TestAttempt.fromTest(test));
     }
 
-    test != null;
+    return test != null;
   }
 }

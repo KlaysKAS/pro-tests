@@ -1,5 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../models/user_credentials.dart';
+import '../repository/authentication.dart';
+
+/// If user != null - user auntificated
 class AuthenticationStateNotifier extends StateNotifier<User?> {
   AuthenticationRepository? repo;
 
@@ -18,7 +22,7 @@ class AuthenticationStateNotifier extends StateNotifier<User?> {
   }
 
   Future<bool> register(UserCredentials registerData) async {
-    final user = repo?.register(loginData);
+    final user = repo?.register(registerData);
     _updateState(user);
 
     return user != null;
