@@ -1,3 +1,91 @@
 {
-  "main_sign_in_title":"Войти"
+  "loginMainTitle":"Войти",
+  "loginFormMailTitle": "Почта",
+  "loginFormMailError": "Почта не существует",
+  "loginFormPasswordTitle": "Пароль",
+  "loginFormPassowrdError": "Неверный Пароль",
+  "loginBtn": "Войти",
+
+  "registerMainTitle":"Регистрация",
+  "registerFormMailTitle": "Почта",
+  "registerFormMailError": "Почта уже занята",
+  "registerFormNameEmptyError": "Поле не может быть пустым",
+  "registerFormSurnameEmptyError": "Поле не может быть пустым",
+  "registerFormPasswordTitle": "Пароль",
+  "registerFormRePasswordTitle": "Повторите пароль",
+  "registerFormPassowrdError": "Пароль не соответсвует требованиям безопасности",
+  "registerFormNameTitle": "Имя",
+  "registerFormSurnameTitle": "Фамилия",
+  "registerBtn": "Регистрация",
+
+  "homeCreateTestsMainTitle":"Мои тесты",
+  "homeCreateTestName": "{testName}",
+  "homeTestQuestionsNum": "{number} вопросов",
+  "homeTestPassedPeopleNum": "{number} человек прошли",
+  "homeCreateBtn":"Создать",
+  "homeBottomNavCreateBtn":"Создать тест",
+
+  "homePassedTestsMainTitle":"Пройденные тесты",
+  "homePassedTestName": "{testName}",
+  "homePassedRightAnswNum": "Правильно {number}",
+  "homePassedWrongAnswNum": "Неправильно {number}",
+  "homePassButton":"Пройти",
+  "homeBottomNavPassBtn":"Пройти тест",
+
+  "homeLinkDialogCodeTestTitle": "Введите код теста",
+  "homeLinkDialogBtn": "Ок",
+
+
+  "createdTestDetailsAppbarTitle": "{appbarTitle}",
+  "createdTestDetailsTestName": "{testName}",
+  "createdTestDetailsResults": "Результаты",
+  "createdTestDetailsUsernamesTitle": "Имя",
+  "createdTestDetailsPercentsTitle": "Процент",
+  "createdTestDetailsPercentUnit": "{percent}",
+  "createdTestDetailsUsernamesUnit": "{username}",
+
+  "passedTestDetailsAppbarTitle": "{appbarTitle}",
+  "passedTestDetailsTestName": "{testName}",
+  "passedTestDetailsAuthor": "Составитель: {author}",
+  "passedTestDetailsQuestions": "Вопросов: {questions}",
+  "passedTestDetailsRightAnsw": "Правильно: {number}",
+  "passedTestDetailsWrongAnsw": "Неправильно: {number}",
+  "passedTestDetailsQuestion": "{question}",
+  "passedTestDetailsAnswer": "{answer}",
+
+  "createTestStartAppbarTitle": "{appbarTitle}",
+  "createTestStartAvatarPlaceholder": "TS",
+  "createTestStartFormTestTitle": "Название",
+  "createTestStartFormTestDescribe": "Описание",
+  "createTestStartFormTestTitlePlaceholder": "Лучший тест",
+  "createTestStartFormTestDescribePlaceholder": "Лучший тест...",
+  "createTestStartCreateBtn":"Создать",
+
+  "questionCreate": "{appbarTitle}",
+  "questionCreateQuestionType": "Тип вопроса",
+  "questionCreateQuestionTypeSingle": "Одиночный ответ",
+  "questionCreateQuestionTypeMultiple": "Множественный выбор",
+  "questionCreateQuestionTypeFree": "Свободный ответ",
+  "questionCreateFormQuestionTextTitle": "Текст вопроса",
+  "questionCreateFormQuestionTextPlaceholder": "Самое большое здание...",
+  "questionCreateFormAnswerTextTitle": "Ответ {number}",
+  "questionCreateFormAnswerTextPlaceholder": "Бенедикт Камбербэтч...",
+
+  "questionCreateDrawerAppbarTitle": "Вопросы",
+  "questionCreateDrawerQuestion": "{question}",
+
+  "shareTestAppbarTitle": "Сохранение тест",
+  "shareTestCodeTitle": "{codeTitle}",
+  "shareTestLinkBtn": "Поделиться",
+  "shareTestHomeBtn": "Домой",
+  "shareTestBaseBtn": "НА БАЗУ",
+
+  "passingTestAppbarTitle": "{appbarTitle}",
+  "passingTestQuestionType": "{questionType}",
+  "passingTestQuestion": "{question}",
+  "passingTestAnswer": "{answer}",
+  "passingTestNextBtn": "Дальше",
+
+  "passingTestDrawerAppbarTitle": "Вопросы",
+  "passingTestDrawerQuestion": "{question}"
 }
