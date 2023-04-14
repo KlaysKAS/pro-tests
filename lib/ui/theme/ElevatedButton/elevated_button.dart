@@ -15,7 +15,7 @@ class ElevatedButtonThemes {
 
   static final dark = ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      foregroundColor: Const.backgroundColor,
+      foregroundColor: Const.tertiaryColor,
       backgroundColor: Const.darkPrimaryColor,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Const.borderRadiusStandart),
