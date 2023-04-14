@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pro_tests/data/model/question_with_answer/question.dart';
+import 'package:pro_tests/data/model/question/question.dart';
 
 void main() {
   group('Question model testing', () {
