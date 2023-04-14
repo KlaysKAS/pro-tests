@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pro_tests/ui/theme/extentions/padding_extention.dart';
 
 import 'ElevatedButton/elevated_button.dart';
 import 'TextField/text_field.dart';
@@ -24,6 +25,9 @@ class AppThemes {
     ),
     inputDecorationTheme: TextFieldThemes.main,
     elevatedButtonTheme: ElevatedButtonThemes.main,
+    extensions: const [
+      PaddingThemeExtention()
+    ],
   );
 
   static final darkTheme = ThemeData(
@@ -45,5 +49,8 @@ class AppThemes {
     ),
     inputDecorationTheme: TextFieldThemes.dark,
     elevatedButtonTheme: ElevatedButtonThemes.dark,
+    extensions: const [
+      PaddingThemeExtention()
+    ],
   );
 }
