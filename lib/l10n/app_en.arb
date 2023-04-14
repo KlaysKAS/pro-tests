@@ -1,3 +1,92 @@
 {
-  "main_sign_in_title":"Sign In"
+  "loginMainTitle":"Sign In",
+  "loginFormMailTitle": "Mail",
+  "loginFormMailError": "Mail does not exist",
+  "loginFormPasswordTitle": "Password",
+  "loginFormPassowrdError": "Wrong password",
+  "loginBtn": "Sign In",
+
+  "registerMainTitle":"Sign Up",
+  "registerFormMailTitle": "Mail",
+  "registerFormMailError": "Mail is busy",
+  "registerFormNameEmptyError": "The field cannot be empty",
+  "registerFormSurnameEmptyError": "The field cannot be empty",
+  "registerFormPasswordTitle": "Password",
+  "registerFormRePasswordTitle": "Repeat password",
+  "registerFormPassowrdError": "The password does not meet the security requirements",
+  "registerFormNameTitle": "Name",
+  "registerFormSurnameTitle": "Surname",
+  "registerBtn": "Sign Up",
+
+  "homeCreateTestsMainTitle":"My tests",
+  "homeCreateTestName": "{testName}",
+  "homeTestQuestionsNum": "{number} questions",
+  "homeTestPassedPeopleNum": "{number} people passed",
+  "homeCreateBtn":"Create",
+  "homeBottomNavCreateBtn":"Create test",
+
+  "homePassedTestsMainTitle":"Passed tests",
+  "homePassedTestName": "{testName}",
+  "homePassedRightAnswNum": "Right {number}",
+  "homePassedWrongAnswNum": "Wrong {number}",
+  "homePassButton":"Pass",
+  "homeBottomNavPassBtn":"Pass test",
+
+  "homeLinkDialogCodeTestTitle": "Enter the code of test",
+  "homeLinkDialogBtn": "Ok",
+
+
+
+  "createdTestDetailsAppbarTitle": "{appbarTitle}",
+  "createdTestDetailsTestName": "{testName}",
+  "createdTestDetailsResults": "Results",
+  "createdTestDetailsUsernamesTitle": "Username",
+  "createdTestDetailsPercentsTitle": "Percent",
+  "createdTestDetailsPercentUnit": "{percent}",
+  "createdTestDetailsUsernamesUnit": "{username}",
+
+  "passedTestDetailsAppbarTitle": "{appbarTitle}",
+  "passedTestDetailsTestName": "{testName}",
+  "passedTestDetailsAuthor": "Author: {author}",
+  "passedTestDetailsQuestions": "Questions: {questions}",
+  "passedTestDetailsRightAnsw": "Right: {number}",
+  "passedTestDetailsWrongAnsw": "Wrong: {number}",
+  "passedTestDetailsQuestion": "{question}",
+  "passedTestDetailsAnswer": "{answer}",
+
+  "createTestStartAppbarTitle": "{appbarTitle}",
+  "createTestStartAvatarPlaceholder": "TS",
+  "createTestStartFormTestTitle": "Title",
+  "createTestStartFormTestDescribe": "Description",
+  "createTestStartFormTestTitlePlaceholder": "Best test",
+  "createTestStartFormTestDescribePlaceholder": "Best test...",
+  "createTestStartCreateBtn":"Create",
+
+  "questionCreate": "{appbarTitle}",
+  "questionCreateQuestionType": "Question type",
+  "questionCreateQuestionTypeSingle": "Single answer",
+  "questionCreateQuestionTypeMultiple": "Multiple answer",
+  "questionCreateQuestionTypeFree": "Free answer",
+  "questionCreateFormQuestionTextTitle": "Question text",
+  "questionCreateFormQuestionTextPlaceholder": "The tallest building...",
+  "questionCreateFormAnswerTextTitle": "Answer {number}",
+  "questionCreateFormAnswerTextPlaceholder": "Benedict Cumberbatch...",
+
+  "questionCreateDrawerAppbarTitle": "Questions",
+  "questionCreateDrawerQuestion": "{question}",
+
+  "shareTestAppbarTitle": "Saving the test",
+  "shareTestCodeTitle": "{codeTitle}",
+  "shareTestLinkBtn": "Share",
+  "shareTestHomeBtn": "Home",
+  "shareTestBaseBtn": "TO THE BASE",
+
+  "passingTestAppbarTitle": "{appbarTitle}",
+  "passingTestQuestionType": "{questionType}",
+  "passingTestQuestion": "{question}",
+  "passingTestAnswer": "{answer}",
+  "passingTestNextBtn": "Next",
+
+  "passingTestDrawerAppbarTitle": "Questions",
+  "passingTestDrawerQuestion": "{question}"
 }
