@@ -3,6 +3,7 @@ import 'package:pro_tests/ui/theme/const.dart';
 
 class MainFormInput extends StatelessWidget {
   final TextEditingController? controller;
+  String? initialValue;
   InputDecoration? decoration = const InputDecoration();
   TextStyle? style;
   TextAlign textAlign;
@@ -12,9 +13,12 @@ class MainFormInput extends StatelessWidget {
   TapRegionCallback? onTapOutside;
   VoidCallback? onEditingComplete;
   ValueChanged<String>? onFieldSubmitted;
+  bool obscureText;
 
   MainFormInput(
       {Key? key,
+      this.initialValue,
+      this.obscureText = false,
       this.controller,
       this.decoration,
       this.style,
@@ -35,6 +39,8 @@ class MainFormInput extends StatelessWidget {
         children: [
           Expanded(
             child: TextFormField(
+              obscureText: obscureText,
+              initialValue: initialValue,
               controller: controller,
               decoration: decoration,
               style: style,
