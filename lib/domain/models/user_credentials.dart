@@ -1,3 +1,8 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'user_credentials.g.dart';
+
+@JsonSerializable()
 class UserCredentials {
   final String username;
   final String password;
@@ -10,4 +15,8 @@ class UserCredentials {
     this.firstname,
     this.lastname,
   });
+
+  factory UserCredentials.fromJson(Map<String, dynamic> json) => _$UserCredentialsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserCredentialsToJson(this);
 }

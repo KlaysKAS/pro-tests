@@ -1,36 +1,60 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pro_tests/domain/exceptions/internet_exception.dart';
+import 'package:pro_tests/ui/states/authentication_state/authentication_state.dart';
 
 import '../models/user_credentials.dart';
 import '../repository/authentication.dart';
 
-/// If user != null - user auntificated
-class AuthenticationStateNotifier extends StateNotifier<User?> {
-  AuthenticationRepository? repo;
+class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
+  static const _initialState = AuthenticationState.signIn();
+  static const _initialSignUpState = AuthenticationState.signUp();
+  static const _inLoadingState = AuthenticationState.signInLoading();
+  static const _upLoadingState = AuthenticationState.signUpLoading();
+  static const _successState = AuthenticationState.success();
 
-  AuthenticationStateNotifier(
-    super.state, {
-    this.repo,
-  });
+  final AuthenticationRepository repo;
 
-  void _updateState(User? newState) => state = newState;
+  AuthenticationStateNotifier(this.repo) : super(_initialState);
+
+  void _updateState(AuthenticationState newState) => state = newState;
 
   Future<bool> login(UserCredentials loginData) async {
-    final user = repo?.login(loginData);
-    _updateState(user);
-
-    return user != null;
+    _updateState(_inLoadingState);
+    try {
+      await repo.login(loginData);
+      state = _successState;
+      return true;
+    } on InternetException catch (e) {
+      e.whenOrNull(
+        noAccount: () => _updateState(AuthenticationState.error('Неверная почта или пароль', loginData)),
+        badConnection: () => _updateState(AuthenticationState.error('Нет соединения с интернетом', loginData)),
+      );
+    }
+    return false;
   }
 
   Future<bool> register(UserCredentials registerData) async {
-    final user = repo?.register(registerData);
-    _updateState(user);
+    _updateState(_upLoadingState);
+    try {
+      await repo.register(registerData);
+      await repo.login(registerData);
+      state = _successState;
+      return true;
+    } on InternetException catch (e) {
+      e.whenOrNull(
+        loginAlreadyExist: () => _updateState(AuthenticationState.error('Логин уже занят', registerData)),
+        badConnection: () => _updateState(AuthenticationState.error('Нет соединения с интернетом', registerData)),
+      );
+    }
+    return false;
+  }
 
-    return user != null;
+  void openRegisterForm() {
+    _updateState(_initialSignUpState);
   }
 
   void signOut() {
-    assert(state != null, 'Try to sign out without user');
-    repo?.signOut();
-    _updateState(null);
+    _updateState(_initialState);
+    repo.signOut();
   }
 }
