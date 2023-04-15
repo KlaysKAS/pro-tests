@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:pro_tests/ui/theme/const.dart';
+part of 'user_test_widget.dart';
 
-class TileDismissBackground extends StatelessWidget {
-  const TileDismissBackground({super.key});
+class _TileDismissBackground extends StatelessWidget {
+  const _TileDismissBackground({super.key});
 
   @override
   Widget build(BuildContext context) {
