@@ -13,7 +13,13 @@ class _TileDismissBackground extends StatelessWidget {
       ),
       child: Align(
         alignment: Alignment.centerRight,
-        child: Icon(Icons.delete, color: theme.colorScheme.onSecondary,),
+        child: Padding(
+          padding: const EdgeInsets.all(Const.paddingBetweenSmall),
+          child: SvgPicture.asset(
+            'assets/delete.svg',
+            color: theme.colorScheme.onSecondary,
+          ),
+        ),
       ),
     );
   }
