@@ -12,9 +12,9 @@ class TileDismissBackground extends StatelessWidget {
         color: theme.colorScheme.secondary,
         borderRadius: const BorderRadius.all(Const.borderRadiusStandart),
       ),
-      child: const Align(
+      child: Align(
         alignment: Alignment.centerRight,
-        child: Icon(Icons.delete),
+        child: Icon(Icons.delete, color: theme.colorScheme.onSecondary,),
       ),
     );
   }
