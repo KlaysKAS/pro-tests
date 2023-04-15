@@ -41,6 +41,7 @@ class MainFormInput extends StatelessWidget {
               onChanged: onChanged,
               onTap: onTap,
               onTapOutside: onTapOutside,
+              onFieldSubmitted: onFieldSubmitted,
               textAlign: textAlign,
               autofocus: autofocus,
             ),
