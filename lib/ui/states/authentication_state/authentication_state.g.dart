@@ -7,31 +7,20 @@ part of 'authentication_state.dart';
 // **************************************************************************
 
 _$SignInData _$$SignInDataFromJson(Map<String, dynamic> json) => _$SignInData(
-      json['credentials'] == null
-          ? const UserCredentials(username: '', password: '')
-          : UserCredentials.fromJson(
-              json['credentials'] as Map<String, dynamic>),
-      json['runtimeType'] as String?,
+      $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$SignInDataToJson(_$SignInData instance) =>
     <String, dynamic>{
-      'credentials': instance.credentials,
       'runtimeType': instance.$type,
     };
 
 _$SignUpData _$$SignUpDataFromJson(Map<String, dynamic> json) => _$SignUpData(
-      json['credentials'] == null
-          ? const UserCredentials(
-              username: '', password: '', firstname: '', lastname: '')
-          : UserCredentials.fromJson(
-              json['credentials'] as Map<String, dynamic>),
-      json['runtimeType'] as String?,
+      $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$SignUpDataToJson(_$SignUpData instance) =>
     <String, dynamic>{
-      'credentials': instance.credentials,
       'runtimeType': instance.$type,
     };
 
@@ -57,17 +46,11 @@ Map<String, dynamic> _$$SignUpLoadingToJson(_$SignUpLoading instance) =>
 
 _$Error _$$ErrorFromJson(Map<String, dynamic> json) => _$Error(
       json['message'] as String?,
-      json['credentials'] == null
-          ? const UserCredentials(
-              username: '', password: '', firstname: '', lastname: '')
-          : UserCredentials.fromJson(
-              json['credentials'] as Map<String, dynamic>),
       json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$ErrorToJson(_$Error instance) => <String, dynamic>{
       'message': instance.message,
-      'credentials': instance.credentials,
       'runtimeType': instance.$type,
     };
 
