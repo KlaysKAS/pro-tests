@@ -35,7 +35,8 @@ class _UserTestWidgetState extends State<UserTestWidget> {
   Widget build(context) {
     final theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: Const.paddingBetweenLarge),
+      padding:
+          const EdgeInsets.symmetric(horizontal: Const.paddingBetweenLarge),
       child: Dismissible(
         key: ValueKey(test.id),
         direction: DismissDirection.endToStart,
@@ -51,37 +52,45 @@ class _UserTestWidgetState extends State<UserTestWidget> {
           }
         },
         dismissThresholds: const {DismissDirection.endToStart: 0.3},
-        child: Stack(
-          alignment: AlignmentDirectional.bottomEnd,
-          children: [
-            TileContainer(
-              borderColor: isDismissing ? theme.colorScheme.secondary : null,
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  const SizedBox(height: 60, width: 60, child: TestIcon()),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(test.title),
-                        const SizedBox(height: 8),
-                        Text('${test.questions.length} вопросов'),
-                        const SizedBox(height: 8),
-                        Text('Прошло ${test.partisipants} человек'),
-                      ],
+        child: GestureDetector(
+          onTap: () {
+            print('a');
+            //TODO: implement onTap for UserTestTile
+          },
+          child: Stack(
+            alignment: AlignmentDirectional.bottomEnd,
+            children: [
+              TileContainer(
+                borderColor: isDismissing ? theme.colorScheme.secondary : null,
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    const SizedBox(height: 60, width: 60, child: TestIcon()),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(test.title),
+                          const SizedBox(height: 8),
+                          Text('${test.questions.length} вопросов'),
+                          const SizedBox(height: 8),
+                          Text('Прошло ${test.partisipants} человек'),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            const Padding(
-              padding: EdgeInsets.all(Const.paddingBetweenSmall),
-              child: DetailButton(),
-            ),
-          ],
+              DetailButton(
+                onTap: () {
+                  print('s');
+                  //TODO: implement UserTile detail button
+                },
+              )
+            ],
+          ),
         ),
       ),
     );
