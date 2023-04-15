@@ -3,8 +3,7 @@ import 'package:pro_tests/ui/router/routes.dart';
 
 import '../screens/screens.dart';
 
-
-class Router {
+class AppRouter {
   static final router = GoRouter(
     debugLogDiagnostics: true,
     routes: [
@@ -24,22 +23,22 @@ class Router {
         builder: (context, state) => const UsersTestsScreen(),
         routes: [
           GoRoute(
-            path: '/${AppRoutes.createTest.name}',
+            path: AppRoutes.createTest.name,
             name: AppRoutes.createTest.name,
             builder: (context, state) => const TestCreationScreen(),
           ),
           GoRoute(
-            path: '/${AppRoutes.editTest.name}/:testId',
+            path: '${AppRoutes.editTest.name}/:testId',
             name: AppRoutes.editTest.name,
             builder: (context, state) => const TestEditScreen(),
           ),
           GoRoute(
-            path: '/${AppRoutes.shareTest.name}/:testId',
+            path: '${AppRoutes.shareTest.name}/:testId',
             name: AppRoutes.shareTest.name,
             builder: (context, state) => const TestShareScreen(),
           ),
           GoRoute(
-            path: '/${AppRoutes.testDetails.name}/:testId',
+            path: '${AppRoutes.testDetails.name}/:testId',
             name: AppRoutes.testDetails.name,
             builder: (context, state) => const TestDetailsScreen(),
           ),
@@ -51,17 +50,17 @@ class Router {
         builder: (context, state) => const PassedTestScreen(),
         routes: [
           GoRoute(
-            path: '/${AppRoutes.addTest.name}',
+            path: AppRoutes.addTest.name,
             name: AppRoutes.addTest.name,
             builder: (context, state) => const TestAddingScreen(),
           ),
           GoRoute(
-            path: '/${AppRoutes.attemptTest.name}/:testId',
+            path: '${AppRoutes.attemptTest.name}/:testId',
             name: AppRoutes.attemptTest.name,
             builder: (context, state) => const TestAttemptScreen(),
           ),
           GoRoute(
-            path: '/${AppRoutes.testResults.name}/:testId',
+            path: '${AppRoutes.testResults.name}/:testId',
             name: AppRoutes.testResults.name,
             builder: (context, state) => const TestResultsScreen(),
           ),
