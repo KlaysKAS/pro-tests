@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_tests/domain/exceptions/internet_exception.dart';
 import 'package:pro_tests/ui/states/authentication_state/authentication_state.dart';
@@ -26,9 +27,13 @@ class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
       return true;
     } on InternetException catch (e) {
       e.whenOrNull(
-        noAccount: () => _updateState(AuthenticationState.error('Неверная почта или пароль', loginData)),
-        badConnection: () => _updateState(AuthenticationState.error('Нет соединения с интернетом', loginData)),
+        noAccount: () => _updateState(const AuthenticationState.error('Неверная почта или пароль')),
+        badConnection: () => _updateState(const AuthenticationState.error('Нет соединения с интернетом')),
       );
+    } on Object catch (e, s) {
+      debugPrint(e as String?);
+      debugPrintStack(stackTrace: s);
+      _updateState(const AuthenticationState.error('Что-то пошло не так'));
     }
     return false;
   }
@@ -42,9 +47,13 @@ class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
       return true;
     } on InternetException catch (e) {
       e.whenOrNull(
-        loginAlreadyExist: () => _updateState(AuthenticationState.error('Логин уже занят', registerData)),
-        badConnection: () => _updateState(AuthenticationState.error('Нет соединения с интернетом', registerData)),
+        loginAlreadyExist: () => _updateState(const AuthenticationState.error('Логин уже занят')),
+        badConnection: () => _updateState(const AuthenticationState.error('Нет соединения с интернетом')),
       );
+    } on Object catch (e, s) {
+      debugPrint(e as String?);
+      debugPrintStack(stackTrace: s);
+      _updateState(const AuthenticationState.error('Что-то пошло не так'));
     }
     return false;
   }

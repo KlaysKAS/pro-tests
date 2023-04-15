@@ -39,32 +39,31 @@ AuthenticationState _$AuthenticationStateFromJson(Map<String, dynamic> json) {
 mixin _$AuthenticationState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserCredentials credentials) signIn,
-    required TResult Function(UserCredentials credentials) signUp,
+    required TResult Function() signIn,
+    required TResult Function() signUp,
     required TResult Function() signInLoading,
     required TResult Function() signUpLoading,
-    required TResult Function(String? message, UserCredentials credentials)
-        error,
+    required TResult Function(String? message) error,
     required TResult Function() success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(UserCredentials credentials)? signIn,
-    TResult? Function(UserCredentials credentials)? signUp,
+    TResult? Function()? signIn,
+    TResult? Function()? signUp,
     TResult? Function()? signInLoading,
     TResult? Function()? signUpLoading,
-    TResult? Function(String? message, UserCredentials credentials)? error,
+    TResult? Function(String? message)? error,
     TResult? Function()? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserCredentials credentials)? signIn,
-    TResult Function(UserCredentials credentials)? signUp,
+    TResult Function()? signIn,
+    TResult Function()? signUp,
     TResult Function()? signInLoading,
     TResult Function()? signUpLoading,
-    TResult Function(String? message, UserCredentials credentials)? error,
+    TResult Function(String? message)? error,
     TResult Function()? success,
     required TResult orElse(),
   }) =>
@@ -126,8 +125,6 @@ abstract class _$$SignInDataCopyWith<$Res> {
   factory _$$SignInDataCopyWith(
           _$SignInData value, $Res Function(_$SignInData) then) =
       __$$SignInDataCopyWithImpl<$Res>;
-  @useResult
-  $Res call({UserCredentials credentials});
 }
 
 /// @nodoc
@@ -137,103 +134,73 @@ class __$$SignInDataCopyWithImpl<$Res>
   __$$SignInDataCopyWithImpl(
       _$SignInData _value, $Res Function(_$SignInData) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? credentials = null,
-  }) {
-    return _then(_$SignInData(
-      null == credentials
-          ? _value.credentials
-          : credentials // ignore: cast_nullable_to_non_nullable
-              as UserCredentials,
-    ));
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$SignInData implements SignInData {
-  const _$SignInData(
-      [this.credentials = const UserCredentials(username: '', password: ''),
-      final String? $type])
-      : $type = $type ?? 'signIn';
+  const _$SignInData({final String? $type}) : $type = $type ?? 'signIn';
 
   factory _$SignInData.fromJson(Map<String, dynamic> json) =>
       _$$SignInDataFromJson(json);
-
-  @override
-  @JsonKey()
-  final UserCredentials credentials;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'AuthenticationState.signIn(credentials: $credentials)';
+    return 'AuthenticationState.signIn()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SignInData &&
-            (identical(other.credentials, credentials) ||
-                other.credentials == credentials));
+        (other.runtimeType == runtimeType && other is _$SignInData);
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, credentials);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SignInDataCopyWith<_$SignInData> get copyWith =>
-      __$$SignInDataCopyWithImpl<_$SignInData>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserCredentials credentials) signIn,
-    required TResult Function(UserCredentials credentials) signUp,
+    required TResult Function() signIn,
+    required TResult Function() signUp,
     required TResult Function() signInLoading,
     required TResult Function() signUpLoading,
-    required TResult Function(String? message, UserCredentials credentials)
-        error,
+    required TResult Function(String? message) error,
     required TResult Function() success,
   }) {
-    return signIn(credentials);
+    return signIn();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(UserCredentials credentials)? signIn,
-    TResult? Function(UserCredentials credentials)? signUp,
+    TResult? Function()? signIn,
+    TResult? Function()? signUp,
     TResult? Function()? signInLoading,
     TResult? Function()? signUpLoading,
-    TResult? Function(String? message, UserCredentials credentials)? error,
+    TResult? Function(String? message)? error,
     TResult? Function()? success,
   }) {
-    return signIn?.call(credentials);
+    return signIn?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserCredentials credentials)? signIn,
-    TResult Function(UserCredentials credentials)? signUp,
+    TResult Function()? signIn,
+    TResult Function()? signUp,
     TResult Function()? signInLoading,
     TResult Function()? signUpLoading,
-    TResult Function(String? message, UserCredentials credentials)? error,
+    TResult Function(String? message)? error,
     TResult Function()? success,
     required TResult orElse(),
   }) {
     if (signIn != null) {
-      return signIn(credentials);
+      return signIn();
     }
     return orElse();
   }
@@ -290,15 +257,10 @@ class _$SignInData implements SignInData {
 }
 
 abstract class SignInData implements AuthenticationState {
-  const factory SignInData([final UserCredentials credentials]) = _$SignInData;
+  const factory SignInData() = _$SignInData;
 
   factory SignInData.fromJson(Map<String, dynamic> json) =
       _$SignInData.fromJson;
-
-  UserCredentials get credentials;
-  @JsonKey(ignore: true)
-  _$$SignInDataCopyWith<_$SignInData> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -306,8 +268,6 @@ abstract class _$$SignUpDataCopyWith<$Res> {
   factory _$$SignUpDataCopyWith(
           _$SignUpData value, $Res Function(_$SignUpData) then) =
       __$$SignUpDataCopyWithImpl<$Res>;
-  @useResult
-  $Res call({UserCredentials credentials});
 }
 
 /// @nodoc
@@ -317,104 +277,73 @@ class __$$SignUpDataCopyWithImpl<$Res>
   __$$SignUpDataCopyWithImpl(
       _$SignUpData _value, $Res Function(_$SignUpData) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? credentials = null,
-  }) {
-    return _then(_$SignUpData(
-      null == credentials
-          ? _value.credentials
-          : credentials // ignore: cast_nullable_to_non_nullable
-              as UserCredentials,
-    ));
-  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$SignUpData implements SignUpData {
-  const _$SignUpData(
-      [this.credentials = const UserCredentials(
-          username: '', password: '', firstname: '', lastname: ''),
-      final String? $type])
-      : $type = $type ?? 'signUp';
+  const _$SignUpData({final String? $type}) : $type = $type ?? 'signUp';
 
   factory _$SignUpData.fromJson(Map<String, dynamic> json) =>
       _$$SignUpDataFromJson(json);
-
-  @override
-  @JsonKey()
-  final UserCredentials credentials;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'AuthenticationState.signUp(credentials: $credentials)';
+    return 'AuthenticationState.signUp()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SignUpData &&
-            (identical(other.credentials, credentials) ||
-                other.credentials == credentials));
+        (other.runtimeType == runtimeType && other is _$SignUpData);
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, credentials);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SignUpDataCopyWith<_$SignUpData> get copyWith =>
-      __$$SignUpDataCopyWithImpl<_$SignUpData>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserCredentials credentials) signIn,
-    required TResult Function(UserCredentials credentials) signUp,
+    required TResult Function() signIn,
+    required TResult Function() signUp,
     required TResult Function() signInLoading,
     required TResult Function() signUpLoading,
-    required TResult Function(String? message, UserCredentials credentials)
-        error,
+    required TResult Function(String? message) error,
     required TResult Function() success,
   }) {
-    return signUp(credentials);
+    return signUp();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(UserCredentials credentials)? signIn,
-    TResult? Function(UserCredentials credentials)? signUp,
+    TResult? Function()? signIn,
+    TResult? Function()? signUp,
     TResult? Function()? signInLoading,
     TResult? Function()? signUpLoading,
-    TResult? Function(String? message, UserCredentials credentials)? error,
+    TResult? Function(String? message)? error,
     TResult? Function()? success,
   }) {
-    return signUp?.call(credentials);
+    return signUp?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserCredentials credentials)? signIn,
-    TResult Function(UserCredentials credentials)? signUp,
+    TResult Function()? signIn,
+    TResult Function()? signUp,
     TResult Function()? signInLoading,
     TResult Function()? signUpLoading,
-    TResult Function(String? message, UserCredentials credentials)? error,
+    TResult Function(String? message)? error,
     TResult Function()? success,
     required TResult orElse(),
   }) {
     if (signUp != null) {
-      return signUp(credentials);
+      return signUp();
     }
     return orElse();
   }
@@ -471,15 +400,10 @@ class _$SignUpData implements SignUpData {
 }
 
 abstract class SignUpData implements AuthenticationState {
-  const factory SignUpData([final UserCredentials credentials]) = _$SignUpData;
+  const factory SignUpData() = _$SignUpData;
 
   factory SignUpData.fromJson(Map<String, dynamic> json) =
       _$SignUpData.fromJson;
-
-  UserCredentials get credentials;
-  @JsonKey(ignore: true)
-  _$$SignUpDataCopyWith<_$SignUpData> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -528,12 +452,11 @@ class _$SignInLoading implements SignInLoading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserCredentials credentials) signIn,
-    required TResult Function(UserCredentials credentials) signUp,
+    required TResult Function() signIn,
+    required TResult Function() signUp,
     required TResult Function() signInLoading,
     required TResult Function() signUpLoading,
-    required TResult Function(String? message, UserCredentials credentials)
-        error,
+    required TResult Function(String? message) error,
     required TResult Function() success,
   }) {
     return signInLoading();
@@ -542,11 +465,11 @@ class _$SignInLoading implements SignInLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(UserCredentials credentials)? signIn,
-    TResult? Function(UserCredentials credentials)? signUp,
+    TResult? Function()? signIn,
+    TResult? Function()? signUp,
     TResult? Function()? signInLoading,
     TResult? Function()? signUpLoading,
-    TResult? Function(String? message, UserCredentials credentials)? error,
+    TResult? Function(String? message)? error,
     TResult? Function()? success,
   }) {
     return signInLoading?.call();
@@ -555,11 +478,11 @@ class _$SignInLoading implements SignInLoading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserCredentials credentials)? signIn,
-    TResult Function(UserCredentials credentials)? signUp,
+    TResult Function()? signIn,
+    TResult Function()? signUp,
     TResult Function()? signInLoading,
     TResult Function()? signUpLoading,
-    TResult Function(String? message, UserCredentials credentials)? error,
+    TResult Function(String? message)? error,
     TResult Function()? success,
     required TResult orElse(),
   }) {
@@ -673,12 +596,11 @@ class _$SignUpLoading implements SignUpLoading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserCredentials credentials) signIn,
-    required TResult Function(UserCredentials credentials) signUp,
+    required TResult Function() signIn,
+    required TResult Function() signUp,
     required TResult Function() signInLoading,
     required TResult Function() signUpLoading,
-    required TResult Function(String? message, UserCredentials credentials)
-        error,
+    required TResult Function(String? message) error,
     required TResult Function() success,
   }) {
     return signUpLoading();
@@ -687,11 +609,11 @@ class _$SignUpLoading implements SignUpLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(UserCredentials credentials)? signIn,
-    TResult? Function(UserCredentials credentials)? signUp,
+    TResult? Function()? signIn,
+    TResult? Function()? signUp,
     TResult? Function()? signInLoading,
     TResult? Function()? signUpLoading,
-    TResult? Function(String? message, UserCredentials credentials)? error,
+    TResult? Function(String? message)? error,
     TResult? Function()? success,
   }) {
     return signUpLoading?.call();
@@ -700,11 +622,11 @@ class _$SignUpLoading implements SignUpLoading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserCredentials credentials)? signIn,
-    TResult Function(UserCredentials credentials)? signUp,
+    TResult Function()? signIn,
+    TResult Function()? signUp,
     TResult Function()? signInLoading,
     TResult Function()? signUpLoading,
-    TResult Function(String? message, UserCredentials credentials)? error,
+    TResult Function(String? message)? error,
     TResult Function()? success,
     required TResult orElse(),
   }) {
@@ -777,7 +699,7 @@ abstract class _$$ErrorCopyWith<$Res> {
   factory _$$ErrorCopyWith(_$Error value, $Res Function(_$Error) then) =
       __$$ErrorCopyWithImpl<$Res>;
   @useResult
-  $Res call({String? message, UserCredentials credentials});
+  $Res call({String? message});
 }
 
 /// @nodoc
@@ -791,17 +713,12 @@ class __$$ErrorCopyWithImpl<$Res>
   @override
   $Res call({
     Object? message = freezed,
-    Object? credentials = null,
   }) {
     return _then(_$Error(
       freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
-      null == credentials
-          ? _value.credentials
-          : credentials // ignore: cast_nullable_to_non_nullable
-              as UserCredentials,
     ));
   }
 }
@@ -809,27 +726,19 @@ class __$$ErrorCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$Error implements Error {
-  const _$Error(
-      [this.message,
-      this.credentials = const UserCredentials(
-          username: '', password: '', firstname: '', lastname: ''),
-      final String? $type])
-      : $type = $type ?? 'error';
+  const _$Error([this.message, final String? $type]) : $type = $type ?? 'error';
 
   factory _$Error.fromJson(Map<String, dynamic> json) => _$$ErrorFromJson(json);
 
   @override
   final String? message;
-  @override
-  @JsonKey()
-  final UserCredentials credentials;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'AuthenticationState.error(message: $message, credentials: $credentials)';
+    return 'AuthenticationState.error(message: $message)';
   }
 
   @override
@@ -837,14 +746,12 @@ class _$Error implements Error {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$Error &&
-            (identical(other.message, message) || other.message == message) &&
-            (identical(other.credentials, credentials) ||
-                other.credentials == credentials));
+            (identical(other.message, message) || other.message == message));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, message, credentials);
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
@@ -855,43 +762,42 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserCredentials credentials) signIn,
-    required TResult Function(UserCredentials credentials) signUp,
+    required TResult Function() signIn,
+    required TResult Function() signUp,
     required TResult Function() signInLoading,
     required TResult Function() signUpLoading,
-    required TResult Function(String? message, UserCredentials credentials)
-        error,
+    required TResult Function(String? message) error,
     required TResult Function() success,
   }) {
-    return error(message, credentials);
+    return error(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(UserCredentials credentials)? signIn,
-    TResult? Function(UserCredentials credentials)? signUp,
+    TResult? Function()? signIn,
+    TResult? Function()? signUp,
     TResult? Function()? signInLoading,
     TResult? Function()? signUpLoading,
-    TResult? Function(String? message, UserCredentials credentials)? error,
+    TResult? Function(String? message)? error,
     TResult? Function()? success,
   }) {
-    return error?.call(message, credentials);
+    return error?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserCredentials credentials)? signIn,
-    TResult Function(UserCredentials credentials)? signUp,
+    TResult Function()? signIn,
+    TResult Function()? signUp,
     TResult Function()? signInLoading,
     TResult Function()? signUpLoading,
-    TResult Function(String? message, UserCredentials credentials)? error,
+    TResult Function(String? message)? error,
     TResult Function()? success,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(message, credentials);
+      return error(message);
     }
     return orElse();
   }
@@ -948,13 +854,11 @@ class _$Error implements Error {
 }
 
 abstract class Error implements AuthenticationState {
-  const factory Error(
-      [final String? message, final UserCredentials credentials]) = _$Error;
+  const factory Error([final String? message]) = _$Error;
 
   factory Error.fromJson(Map<String, dynamic> json) = _$Error.fromJson;
 
   String? get message;
-  UserCredentials get credentials;
   @JsonKey(ignore: true)
   _$$ErrorCopyWith<_$Error> get copyWith => throw _privateConstructorUsedError;
 }
@@ -1002,12 +906,11 @@ class _$Success implements Success {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(UserCredentials credentials) signIn,
-    required TResult Function(UserCredentials credentials) signUp,
+    required TResult Function() signIn,
+    required TResult Function() signUp,
     required TResult Function() signInLoading,
     required TResult Function() signUpLoading,
-    required TResult Function(String? message, UserCredentials credentials)
-        error,
+    required TResult Function(String? message) error,
     required TResult Function() success,
   }) {
     return success();
@@ -1016,11 +919,11 @@ class _$Success implements Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(UserCredentials credentials)? signIn,
-    TResult? Function(UserCredentials credentials)? signUp,
+    TResult? Function()? signIn,
+    TResult? Function()? signUp,
     TResult? Function()? signInLoading,
     TResult? Function()? signUpLoading,
-    TResult? Function(String? message, UserCredentials credentials)? error,
+    TResult? Function(String? message)? error,
     TResult? Function()? success,
   }) {
     return success?.call();
@@ -1029,11 +932,11 @@ class _$Success implements Success {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(UserCredentials credentials)? signIn,
-    TResult Function(UserCredentials credentials)? signUp,
+    TResult Function()? signIn,
+    TResult Function()? signUp,
     TResult Function()? signInLoading,
     TResult Function()? signUpLoading,
-    TResult Function(String? message, UserCredentials credentials)? error,
+    TResult Function(String? message)? error,
     TResult Function()? success,
     required TResult orElse(),
   }) {
