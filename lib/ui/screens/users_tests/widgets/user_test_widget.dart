@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pro_tests/ui/widgets/swipable_card.dart';
 
 import '../../../theme/const.dart';
 import '../../../widgets/detail_button.dart';
@@ -39,20 +40,14 @@ class _UserTestWidgetState extends State<UserTestWidget> {
     return Padding(
       padding:
           const EdgeInsets.symmetric(horizontal: Const.paddingBetweenLarge),
-      child: Dismissible(
-        key: ValueKey(test.id),
-        direction: DismissDirection.endToStart,
-        background: const _TileDismissBackground(),
-        onUpdate: (details) {
-          if (details.progress < 0.01) {
-            isDismissing = false;
-            setState(() {});
-          } else {
-            isDismissing = true;
-            setState(() {});
-          }
+      child: SwipableCard(
+        onDrag: (ratio) {
+          setState(() {
+            isDismissing = ratio >= 0.001;
+          });
         },
-        dismissThresholds: const {DismissDirection.endToStart: 0.3},
+        key: ValueKey(test.id),
+        background: const _TileDismissBackground(),
         child: _TileContent(
           isDismissing: isDismissing,
           test: test,
