@@ -13,14 +13,14 @@ class LoginScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const Expanded(child: SizedBox()),
+          const Spacer(),
           Text(
             AppLocalizations.of(context)!.loginMainTitle,
             style: const TextStyle(fontSize: Const.fontSizeBodyTitle),
           ),
           const SizedBox(height: Const.paddingBetweenLarge * 3),
           _Content(),
-          const Expanded(child: SizedBox()),
+          const Spacer(),
           MainButton(btnText: AppLocalizations.of(context)!.loginBtn, onPressed: () => {}),
           const SizedBox(height: Const.paddingBetweenLarge),
         ],
