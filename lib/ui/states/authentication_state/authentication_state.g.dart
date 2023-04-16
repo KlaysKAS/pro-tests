@@ -44,12 +44,26 @@ Map<String, dynamic> _$$SignUpLoadingToJson(_$SignUpLoading instance) =>
       'runtimeType': instance.$type,
     };
 
-_$Error _$$ErrorFromJson(Map<String, dynamic> json) => _$Error(
+_$SignInError _$$SignInErrorFromJson(Map<String, dynamic> json) =>
+    _$SignInError(
       json['message'] as String?,
       json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$ErrorToJson(_$Error instance) => <String, dynamic>{
+Map<String, dynamic> _$$SignInErrorToJson(_$SignInError instance) =>
+    <String, dynamic>{
+      'message': instance.message,
+      'runtimeType': instance.$type,
+    };
+
+_$SignUpError _$$SignUpErrorFromJson(Map<String, dynamic> json) =>
+    _$SignUpError(
+      json['message'] as String?,
+      json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$SignUpErrorToJson(_$SignUpError instance) =>
+    <String, dynamic>{
       'message': instance.message,
       'runtimeType': instance.$type,
     };
