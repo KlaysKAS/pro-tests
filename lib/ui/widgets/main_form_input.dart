@@ -1,58 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:pro_tests/ui/theme/const.dart';
 
+typedef Validator = String? Function(String?);
+
 class MainFormInput extends StatelessWidget {
   final TextEditingController? controller;
-  String? initialValue;
-  InputDecoration? decoration = const InputDecoration();
-  TextStyle? style;
-  TextAlign textAlign;
-  bool autofocus;
-  ValueChanged<String>? onChanged;
-  GestureTapCallback? onTap;
-  TapRegionCallback? onTapOutside;
-  VoidCallback? onEditingComplete;
-  ValueChanged<String>? onFieldSubmitted;
-  bool obscureText;
+  final InputDecoration? decoration;
+  final bool obscureText;
+  final Validator? validator;
 
-  MainFormInput(
-      {Key? key,
-      this.initialValue,
-      this.obscureText = false,
-      this.controller,
-      this.decoration,
-      this.style,
-      this.textAlign = TextAlign.start,
-      this.autofocus = false,
-      this.onChanged,
-      this.onEditingComplete,
-      this.onFieldSubmitted,
-      this.onTap,
-      this.onTapOutside})
-      : super(key: key);
+  const MainFormInput({
+    Key? key,
+    this.obscureText = false,
+    this.controller,
+    this.decoration = const InputDecoration(),
+    this.validator,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: Const.paddingBetweenLarge),
-      child: Row(
-        children: [
-          Expanded(
-            child: TextFormField(
-              obscureText: obscureText,
-              initialValue: initialValue,
-              controller: controller,
-              decoration: decoration,
-              style: style,
-              onChanged: onChanged,
-              onTap: onTap,
-              onTapOutside: onTapOutside,
-              onFieldSubmitted: onFieldSubmitted,
-              textAlign: textAlign,
-              autofocus: autofocus,
-            ),
-          ),
-        ],
+      child: TextFormField(
+        validator: validator,
+        obscureText: obscureText,
+        controller: controller,
+        decoration: decoration,
       ),
     );
   }

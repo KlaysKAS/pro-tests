@@ -24,8 +24,10 @@ AuthenticationState _$AuthenticationStateFromJson(Map<String, dynamic> json) {
       return SignInLoading.fromJson(json);
     case 'signUpLoading':
       return SignUpLoading.fromJson(json);
-    case 'error':
-      return Error.fromJson(json);
+    case 'signInError':
+      return SignInError.fromJson(json);
+    case 'signUpError':
+      return SignUpError.fromJson(json);
     case 'success':
       return Success.fromJson(json);
 
@@ -43,7 +45,8 @@ mixin _$AuthenticationState {
     required TResult Function() signUp,
     required TResult Function() signInLoading,
     required TResult Function() signUpLoading,
-    required TResult Function(String? message) error,
+    required TResult Function(String? message) signInError,
+    required TResult Function(String? message) signUpError,
     required TResult Function() success,
   }) =>
       throw _privateConstructorUsedError;
@@ -53,7 +56,8 @@ mixin _$AuthenticationState {
     TResult? Function()? signUp,
     TResult? Function()? signInLoading,
     TResult? Function()? signUpLoading,
-    TResult? Function(String? message)? error,
+    TResult? Function(String? message)? signInError,
+    TResult? Function(String? message)? signUpError,
     TResult? Function()? success,
   }) =>
       throw _privateConstructorUsedError;
@@ -63,7 +67,8 @@ mixin _$AuthenticationState {
     TResult Function()? signUp,
     TResult Function()? signInLoading,
     TResult Function()? signUpLoading,
-    TResult Function(String? message)? error,
+    TResult Function(String? message)? signInError,
+    TResult Function(String? message)? signUpError,
     TResult Function()? success,
     required TResult orElse(),
   }) =>
@@ -74,7 +79,8 @@ mixin _$AuthenticationState {
     required TResult Function(SignUpData value) signUp,
     required TResult Function(SignInLoading value) signInLoading,
     required TResult Function(SignUpLoading value) signUpLoading,
-    required TResult Function(Error value) error,
+    required TResult Function(SignInError value) signInError,
+    required TResult Function(SignUpError value) signUpError,
     required TResult Function(Success value) success,
   }) =>
       throw _privateConstructorUsedError;
@@ -84,7 +90,8 @@ mixin _$AuthenticationState {
     TResult? Function(SignUpData value)? signUp,
     TResult? Function(SignInLoading value)? signInLoading,
     TResult? Function(SignUpLoading value)? signUpLoading,
-    TResult? Function(Error value)? error,
+    TResult? Function(SignInError value)? signInError,
+    TResult? Function(SignUpError value)? signUpError,
     TResult? Function(Success value)? success,
   }) =>
       throw _privateConstructorUsedError;
@@ -94,7 +101,8 @@ mixin _$AuthenticationState {
     TResult Function(SignUpData value)? signUp,
     TResult Function(SignInLoading value)? signInLoading,
     TResult Function(SignUpLoading value)? signUpLoading,
-    TResult Function(Error value)? error,
+    TResult Function(SignInError value)? signInError,
+    TResult Function(SignUpError value)? signUpError,
     TResult Function(Success value)? success,
     required TResult orElse(),
   }) =>
@@ -169,7 +177,8 @@ class _$SignInData implements SignInData {
     required TResult Function() signUp,
     required TResult Function() signInLoading,
     required TResult Function() signUpLoading,
-    required TResult Function(String? message) error,
+    required TResult Function(String? message) signInError,
+    required TResult Function(String? message) signUpError,
     required TResult Function() success,
   }) {
     return signIn();
@@ -182,7 +191,8 @@ class _$SignInData implements SignInData {
     TResult? Function()? signUp,
     TResult? Function()? signInLoading,
     TResult? Function()? signUpLoading,
-    TResult? Function(String? message)? error,
+    TResult? Function(String? message)? signInError,
+    TResult? Function(String? message)? signUpError,
     TResult? Function()? success,
   }) {
     return signIn?.call();
@@ -195,7 +205,8 @@ class _$SignInData implements SignInData {
     TResult Function()? signUp,
     TResult Function()? signInLoading,
     TResult Function()? signUpLoading,
-    TResult Function(String? message)? error,
+    TResult Function(String? message)? signInError,
+    TResult Function(String? message)? signUpError,
     TResult Function()? success,
     required TResult orElse(),
   }) {
@@ -212,7 +223,8 @@ class _$SignInData implements SignInData {
     required TResult Function(SignUpData value) signUp,
     required TResult Function(SignInLoading value) signInLoading,
     required TResult Function(SignUpLoading value) signUpLoading,
-    required TResult Function(Error value) error,
+    required TResult Function(SignInError value) signInError,
+    required TResult Function(SignUpError value) signUpError,
     required TResult Function(Success value) success,
   }) {
     return signIn(this);
@@ -225,7 +237,8 @@ class _$SignInData implements SignInData {
     TResult? Function(SignUpData value)? signUp,
     TResult? Function(SignInLoading value)? signInLoading,
     TResult? Function(SignUpLoading value)? signUpLoading,
-    TResult? Function(Error value)? error,
+    TResult? Function(SignInError value)? signInError,
+    TResult? Function(SignUpError value)? signUpError,
     TResult? Function(Success value)? success,
   }) {
     return signIn?.call(this);
@@ -238,7 +251,8 @@ class _$SignInData implements SignInData {
     TResult Function(SignUpData value)? signUp,
     TResult Function(SignInLoading value)? signInLoading,
     TResult Function(SignUpLoading value)? signUpLoading,
-    TResult Function(Error value)? error,
+    TResult Function(SignInError value)? signInError,
+    TResult Function(SignUpError value)? signUpError,
     TResult Function(Success value)? success,
     required TResult orElse(),
   }) {
@@ -312,7 +326,8 @@ class _$SignUpData implements SignUpData {
     required TResult Function() signUp,
     required TResult Function() signInLoading,
     required TResult Function() signUpLoading,
-    required TResult Function(String? message) error,
+    required TResult Function(String? message) signInError,
+    required TResult Function(String? message) signUpError,
     required TResult Function() success,
   }) {
     return signUp();
@@ -325,7 +340,8 @@ class _$SignUpData implements SignUpData {
     TResult? Function()? signUp,
     TResult? Function()? signInLoading,
     TResult? Function()? signUpLoading,
-    TResult? Function(String? message)? error,
+    TResult? Function(String? message)? signInError,
+    TResult? Function(String? message)? signUpError,
     TResult? Function()? success,
   }) {
     return signUp?.call();
@@ -338,7 +354,8 @@ class _$SignUpData implements SignUpData {
     TResult Function()? signUp,
     TResult Function()? signInLoading,
     TResult Function()? signUpLoading,
-    TResult Function(String? message)? error,
+    TResult Function(String? message)? signInError,
+    TResult Function(String? message)? signUpError,
     TResult Function()? success,
     required TResult orElse(),
   }) {
@@ -355,7 +372,8 @@ class _$SignUpData implements SignUpData {
     required TResult Function(SignUpData value) signUp,
     required TResult Function(SignInLoading value) signInLoading,
     required TResult Function(SignUpLoading value) signUpLoading,
-    required TResult Function(Error value) error,
+    required TResult Function(SignInError value) signInError,
+    required TResult Function(SignUpError value) signUpError,
     required TResult Function(Success value) success,
   }) {
     return signUp(this);
@@ -368,7 +386,8 @@ class _$SignUpData implements SignUpData {
     TResult? Function(SignUpData value)? signUp,
     TResult? Function(SignInLoading value)? signInLoading,
     TResult? Function(SignUpLoading value)? signUpLoading,
-    TResult? Function(Error value)? error,
+    TResult? Function(SignInError value)? signInError,
+    TResult? Function(SignUpError value)? signUpError,
     TResult? Function(Success value)? success,
   }) {
     return signUp?.call(this);
@@ -381,7 +400,8 @@ class _$SignUpData implements SignUpData {
     TResult Function(SignUpData value)? signUp,
     TResult Function(SignInLoading value)? signInLoading,
     TResult Function(SignUpLoading value)? signUpLoading,
-    TResult Function(Error value)? error,
+    TResult Function(SignInError value)? signInError,
+    TResult Function(SignUpError value)? signUpError,
     TResult Function(Success value)? success,
     required TResult orElse(),
   }) {
@@ -456,7 +476,8 @@ class _$SignInLoading implements SignInLoading {
     required TResult Function() signUp,
     required TResult Function() signInLoading,
     required TResult Function() signUpLoading,
-    required TResult Function(String? message) error,
+    required TResult Function(String? message) signInError,
+    required TResult Function(String? message) signUpError,
     required TResult Function() success,
   }) {
     return signInLoading();
@@ -469,7 +490,8 @@ class _$SignInLoading implements SignInLoading {
     TResult? Function()? signUp,
     TResult? Function()? signInLoading,
     TResult? Function()? signUpLoading,
-    TResult? Function(String? message)? error,
+    TResult? Function(String? message)? signInError,
+    TResult? Function(String? message)? signUpError,
     TResult? Function()? success,
   }) {
     return signInLoading?.call();
@@ -482,7 +504,8 @@ class _$SignInLoading implements SignInLoading {
     TResult Function()? signUp,
     TResult Function()? signInLoading,
     TResult Function()? signUpLoading,
-    TResult Function(String? message)? error,
+    TResult Function(String? message)? signInError,
+    TResult Function(String? message)? signUpError,
     TResult Function()? success,
     required TResult orElse(),
   }) {
@@ -499,7 +522,8 @@ class _$SignInLoading implements SignInLoading {
     required TResult Function(SignUpData value) signUp,
     required TResult Function(SignInLoading value) signInLoading,
     required TResult Function(SignUpLoading value) signUpLoading,
-    required TResult Function(Error value) error,
+    required TResult Function(SignInError value) signInError,
+    required TResult Function(SignUpError value) signUpError,
     required TResult Function(Success value) success,
   }) {
     return signInLoading(this);
@@ -512,7 +536,8 @@ class _$SignInLoading implements SignInLoading {
     TResult? Function(SignUpData value)? signUp,
     TResult? Function(SignInLoading value)? signInLoading,
     TResult? Function(SignUpLoading value)? signUpLoading,
-    TResult? Function(Error value)? error,
+    TResult? Function(SignInError value)? signInError,
+    TResult? Function(SignUpError value)? signUpError,
     TResult? Function(Success value)? success,
   }) {
     return signInLoading?.call(this);
@@ -525,7 +550,8 @@ class _$SignInLoading implements SignInLoading {
     TResult Function(SignUpData value)? signUp,
     TResult Function(SignInLoading value)? signInLoading,
     TResult Function(SignUpLoading value)? signUpLoading,
-    TResult Function(Error value)? error,
+    TResult Function(SignInError value)? signInError,
+    TResult Function(SignUpError value)? signUpError,
     TResult Function(Success value)? success,
     required TResult orElse(),
   }) {
@@ -600,7 +626,8 @@ class _$SignUpLoading implements SignUpLoading {
     required TResult Function() signUp,
     required TResult Function() signInLoading,
     required TResult Function() signUpLoading,
-    required TResult Function(String? message) error,
+    required TResult Function(String? message) signInError,
+    required TResult Function(String? message) signUpError,
     required TResult Function() success,
   }) {
     return signUpLoading();
@@ -613,7 +640,8 @@ class _$SignUpLoading implements SignUpLoading {
     TResult? Function()? signUp,
     TResult? Function()? signInLoading,
     TResult? Function()? signUpLoading,
-    TResult? Function(String? message)? error,
+    TResult? Function(String? message)? signInError,
+    TResult? Function(String? message)? signUpError,
     TResult? Function()? success,
   }) {
     return signUpLoading?.call();
@@ -626,7 +654,8 @@ class _$SignUpLoading implements SignUpLoading {
     TResult Function()? signUp,
     TResult Function()? signInLoading,
     TResult Function()? signUpLoading,
-    TResult Function(String? message)? error,
+    TResult Function(String? message)? signInError,
+    TResult Function(String? message)? signUpError,
     TResult Function()? success,
     required TResult orElse(),
   }) {
@@ -643,7 +672,8 @@ class _$SignUpLoading implements SignUpLoading {
     required TResult Function(SignUpData value) signUp,
     required TResult Function(SignInLoading value) signInLoading,
     required TResult Function(SignUpLoading value) signUpLoading,
-    required TResult Function(Error value) error,
+    required TResult Function(SignInError value) signInError,
+    required TResult Function(SignUpError value) signUpError,
     required TResult Function(Success value) success,
   }) {
     return signUpLoading(this);
@@ -656,7 +686,8 @@ class _$SignUpLoading implements SignUpLoading {
     TResult? Function(SignUpData value)? signUp,
     TResult? Function(SignInLoading value)? signInLoading,
     TResult? Function(SignUpLoading value)? signUpLoading,
-    TResult? Function(Error value)? error,
+    TResult? Function(SignInError value)? signInError,
+    TResult? Function(SignUpError value)? signUpError,
     TResult? Function(Success value)? success,
   }) {
     return signUpLoading?.call(this);
@@ -669,7 +700,8 @@ class _$SignUpLoading implements SignUpLoading {
     TResult Function(SignUpData value)? signUp,
     TResult Function(SignInLoading value)? signInLoading,
     TResult Function(SignUpLoading value)? signUpLoading,
-    TResult Function(Error value)? error,
+    TResult Function(SignInError value)? signInError,
+    TResult Function(SignUpError value)? signUpError,
     TResult Function(Success value)? success,
     required TResult orElse(),
   }) {
@@ -695,18 +727,20 @@ abstract class SignUpLoading implements AuthenticationState {
 }
 
 /// @nodoc
-abstract class _$$ErrorCopyWith<$Res> {
-  factory _$$ErrorCopyWith(_$Error value, $Res Function(_$Error) then) =
-      __$$ErrorCopyWithImpl<$Res>;
+abstract class _$$SignInErrorCopyWith<$Res> {
+  factory _$$SignInErrorCopyWith(
+          _$SignInError value, $Res Function(_$SignInError) then) =
+      __$$SignInErrorCopyWithImpl<$Res>;
   @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$ErrorCopyWithImpl<$Res>
-    extends _$AuthenticationStateCopyWithImpl<$Res, _$Error>
-    implements _$$ErrorCopyWith<$Res> {
-  __$$ErrorCopyWithImpl(_$Error _value, $Res Function(_$Error) _then)
+class __$$SignInErrorCopyWithImpl<$Res>
+    extends _$AuthenticationStateCopyWithImpl<$Res, _$SignInError>
+    implements _$$SignInErrorCopyWith<$Res> {
+  __$$SignInErrorCopyWithImpl(
+      _$SignInError _value, $Res Function(_$SignInError) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -714,7 +748,7 @@ class __$$ErrorCopyWithImpl<$Res>
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_$Error(
+    return _then(_$SignInError(
       freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -725,10 +759,12 @@ class __$$ErrorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$Error implements Error {
-  const _$Error([this.message, final String? $type]) : $type = $type ?? 'error';
+class _$SignInError implements SignInError {
+  const _$SignInError([this.message, final String? $type])
+      : $type = $type ?? 'signInError';
 
-  factory _$Error.fromJson(Map<String, dynamic> json) => _$$ErrorFromJson(json);
+  factory _$SignInError.fromJson(Map<String, dynamic> json) =>
+      _$$SignInErrorFromJson(json);
 
   @override
   final String? message;
@@ -738,14 +774,14 @@ class _$Error implements Error {
 
   @override
   String toString() {
-    return 'AuthenticationState.error(message: $message)';
+    return 'AuthenticationState.signInError(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Error &&
+            other is _$SignInError &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -756,8 +792,8 @@ class _$Error implements Error {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ErrorCopyWith<_$Error> get copyWith =>
-      __$$ErrorCopyWithImpl<_$Error>(this, _$identity);
+  _$$SignInErrorCopyWith<_$SignInError> get copyWith =>
+      __$$SignInErrorCopyWithImpl<_$SignInError>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -766,10 +802,11 @@ class _$Error implements Error {
     required TResult Function() signUp,
     required TResult Function() signInLoading,
     required TResult Function() signUpLoading,
-    required TResult Function(String? message) error,
+    required TResult Function(String? message) signInError,
+    required TResult Function(String? message) signUpError,
     required TResult Function() success,
   }) {
-    return error(message);
+    return signInError(message);
   }
 
   @override
@@ -779,10 +816,11 @@ class _$Error implements Error {
     TResult? Function()? signUp,
     TResult? Function()? signInLoading,
     TResult? Function()? signUpLoading,
-    TResult? Function(String? message)? error,
+    TResult? Function(String? message)? signInError,
+    TResult? Function(String? message)? signUpError,
     TResult? Function()? success,
   }) {
-    return error?.call(message);
+    return signInError?.call(message);
   }
 
   @override
@@ -792,12 +830,13 @@ class _$Error implements Error {
     TResult Function()? signUp,
     TResult Function()? signInLoading,
     TResult Function()? signUpLoading,
-    TResult Function(String? message)? error,
+    TResult Function(String? message)? signInError,
+    TResult Function(String? message)? signUpError,
     TResult Function()? success,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(message);
+    if (signInError != null) {
+      return signInError(message);
     }
     return orElse();
   }
@@ -809,10 +848,11 @@ class _$Error implements Error {
     required TResult Function(SignUpData value) signUp,
     required TResult Function(SignInLoading value) signInLoading,
     required TResult Function(SignUpLoading value) signUpLoading,
-    required TResult Function(Error value) error,
+    required TResult Function(SignInError value) signInError,
+    required TResult Function(SignUpError value) signUpError,
     required TResult Function(Success value) success,
   }) {
-    return error(this);
+    return signInError(this);
   }
 
   @override
@@ -822,10 +862,11 @@ class _$Error implements Error {
     TResult? Function(SignUpData value)? signUp,
     TResult? Function(SignInLoading value)? signInLoading,
     TResult? Function(SignUpLoading value)? signUpLoading,
-    TResult? Function(Error value)? error,
+    TResult? Function(SignInError value)? signInError,
+    TResult? Function(SignUpError value)? signUpError,
     TResult? Function(Success value)? success,
   }) {
-    return error?.call(this);
+    return signInError?.call(this);
   }
 
   @override
@@ -835,32 +876,216 @@ class _$Error implements Error {
     TResult Function(SignUpData value)? signUp,
     TResult Function(SignInLoading value)? signInLoading,
     TResult Function(SignUpLoading value)? signUpLoading,
-    TResult Function(Error value)? error,
+    TResult Function(SignInError value)? signInError,
+    TResult Function(SignUpError value)? signUpError,
     TResult Function(Success value)? success,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(this);
+    if (signInError != null) {
+      return signInError(this);
     }
     return orElse();
   }
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ErrorToJson(
+    return _$$SignInErrorToJson(
       this,
     );
   }
 }
 
-abstract class Error implements AuthenticationState {
-  const factory Error([final String? message]) = _$Error;
+abstract class SignInError implements AuthenticationState {
+  const factory SignInError([final String? message]) = _$SignInError;
 
-  factory Error.fromJson(Map<String, dynamic> json) = _$Error.fromJson;
+  factory SignInError.fromJson(Map<String, dynamic> json) =
+      _$SignInError.fromJson;
 
   String? get message;
   @JsonKey(ignore: true)
-  _$$ErrorCopyWith<_$Error> get copyWith => throw _privateConstructorUsedError;
+  _$$SignInErrorCopyWith<_$SignInError> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SignUpErrorCopyWith<$Res> {
+  factory _$$SignUpErrorCopyWith(
+          _$SignUpError value, $Res Function(_$SignUpError) then) =
+      __$$SignUpErrorCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? message});
+}
+
+/// @nodoc
+class __$$SignUpErrorCopyWithImpl<$Res>
+    extends _$AuthenticationStateCopyWithImpl<$Res, _$SignUpError>
+    implements _$$SignUpErrorCopyWith<$Res> {
+  __$$SignUpErrorCopyWithImpl(
+      _$SignUpError _value, $Res Function(_$SignUpError) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$SignUpError(
+      freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$SignUpError implements SignUpError {
+  const _$SignUpError([this.message, final String? $type])
+      : $type = $type ?? 'signUpError';
+
+  factory _$SignUpError.fromJson(Map<String, dynamic> json) =>
+      _$$SignUpErrorFromJson(json);
+
+  @override
+  final String? message;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'AuthenticationState.signUpError(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SignUpError &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SignUpErrorCopyWith<_$SignUpError> get copyWith =>
+      __$$SignUpErrorCopyWithImpl<_$SignUpError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() signIn,
+    required TResult Function() signUp,
+    required TResult Function() signInLoading,
+    required TResult Function() signUpLoading,
+    required TResult Function(String? message) signInError,
+    required TResult Function(String? message) signUpError,
+    required TResult Function() success,
+  }) {
+    return signUpError(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? signIn,
+    TResult? Function()? signUp,
+    TResult? Function()? signInLoading,
+    TResult? Function()? signUpLoading,
+    TResult? Function(String? message)? signInError,
+    TResult? Function(String? message)? signUpError,
+    TResult? Function()? success,
+  }) {
+    return signUpError?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signIn,
+    TResult Function()? signUp,
+    TResult Function()? signInLoading,
+    TResult Function()? signUpLoading,
+    TResult Function(String? message)? signInError,
+    TResult Function(String? message)? signUpError,
+    TResult Function()? success,
+    required TResult orElse(),
+  }) {
+    if (signUpError != null) {
+      return signUpError(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SignInData value) signIn,
+    required TResult Function(SignUpData value) signUp,
+    required TResult Function(SignInLoading value) signInLoading,
+    required TResult Function(SignUpLoading value) signUpLoading,
+    required TResult Function(SignInError value) signInError,
+    required TResult Function(SignUpError value) signUpError,
+    required TResult Function(Success value) success,
+  }) {
+    return signUpError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SignInData value)? signIn,
+    TResult? Function(SignUpData value)? signUp,
+    TResult? Function(SignInLoading value)? signInLoading,
+    TResult? Function(SignUpLoading value)? signUpLoading,
+    TResult? Function(SignInError value)? signInError,
+    TResult? Function(SignUpError value)? signUpError,
+    TResult? Function(Success value)? success,
+  }) {
+    return signUpError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SignInData value)? signIn,
+    TResult Function(SignUpData value)? signUp,
+    TResult Function(SignInLoading value)? signInLoading,
+    TResult Function(SignUpLoading value)? signUpLoading,
+    TResult Function(SignInError value)? signInError,
+    TResult Function(SignUpError value)? signUpError,
+    TResult Function(Success value)? success,
+    required TResult orElse(),
+  }) {
+    if (signUpError != null) {
+      return signUpError(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SignUpErrorToJson(
+      this,
+    );
+  }
+}
+
+abstract class SignUpError implements AuthenticationState {
+  const factory SignUpError([final String? message]) = _$SignUpError;
+
+  factory SignUpError.fromJson(Map<String, dynamic> json) =
+      _$SignUpError.fromJson;
+
+  String? get message;
+  @JsonKey(ignore: true)
+  _$$SignUpErrorCopyWith<_$SignUpError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -910,7 +1135,8 @@ class _$Success implements Success {
     required TResult Function() signUp,
     required TResult Function() signInLoading,
     required TResult Function() signUpLoading,
-    required TResult Function(String? message) error,
+    required TResult Function(String? message) signInError,
+    required TResult Function(String? message) signUpError,
     required TResult Function() success,
   }) {
     return success();
@@ -923,7 +1149,8 @@ class _$Success implements Success {
     TResult? Function()? signUp,
     TResult? Function()? signInLoading,
     TResult? Function()? signUpLoading,
-    TResult? Function(String? message)? error,
+    TResult? Function(String? message)? signInError,
+    TResult? Function(String? message)? signUpError,
     TResult? Function()? success,
   }) {
     return success?.call();
@@ -936,7 +1163,8 @@ class _$Success implements Success {
     TResult Function()? signUp,
     TResult Function()? signInLoading,
     TResult Function()? signUpLoading,
-    TResult Function(String? message)? error,
+    TResult Function(String? message)? signInError,
+    TResult Function(String? message)? signUpError,
     TResult Function()? success,
     required TResult orElse(),
   }) {
@@ -953,7 +1181,8 @@ class _$Success implements Success {
     required TResult Function(SignUpData value) signUp,
     required TResult Function(SignInLoading value) signInLoading,
     required TResult Function(SignUpLoading value) signUpLoading,
-    required TResult Function(Error value) error,
+    required TResult Function(SignInError value) signInError,
+    required TResult Function(SignUpError value) signUpError,
     required TResult Function(Success value) success,
   }) {
     return success(this);
@@ -966,7 +1195,8 @@ class _$Success implements Success {
     TResult? Function(SignUpData value)? signUp,
     TResult? Function(SignInLoading value)? signInLoading,
     TResult? Function(SignUpLoading value)? signUpLoading,
-    TResult? Function(Error value)? error,
+    TResult? Function(SignInError value)? signInError,
+    TResult? Function(SignUpError value)? signUpError,
     TResult? Function(Success value)? success,
   }) {
     return success?.call(this);
@@ -979,7 +1209,8 @@ class _$Success implements Success {
     TResult Function(SignUpData value)? signUp,
     TResult Function(SignInLoading value)? signInLoading,
     TResult Function(SignUpLoading value)? signUpLoading,
-    TResult Function(Error value)? error,
+    TResult Function(SignInError value)? signInError,
+    TResult Function(SignUpError value)? signUpError,
     TResult Function(Success value)? success,
     required TResult orElse(),
   }) {

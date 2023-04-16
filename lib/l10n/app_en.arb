@@ -1,19 +1,20 @@
 {
-  "loginMainTitle":"Sign In",
-  "loginFormMailTitle": "Mail",
-  "loginFormMailError": "Mail does not exist",
+  "loginMainTitle": "Sign In",
+  "loginFormLoginTitle": "Login",
+  "loginFormLoginEmpty": "Empty login",
   "loginFormPasswordTitle": "Password",
-  "loginFormPassowrdError": "Wrong password",
+  "loginFormPasswordError": "Wrong password",
+  "loginFormPasswordEmpty": "Empty password",
   "loginBtn": "Sign In",
 
   "registerMainTitle":"Sign Up",
-  "registerFormMailTitle": "Mail",
-  "registerFormMailError": "Mail is busy",
+  "registerFormLoginTitle": "Login",
+  "registerFormLoginError": "Login is busy",
   "registerFormNameEmptyError": "The field cannot be empty",
   "registerFormSurnameEmptyError": "The field cannot be empty",
   "registerFormPasswordTitle": "Password",
   "registerFormRePasswordTitle": "Repeat password",
-  "registerFormPassowrdError": "The password does not meet the security requirements",
+  "registerFormPasswordError": "The password does not meet the security requirements",
   "registerFormNameTitle": "Name",
   "registerFormSurnameTitle": "Surname",
   "registerBtn": "Sign Up",
@@ -34,7 +35,6 @@
 
   "homeLinkDialogCodeTestTitle": "Enter the code of test",
   "homeLinkDialogBtn": "Ok",
-
 
 
   "createdTestDetailsAppbarTitle": "{appbarTitle}",
