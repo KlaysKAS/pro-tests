@@ -16,13 +16,23 @@ class TileContainer extends StatefulWidget {
   State<TileContainer> createState() => _TileContainerState();
 }
 
-class _TileContainerState extends State<TileContainer>{
+class _TileContainerState extends State<TileContainer> {
   Color? borderColor;
 
   @override
-  void didUpdateWidget(covariant TileContainer oldWidget) {
+  void initState() {
+    super.initState();
     borderColor = widget.borderColor;
+  }
+
+  @override
+  void didUpdateWidget(covariant TileContainer oldWidget) {
     super.didUpdateWidget(oldWidget);
+    if (widget.borderColor != oldWidget.borderColor) {
+      setState(() {
+        borderColor = widget.borderColor;
+      });
+    }
   }
 
   @override
@@ -42,5 +52,4 @@ class _TileContainerState extends State<TileContainer>{
       child: widget.child,
     );
   }
-
 }
