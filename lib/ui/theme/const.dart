@@ -33,4 +33,7 @@ class Const {
   static const fontSizeButton = 20.0;
   static const fontSizeAppBarTitle = 24.0;
   static const fontSizeBodyTitle = 32.0;
+
+  static const testResultLowerBound = 0.35;
+  static const testResultUpperBound = 0.75;
 }
