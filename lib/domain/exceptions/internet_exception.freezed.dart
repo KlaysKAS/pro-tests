@@ -21,6 +21,7 @@ mixin _$InternetException {
     required TResult Function() noAccount,
     required TResult Function() loginAlreadyExist,
     required TResult Function() badConnection,
+    required TResult Function() somethingWentWrong,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$InternetException {
     TResult? Function()? noAccount,
     TResult? Function()? loginAlreadyExist,
     TResult? Function()? badConnection,
+    TResult? Function()? somethingWentWrong,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$InternetException {
     TResult Function()? noAccount,
     TResult Function()? loginAlreadyExist,
     TResult Function()? badConnection,
+    TResult Function()? somethingWentWrong,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$InternetException {
     required TResult Function(NoAccount value) noAccount,
     required TResult Function(LoginAlreadyExist value) loginAlreadyExist,
     required TResult Function(BadConnection value) badConnection,
+    required TResult Function(SomethingWentWrong value) somethingWentWrong,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$InternetException {
     TResult? Function(NoAccount value)? noAccount,
     TResult? Function(LoginAlreadyExist value)? loginAlreadyExist,
     TResult? Function(BadConnection value)? badConnection,
+    TResult? Function(SomethingWentWrong value)? somethingWentWrong,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$InternetException {
     TResult Function(NoAccount value)? noAccount,
     TResult Function(LoginAlreadyExist value)? loginAlreadyExist,
     TResult Function(BadConnection value)? badConnection,
+    TResult Function(SomethingWentWrong value)? somethingWentWrong,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +127,7 @@ class _$NoAccount implements NoAccount {
     required TResult Function() noAccount,
     required TResult Function() loginAlreadyExist,
     required TResult Function() badConnection,
+    required TResult Function() somethingWentWrong,
   }) {
     return noAccount();
   }
@@ -131,6 +138,7 @@ class _$NoAccount implements NoAccount {
     TResult? Function()? noAccount,
     TResult? Function()? loginAlreadyExist,
     TResult? Function()? badConnection,
+    TResult? Function()? somethingWentWrong,
   }) {
     return noAccount?.call();
   }
@@ -141,6 +149,7 @@ class _$NoAccount implements NoAccount {
     TResult Function()? noAccount,
     TResult Function()? loginAlreadyExist,
     TResult Function()? badConnection,
+    TResult Function()? somethingWentWrong,
     required TResult orElse(),
   }) {
     if (noAccount != null) {
@@ -155,6 +164,7 @@ class _$NoAccount implements NoAccount {
     required TResult Function(NoAccount value) noAccount,
     required TResult Function(LoginAlreadyExist value) loginAlreadyExist,
     required TResult Function(BadConnection value) badConnection,
+    required TResult Function(SomethingWentWrong value) somethingWentWrong,
   }) {
     return noAccount(this);
   }
@@ -165,6 +175,7 @@ class _$NoAccount implements NoAccount {
     TResult? Function(NoAccount value)? noAccount,
     TResult? Function(LoginAlreadyExist value)? loginAlreadyExist,
     TResult? Function(BadConnection value)? badConnection,
+    TResult? Function(SomethingWentWrong value)? somethingWentWrong,
   }) {
     return noAccount?.call(this);
   }
@@ -175,6 +186,7 @@ class _$NoAccount implements NoAccount {
     TResult Function(NoAccount value)? noAccount,
     TResult Function(LoginAlreadyExist value)? loginAlreadyExist,
     TResult Function(BadConnection value)? badConnection,
+    TResult Function(SomethingWentWrong value)? somethingWentWrong,
     required TResult orElse(),
   }) {
     if (noAccount != null) {
@@ -229,6 +241,7 @@ class _$LoginAlreadyExist implements LoginAlreadyExist {
     required TResult Function() noAccount,
     required TResult Function() loginAlreadyExist,
     required TResult Function() badConnection,
+    required TResult Function() somethingWentWrong,
   }) {
     return loginAlreadyExist();
   }
@@ -239,6 +252,7 @@ class _$LoginAlreadyExist implements LoginAlreadyExist {
     TResult? Function()? noAccount,
     TResult? Function()? loginAlreadyExist,
     TResult? Function()? badConnection,
+    TResult? Function()? somethingWentWrong,
   }) {
     return loginAlreadyExist?.call();
   }
@@ -249,6 +263,7 @@ class _$LoginAlreadyExist implements LoginAlreadyExist {
     TResult Function()? noAccount,
     TResult Function()? loginAlreadyExist,
     TResult Function()? badConnection,
+    TResult Function()? somethingWentWrong,
     required TResult orElse(),
   }) {
     if (loginAlreadyExist != null) {
@@ -263,6 +278,7 @@ class _$LoginAlreadyExist implements LoginAlreadyExist {
     required TResult Function(NoAccount value) noAccount,
     required TResult Function(LoginAlreadyExist value) loginAlreadyExist,
     required TResult Function(BadConnection value) badConnection,
+    required TResult Function(SomethingWentWrong value) somethingWentWrong,
   }) {
     return loginAlreadyExist(this);
   }
@@ -273,6 +289,7 @@ class _$LoginAlreadyExist implements LoginAlreadyExist {
     TResult? Function(NoAccount value)? noAccount,
     TResult? Function(LoginAlreadyExist value)? loginAlreadyExist,
     TResult? Function(BadConnection value)? badConnection,
+    TResult? Function(SomethingWentWrong value)? somethingWentWrong,
   }) {
     return loginAlreadyExist?.call(this);
   }
@@ -283,6 +300,7 @@ class _$LoginAlreadyExist implements LoginAlreadyExist {
     TResult Function(NoAccount value)? noAccount,
     TResult Function(LoginAlreadyExist value)? loginAlreadyExist,
     TResult Function(BadConnection value)? badConnection,
+    TResult Function(SomethingWentWrong value)? somethingWentWrong,
     required TResult orElse(),
   }) {
     if (loginAlreadyExist != null) {
@@ -337,6 +355,7 @@ class _$BadConnection implements BadConnection {
     required TResult Function() noAccount,
     required TResult Function() loginAlreadyExist,
     required TResult Function() badConnection,
+    required TResult Function() somethingWentWrong,
   }) {
     return badConnection();
   }
@@ -347,6 +366,7 @@ class _$BadConnection implements BadConnection {
     TResult? Function()? noAccount,
     TResult? Function()? loginAlreadyExist,
     TResult? Function()? badConnection,
+    TResult? Function()? somethingWentWrong,
   }) {
     return badConnection?.call();
   }
@@ -357,6 +377,7 @@ class _$BadConnection implements BadConnection {
     TResult Function()? noAccount,
     TResult Function()? loginAlreadyExist,
     TResult Function()? badConnection,
+    TResult Function()? somethingWentWrong,
     required TResult orElse(),
   }) {
     if (badConnection != null) {
@@ -371,6 +392,7 @@ class _$BadConnection implements BadConnection {
     required TResult Function(NoAccount value) noAccount,
     required TResult Function(LoginAlreadyExist value) loginAlreadyExist,
     required TResult Function(BadConnection value) badConnection,
+    required TResult Function(SomethingWentWrong value) somethingWentWrong,
   }) {
     return badConnection(this);
   }
@@ -381,6 +403,7 @@ class _$BadConnection implements BadConnection {
     TResult? Function(NoAccount value)? noAccount,
     TResult? Function(LoginAlreadyExist value)? loginAlreadyExist,
     TResult? Function(BadConnection value)? badConnection,
+    TResult? Function(SomethingWentWrong value)? somethingWentWrong,
   }) {
     return badConnection?.call(this);
   }
@@ -391,6 +414,7 @@ class _$BadConnection implements BadConnection {
     TResult Function(NoAccount value)? noAccount,
     TResult Function(LoginAlreadyExist value)? loginAlreadyExist,
     TResult Function(BadConnection value)? badConnection,
+    TResult Function(SomethingWentWrong value)? somethingWentWrong,
     required TResult orElse(),
   }) {
     if (badConnection != null) {
@@ -402,4 +426,118 @@ class _$BadConnection implements BadConnection {
 
 abstract class BadConnection implements InternetException {
   const factory BadConnection() = _$BadConnection;
+}
+
+/// @nodoc
+abstract class _$$SomethingWentWrongCopyWith<$Res> {
+  factory _$$SomethingWentWrongCopyWith(_$SomethingWentWrong value,
+          $Res Function(_$SomethingWentWrong) then) =
+      __$$SomethingWentWrongCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SomethingWentWrongCopyWithImpl<$Res>
+    extends _$InternetExceptionCopyWithImpl<$Res, _$SomethingWentWrong>
+    implements _$$SomethingWentWrongCopyWith<$Res> {
+  __$$SomethingWentWrongCopyWithImpl(
+      _$SomethingWentWrong _value, $Res Function(_$SomethingWentWrong) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SomethingWentWrong implements SomethingWentWrong {
+  const _$SomethingWentWrong();
+
+  @override
+  String toString() {
+    return 'InternetException.somethingWentWrong()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SomethingWentWrong);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noAccount,
+    required TResult Function() loginAlreadyExist,
+    required TResult Function() badConnection,
+    required TResult Function() somethingWentWrong,
+  }) {
+    return somethingWentWrong();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? noAccount,
+    TResult? Function()? loginAlreadyExist,
+    TResult? Function()? badConnection,
+    TResult? Function()? somethingWentWrong,
+  }) {
+    return somethingWentWrong?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noAccount,
+    TResult Function()? loginAlreadyExist,
+    TResult Function()? badConnection,
+    TResult Function()? somethingWentWrong,
+    required TResult orElse(),
+  }) {
+    if (somethingWentWrong != null) {
+      return somethingWentWrong();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NoAccount value) noAccount,
+    required TResult Function(LoginAlreadyExist value) loginAlreadyExist,
+    required TResult Function(BadConnection value) badConnection,
+    required TResult Function(SomethingWentWrong value) somethingWentWrong,
+  }) {
+    return somethingWentWrong(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NoAccount value)? noAccount,
+    TResult? Function(LoginAlreadyExist value)? loginAlreadyExist,
+    TResult? Function(BadConnection value)? badConnection,
+    TResult? Function(SomethingWentWrong value)? somethingWentWrong,
+  }) {
+    return somethingWentWrong?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NoAccount value)? noAccount,
+    TResult Function(LoginAlreadyExist value)? loginAlreadyExist,
+    TResult Function(BadConnection value)? badConnection,
+    TResult Function(SomethingWentWrong value)? somethingWentWrong,
+    required TResult orElse(),
+  }) {
+    if (somethingWentWrong != null) {
+      return somethingWentWrong(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SomethingWentWrong implements InternetException {
+  const factory SomethingWentWrong() = _$SomethingWentWrong;
 }
