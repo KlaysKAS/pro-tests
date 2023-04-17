@@ -9,4 +9,6 @@ class InternetException with _$InternetException {
   const factory InternetException.loginAlreadyExist() = LoginAlreadyExist;
 
   const factory InternetException.badConnection() = BadConnection;
+
+  const factory InternetException.somethingWentWrong() = SomethingWentWrong;
 }
