@@ -1,13 +1,11 @@
 part of 'question_answer_tile.dart';
 
 class _Content extends StatelessWidget {
-  final Question question;
-  final String answer;
+  final QuestionResult question;
   final Color answerColor;
 
   const _Content({
     required this.question,
-    required this.answer,
     required this.answerColor,
   });
 
@@ -22,7 +20,7 @@ class _Content extends StatelessWidget {
         ),
         const SizedBox(height: Const.paddingBetweenStandart),
         Text(
-          text.passedTestDetailsAnswer(answer),
+          text.passedTestDetailsAnswer(question.answer),
           style: TextStyle(
             color: answerColor,
           ),
