@@ -78,7 +78,7 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
     WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((timeStamp) {
       registerControllers.clear();
       loginControllers.clear();
-      AppRouter.router.pushNamed(AppRoutes.myTest.name);
+      AppRouter.router.pushNamed(AppRoutes.home.name);
     });
 
     return Container();

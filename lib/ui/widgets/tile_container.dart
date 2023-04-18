@@ -48,7 +48,7 @@ class _TileContainerState extends State<TileContainer> {
           color: borderColor ?? theme.colorScheme.primary,
         ),
       ),
-      duration: Duration(milliseconds: 100),
+      duration: const Duration(milliseconds: 100),
       child: widget.child,
     );
   }

@@ -5,6 +5,6 @@ class TestIcon extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return Placeholder();
+    return const Placeholder();
   }
 }

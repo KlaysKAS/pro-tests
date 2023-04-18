@@ -6,8 +6,7 @@ class _ResultIcon extends StatelessWidget {
 
   final bool isRight;
 
-  _ResultIcon({
-    super.key,
+  const _ResultIcon({
     required this.isRight,
   });
 

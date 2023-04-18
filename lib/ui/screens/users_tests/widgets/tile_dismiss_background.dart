@@ -17,7 +17,7 @@ class _TileDismissBackground extends StatelessWidget {
           padding: const EdgeInsets.all(Const.paddingBetweenSmall),
           child: SvgPicture.asset(
             'assets/delete.svg',
-            color: theme.colorScheme.onSecondary,
+            theme: SvgTheme(currentColor: theme.colorScheme.onSecondary),
           ),
         ),
       ),
