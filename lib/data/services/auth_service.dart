@@ -6,10 +6,10 @@ import 'package:pro_tests/domain/services/auth_service.dart';
 class AuthServiceImpl extends AuthService {
   final Dio dio;
 
-  final String _signInUrl = '/api/v1/auth/signin';
-  final String _signUpUrl = '/api/v1/auth/signup';
+  final String _signInUrl = '/auth/signin';
+  final String _signUpUrl = '/auth/signup';
 
-  final String _baseUrl = 'https://protests.cfeee1e5e4e00a.ru';
+  final String _baseUrl = 'https://protests.cfeee1e5e4e00a.ru/api/v1';
 
   AuthServiceImpl(this.dio);
 

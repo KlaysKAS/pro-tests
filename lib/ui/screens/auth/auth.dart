@@ -1,25 +1,11 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pro_tests/data/services/auth_service.dart';
-import 'package:pro_tests/domain/providers/auth_state.dart';
-import 'package:pro_tests/domain/repository/authentication/auth_repository.dart';
+import 'package:pro_tests/main.dart';
 import 'package:pro_tests/ui/router/router.dart';
 import 'package:pro_tests/ui/router/routes.dart';
 import 'package:pro_tests/ui/screens/auth/login.dart';
 import 'package:pro_tests/ui/screens/auth/register.dart';
-import 'package:pro_tests/ui/states/authentication_state/authentication_state.dart';
 import 'package:pro_tests/ui/utils/text_controllers.dart';
-
-final authProvider = StateNotifierProvider<AuthenticationStateNotifier, AuthenticationState>(
-  (ref) => AuthenticationStateNotifier(
-    AuthenticationRepositoryImpl(
-      AuthServiceImpl(
-        Dio(),
-      ),
-    ),
-  ),
-);
 
 class AuthScreen extends ConsumerStatefulWidget {
   const AuthScreen({super.key});
@@ -34,7 +20,7 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final authState = ref.watch(authProvider);
+    final authState = ref.watch(serviceLocator.authenticationStateNotifier);
     return authState.map(
       signIn: _signInPage,
       signUp: _signUpPage,

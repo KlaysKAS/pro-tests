@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_tests/domain/exceptions/internet_exception.dart';
 import 'package:pro_tests/domain/models/user_credentials.dart';
 import 'package:pro_tests/domain/repository/authentication/authentication.dart';
+import 'package:pro_tests/main.dart';
 import 'package:pro_tests/ui/states/authentication_state/authentication_state.dart';
 
 class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
@@ -15,17 +16,20 @@ class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
 
   final AuthenticationRepository repo;
 
-  AuthenticationStateNotifier(this.repo) : super(_initialState);
+  AuthenticationStateNotifier(this.repo, bool _weHaveToken) : super(_weHaveToken ? _successState : _initialState);
 
   void _updateState(AuthenticationState newState) => state = newState;
 
   Future<bool> login(UserCredentials loginData) async {
     _updateState(_inLoadingState);
     try {
-      final _ = await repo.login(loginData);
-      // TODO pass token into secure storage
-      state = _successState;
-      return true;
+      final token = await repo.login(loginData);
+      if (await serviceLocator.putToken(token)) {
+        state = _successState;
+        return true;
+      } else {
+        _updateState(const AuthenticationState.signInError('Что-то пошло не так'));
+      }
     } on InternetException catch (e) {
       e.whenOrNull(
         noAccount: () => _updateState(const AuthenticationState.signInError('Неверная почта или пароль')),
@@ -69,6 +73,5 @@ class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
 
   void signOut() {
     _updateState(_initialState);
-    // TODO remove token from secure storage
   }
 }
