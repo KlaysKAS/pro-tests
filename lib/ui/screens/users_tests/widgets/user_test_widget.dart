@@ -37,7 +37,6 @@ class _UserTestWidgetState extends State<UserTestWidget> {
 
   @override
   Widget build(context) {
-    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: Const.paddingBetweenLarge),
       child: SwipableCard(

@@ -48,7 +48,6 @@ class _Tile extends StatelessWidget {
 
 class _Content extends StatelessWidget {
   const _Content({
-    super.key,
     required this.test,
     required this.rightAmount,
   });
