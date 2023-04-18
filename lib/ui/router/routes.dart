@@ -1,11 +1,10 @@
 enum AppRoutes {
   splash('splash'),
   auth('auth'),
-  passedTest('passedTests'),
+  home('home'),
   addTest('addTest'),
   attemptTest('attemptTest'),
   testResults('testResults'),
-  myTest('myTests'),
   createTest('createTest'),
   editTest('editTest'),
   shareTest('shareTest'),
