@@ -48,7 +48,7 @@ class RegisterScreen extends ConsumerWidget {
                     splashColor: Colors.transparent,
                     onTap: notifier.openLoginForm,
                     child: Text(
-                      AppLocalizations.of(context)!.loginDontHaveAnAccount,
+                      AppLocalizations.of(context)!.registerAlreadyRegistered,
                       style: const TextStyle(fontSize: Const.fontSizeSecondary),
                     ),
                   ),
