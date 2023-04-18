@@ -6,6 +6,7 @@
   "loginFormPasswordError": "Неверный Пароль",
   "loginFormPasswordEmpty": "Введите пароль",
   "loginBtn": "Войти",
+  "loginDontHaveAnAccount": "Нет аккаунта? Зарегистрироваться!",
 
   "registerMainTitle":"Регистрация",
   "registerFormLoginTitle": "Логин",
@@ -16,9 +17,11 @@
   "registerFormRePasswordTitle": "Повторите пароль",
   "registerFormPasswordError": "Пароль не соответсвует требованиям безопасности",
   "registerFormPasswordMatchError": "Пароли не совпадают",
+  "registerFormPasswordEmpty": "Введите пароль",
   "registerFormFirstnameTitle": "Имя",
   "registerFormLastnameTitle": "Фамилия",
   "registerBtn": "Регистрация",
+  "registerAlreadyRegistered": "Уже есть аккаунт? Войти!",
 
   "homeCreateTestsMainTitle":"Мои тесты",
   "homeCreateTestName": "{testName}",
