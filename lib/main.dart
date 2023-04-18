@@ -1,15 +1,29 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 import 'l10n/all_locales.dart';
-
 import 'ui/theme/themes.dart';
 
+const sentryDsn =
+    'https://c27e8e45f55d4374af2a30638b5b4417@o4505034476158976.ingest.sentry.io/4505034480287744';
 
 void main() {
-  runApp(const MyApp());
+  runZonedGuarded(() async {
+    await SentryFlutter.init((opts) {
+      opts.dsn = sentryDsn;
+      opts.tracesSampleRate = 1.0;
+      opts.debug = true;
+    });
+
+    runApp(const MyApp());
+  }, (error, trace) async {
+    await Sentry.captureException(error, stackTrace: trace);
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -101,9 +115,6 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-             Text(
-              AppLocalizations.of(context)!.main_sign_in_title,
-            ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
