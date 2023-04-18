@@ -9,8 +9,7 @@ import 'package:sentry_flutter/sentry_flutter.dart';
 import 'l10n/all_locales.dart';
 import 'ui/theme/themes.dart';
 
-const sentryDsn =
-    'https://c27e8e45f55d4374af2a30638b5b4417@o4505034476158976.ingest.sentry.io/4505034480287744';
+const sentryDsn = 'https://c27e8e45f55d4374af2a30638b5b4417@o4505034476158976.ingest.sentry.io/4505034480287744';
 
 void main() {
   runZonedGuarded(() async {

@@ -12,6 +12,5 @@ class UserCredentialsAuthService with _$UserCredentialsAuthService {
     final String? fullName,
   ) = _UserCredentialsAuthService;
 
-  factory UserCredentialsAuthService.fromJson(Map<String, dynamic> json) =>
-      _$UserCredentialsAuthServiceFromJson(json);
+  factory UserCredentialsAuthService.fromJson(Map<String, dynamic> json) => _$UserCredentialsAuthServiceFromJson(json);
 }

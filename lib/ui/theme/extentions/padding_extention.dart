@@ -28,17 +28,10 @@ class PaddingThemeExtention extends ThemeExtension<PaddingThemeExtention> {
       );
 
   @override
-  ThemeExtension<PaddingThemeExtention> lerp(
-          PaddingThemeExtention other, double t) =>
-      PaddingThemeExtention(
-        paddingBetweenSmall:
-            lerpDouble(paddingBetweenSmall, other.paddingBetweenSmall, t) ??
-                paddingBetweenSmall,
-        paddingBetweenStandart: lerpDouble(
-                paddingBetweenStandart, other.paddingBetweenStandart, t) ??
-            paddingBetweenStandart,
-        paddingBetweenLarge:
-            lerpDouble(paddingBetweenLarge, other.paddingBetweenLarge, t) ??
-                paddingBetweenLarge,
+  ThemeExtension<PaddingThemeExtention> lerp(PaddingThemeExtention other, double t) => PaddingThemeExtention(
+        paddingBetweenSmall: lerpDouble(paddingBetweenSmall, other.paddingBetweenSmall, t) ?? paddingBetweenSmall,
+        paddingBetweenStandart:
+            lerpDouble(paddingBetweenStandart, other.paddingBetweenStandart, t) ?? paddingBetweenStandart,
+        paddingBetweenLarge: lerpDouble(paddingBetweenLarge, other.paddingBetweenLarge, t) ?? paddingBetweenLarge,
       );
 }

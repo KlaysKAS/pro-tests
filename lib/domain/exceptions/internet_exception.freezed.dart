@@ -70,8 +70,7 @@ mixin _$InternetException {
 
 /// @nodoc
 abstract class $InternetExceptionCopyWith<$Res> {
-  factory $InternetExceptionCopyWith(
-          InternetException value, $Res Function(InternetException) then) =
+  factory $InternetExceptionCopyWith(InternetException value, $Res Function(InternetException) then) =
       _$InternetExceptionCopyWithImpl<$Res, InternetException>;
 }
 
@@ -88,18 +87,13 @@ class _$InternetExceptionCopyWithImpl<$Res, $Val extends InternetException>
 
 /// @nodoc
 abstract class _$$NoAccountCopyWith<$Res> {
-  factory _$$NoAccountCopyWith(
-          _$NoAccount value, $Res Function(_$NoAccount) then) =
-      __$$NoAccountCopyWithImpl<$Res>;
+  factory _$$NoAccountCopyWith(_$NoAccount value, $Res Function(_$NoAccount) then) = __$$NoAccountCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NoAccountCopyWithImpl<$Res>
-    extends _$InternetExceptionCopyWithImpl<$Res, _$NoAccount>
+class __$$NoAccountCopyWithImpl<$Res> extends _$InternetExceptionCopyWithImpl<$Res, _$NoAccount>
     implements _$$NoAccountCopyWith<$Res> {
-  __$$NoAccountCopyWithImpl(
-      _$NoAccount _value, $Res Function(_$NoAccount) _then)
-      : super(_value, _then);
+  __$$NoAccountCopyWithImpl(_$NoAccount _value, $Res Function(_$NoAccount) _then) : super(_value, _then);
 }
 
 /// @nodoc
@@ -114,8 +108,7 @@ class _$NoAccount implements NoAccount {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NoAccount);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$NoAccount);
   }
 
   @override
@@ -202,17 +195,14 @@ abstract class NoAccount implements InternetException {
 
 /// @nodoc
 abstract class _$$LoginAlreadyExistCopyWith<$Res> {
-  factory _$$LoginAlreadyExistCopyWith(
-          _$LoginAlreadyExist value, $Res Function(_$LoginAlreadyExist) then) =
+  factory _$$LoginAlreadyExistCopyWith(_$LoginAlreadyExist value, $Res Function(_$LoginAlreadyExist) then) =
       __$$LoginAlreadyExistCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoginAlreadyExistCopyWithImpl<$Res>
-    extends _$InternetExceptionCopyWithImpl<$Res, _$LoginAlreadyExist>
+class __$$LoginAlreadyExistCopyWithImpl<$Res> extends _$InternetExceptionCopyWithImpl<$Res, _$LoginAlreadyExist>
     implements _$$LoginAlreadyExistCopyWith<$Res> {
-  __$$LoginAlreadyExistCopyWithImpl(
-      _$LoginAlreadyExist _value, $Res Function(_$LoginAlreadyExist) _then)
+  __$$LoginAlreadyExistCopyWithImpl(_$LoginAlreadyExist _value, $Res Function(_$LoginAlreadyExist) _then)
       : super(_value, _then);
 }
 
@@ -228,8 +218,7 @@ class _$LoginAlreadyExist implements LoginAlreadyExist {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoginAlreadyExist);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$LoginAlreadyExist);
   }
 
   @override
@@ -316,18 +305,14 @@ abstract class LoginAlreadyExist implements InternetException {
 
 /// @nodoc
 abstract class _$$BadConnectionCopyWith<$Res> {
-  factory _$$BadConnectionCopyWith(
-          _$BadConnection value, $Res Function(_$BadConnection) then) =
+  factory _$$BadConnectionCopyWith(_$BadConnection value, $Res Function(_$BadConnection) then) =
       __$$BadConnectionCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$BadConnectionCopyWithImpl<$Res>
-    extends _$InternetExceptionCopyWithImpl<$Res, _$BadConnection>
+class __$$BadConnectionCopyWithImpl<$Res> extends _$InternetExceptionCopyWithImpl<$Res, _$BadConnection>
     implements _$$BadConnectionCopyWith<$Res> {
-  __$$BadConnectionCopyWithImpl(
-      _$BadConnection _value, $Res Function(_$BadConnection) _then)
-      : super(_value, _then);
+  __$$BadConnectionCopyWithImpl(_$BadConnection _value, $Res Function(_$BadConnection) _then) : super(_value, _then);
 }
 
 /// @nodoc
@@ -342,8 +327,7 @@ class _$BadConnection implements BadConnection {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$BadConnection);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$BadConnection);
   }
 
   @override
@@ -430,17 +414,14 @@ abstract class BadConnection implements InternetException {
 
 /// @nodoc
 abstract class _$$SomethingWentWrongCopyWith<$Res> {
-  factory _$$SomethingWentWrongCopyWith(_$SomethingWentWrong value,
-          $Res Function(_$SomethingWentWrong) then) =
+  factory _$$SomethingWentWrongCopyWith(_$SomethingWentWrong value, $Res Function(_$SomethingWentWrong) then) =
       __$$SomethingWentWrongCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SomethingWentWrongCopyWithImpl<$Res>
-    extends _$InternetExceptionCopyWithImpl<$Res, _$SomethingWentWrong>
+class __$$SomethingWentWrongCopyWithImpl<$Res> extends _$InternetExceptionCopyWithImpl<$Res, _$SomethingWentWrong>
     implements _$$SomethingWentWrongCopyWith<$Res> {
-  __$$SomethingWentWrongCopyWithImpl(
-      _$SomethingWentWrong _value, $Res Function(_$SomethingWentWrong) _then)
+  __$$SomethingWentWrongCopyWithImpl(_$SomethingWentWrong _value, $Res Function(_$SomethingWentWrong) _then)
       : super(_value, _then);
 }
 
@@ -456,8 +437,7 @@ class _$SomethingWentWrong implements SomethingWentWrong {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SomethingWentWrong);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$SomethingWentWrong);
   }
 
   @override

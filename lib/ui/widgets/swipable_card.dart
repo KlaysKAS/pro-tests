@@ -24,8 +24,7 @@ class SwipableCard extends StatefulWidget {
   State<SwipableCard> createState() => _SwipableCardState();
 }
 
-class _SwipableCardState extends State<SwipableCard>
-    with TickerProviderStateMixin {
+class _SwipableCardState extends State<SwipableCard> with TickerProviderStateMixin {
   late final AnimationController _positionAnimator;
   late final Animation _offsetTween;
   final key = GlobalKey();
@@ -33,8 +32,7 @@ class _SwipableCardState extends State<SwipableCard>
   @override
   void initState() {
     super.initState();
-    _positionAnimator = AnimationController(
-        vsync: this, duration: const Duration(seconds: 1), value: 0);
+    _positionAnimator = AnimationController(vsync: this, duration: const Duration(seconds: 1), value: 0);
     _positionAnimator.addListener(() {
       setState(() {
         if (widget.onDrag != null) {
@@ -47,8 +45,7 @@ class _SwipableCardState extends State<SwipableCard>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _offsetTween =
-        Tween(begin: 0.0, end: -widget.dragDistance).animate(_positionAnimator);
+    _offsetTween = Tween(begin: 0.0, end: -widget.dragDistance).animate(_positionAnimator);
   }
 
   @override
@@ -91,11 +88,8 @@ class _SwipableCardState extends State<SwipableCard>
     setState(() {
       _positionAnimator.value = max(
           0.0,
-          min(
-              1.0,
-              (_startValue * widget.dragDistance +
-                      (_localPosition - details.localPosition).dx) /
-                  widget.dragDistance));
+          min(1.0,
+              (_startValue * widget.dragDistance + (_localPosition - details.localPosition).dx) / widget.dragDistance));
     });
   }
 

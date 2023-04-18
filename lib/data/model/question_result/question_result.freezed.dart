@@ -27,22 +27,19 @@ mixin _$QuestionResult {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $QuestionResultCopyWith<QuestionResult> get copyWith =>
-      throw _privateConstructorUsedError;
+  $QuestionResultCopyWith<QuestionResult> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $QuestionResultCopyWith<$Res> {
-  factory $QuestionResultCopyWith(
-          QuestionResult value, $Res Function(QuestionResult) then) =
+  factory $QuestionResultCopyWith(QuestionResult value, $Res Function(QuestionResult) then) =
       _$QuestionResultCopyWithImpl<$Res, QuestionResult>;
   @useResult
   $Res call({int id, String question, String answer, bool isRight});
 }
 
 /// @nodoc
-class _$QuestionResultCopyWithImpl<$Res, $Val extends QuestionResult>
-    implements $QuestionResultCopyWith<$Res> {
+class _$QuestionResultCopyWithImpl<$Res, $Val extends QuestionResult> implements $QuestionResultCopyWith<$Res> {
   _$QuestionResultCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -80,10 +77,8 @@ class _$QuestionResultCopyWithImpl<$Res, $Val extends QuestionResult>
 }
 
 /// @nodoc
-abstract class _$$_QuestionResultCopyWith<$Res>
-    implements $QuestionResultCopyWith<$Res> {
-  factory _$$_QuestionResultCopyWith(
-          _$_QuestionResult value, $Res Function(_$_QuestionResult) then) =
+abstract class _$$_QuestionResultCopyWith<$Res> implements $QuestionResultCopyWith<$Res> {
+  factory _$$_QuestionResultCopyWith(_$_QuestionResult value, $Res Function(_$_QuestionResult) then) =
       __$$_QuestionResultCopyWithImpl<$Res>;
   @override
   @useResult
@@ -91,11 +86,9 @@ abstract class _$$_QuestionResultCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_QuestionResultCopyWithImpl<$Res>
-    extends _$QuestionResultCopyWithImpl<$Res, _$_QuestionResult>
+class __$$_QuestionResultCopyWithImpl<$Res> extends _$QuestionResultCopyWithImpl<$Res, _$_QuestionResult>
     implements _$$_QuestionResultCopyWith<$Res> {
-  __$$_QuestionResultCopyWithImpl(
-      _$_QuestionResult _value, $Res Function(_$_QuestionResult) _then)
+  __$$_QuestionResultCopyWithImpl(_$_QuestionResult _value, $Res Function(_$_QuestionResult) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -130,14 +123,9 @@ class __$$_QuestionResultCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_QuestionResult implements _QuestionResult {
-  const _$_QuestionResult(
-      {required this.id,
-      required this.question,
-      required this.answer,
-      required this.isRight});
+  const _$_QuestionResult({required this.id, required this.question, required this.answer, required this.isRight});
 
-  factory _$_QuestionResult.fromJson(Map<String, dynamic> json) =>
-      _$$_QuestionResultFromJson(json);
+  factory _$_QuestionResult.fromJson(Map<String, dynamic> json) => _$$_QuestionResultFromJson(json);
 
   @override
   final int id;
@@ -159,8 +147,7 @@ class _$_QuestionResult implements _QuestionResult {
         (other.runtimeType == runtimeType &&
             other is _$_QuestionResult &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.question, question) ||
-                other.question == question) &&
+            (identical(other.question, question) || other.question == question) &&
             (identical(other.answer, answer) || other.answer == answer) &&
             (identical(other.isRight, isRight) || other.isRight == isRight));
   }
@@ -190,8 +177,7 @@ abstract class _QuestionResult implements QuestionResult {
       required final String answer,
       required final bool isRight}) = _$_QuestionResult;
 
-  factory _QuestionResult.fromJson(Map<String, dynamic> json) =
-      _$_QuestionResult.fromJson;
+  factory _QuestionResult.fromJson(Map<String, dynamic> json) = _$_QuestionResult.fromJson;
 
   @override
   int get id;
@@ -203,6 +189,5 @@ abstract class _QuestionResult implements QuestionResult {
   bool get isRight;
   @override
   @JsonKey(ignore: true)
-  _$$_QuestionResultCopyWith<_$_QuestionResult> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_QuestionResultCopyWith<_$_QuestionResult> get copyWith => throw _privateConstructorUsedError;
 }

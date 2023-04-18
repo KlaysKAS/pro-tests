@@ -19,20 +19,16 @@ class QuestionAnswerTile extends StatelessWidget {
   @override
   Widget build(context) {
     return Padding(
-      padding:
-          const EdgeInsets.symmetric(horizontal: Const.paddingBetweenLarge),
+      padding: const EdgeInsets.symmetric(horizontal: Const.paddingBetweenLarge),
       child: TileContainer(
-        borderColor:
-            question.isRight ? Const.rightAnswerColor : Const.wrongAnswerColor,
+        borderColor: question.isRight ? Const.rightAnswerColor : Const.wrongAnswerColor,
         child: Row(
           mainAxisSize: MainAxisSize.max,
           children: [
             Expanded(
               child: _Content(
                 question: question,
-                answerColor: question.isRight
-                    ? Const.rightAnswerColor
-                    : Const.wrongAnswerColor,
+                answerColor: question.isRight ? Const.rightAnswerColor : Const.wrongAnswerColor,
               ),
             ),
             _ResultIcon(isRight: question.isRight),

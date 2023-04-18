@@ -14,8 +14,7 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-UserCredentialsAuthService _$UserCredentialsAuthServiceFromJson(
-    Map<String, dynamic> json) {
+UserCredentialsAuthService _$UserCredentialsAuthServiceFromJson(Map<String, dynamic> json) {
   return _UserCredentialsAuthService.fromJson(json);
 }
 
@@ -27,23 +26,20 @@ mixin _$UserCredentialsAuthService {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UserCredentialsAuthServiceCopyWith<UserCredentialsAuthService>
-      get copyWith => throw _privateConstructorUsedError;
+  $UserCredentialsAuthServiceCopyWith<UserCredentialsAuthService> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $UserCredentialsAuthServiceCopyWith<$Res> {
-  factory $UserCredentialsAuthServiceCopyWith(UserCredentialsAuthService value,
-          $Res Function(UserCredentialsAuthService) then) =
-      _$UserCredentialsAuthServiceCopyWithImpl<$Res,
-          UserCredentialsAuthService>;
+  factory $UserCredentialsAuthServiceCopyWith(
+          UserCredentialsAuthService value, $Res Function(UserCredentialsAuthService) then) =
+      _$UserCredentialsAuthServiceCopyWithImpl<$Res, UserCredentialsAuthService>;
   @useResult
   $Res call({String login, String password, String? fullName});
 }
 
 /// @nodoc
-class _$UserCredentialsAuthServiceCopyWithImpl<$Res,
-        $Val extends UserCredentialsAuthService>
+class _$UserCredentialsAuthServiceCopyWithImpl<$Res, $Val extends UserCredentialsAuthService>
     implements $UserCredentialsAuthServiceCopyWith<$Res> {
   _$UserCredentialsAuthServiceCopyWithImpl(this._value, this._then);
 
@@ -77,11 +73,9 @@ class _$UserCredentialsAuthServiceCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_UserCredentialsAuthServiceCopyWith<$Res>
-    implements $UserCredentialsAuthServiceCopyWith<$Res> {
+abstract class _$$_UserCredentialsAuthServiceCopyWith<$Res> implements $UserCredentialsAuthServiceCopyWith<$Res> {
   factory _$$_UserCredentialsAuthServiceCopyWith(
-          _$_UserCredentialsAuthService value,
-          $Res Function(_$_UserCredentialsAuthService) then) =
+          _$_UserCredentialsAuthService value, $Res Function(_$_UserCredentialsAuthService) then) =
       __$$_UserCredentialsAuthServiceCopyWithImpl<$Res>;
   @override
   @useResult
@@ -90,12 +84,10 @@ abstract class _$$_UserCredentialsAuthServiceCopyWith<$Res>
 
 /// @nodoc
 class __$$_UserCredentialsAuthServiceCopyWithImpl<$Res>
-    extends _$UserCredentialsAuthServiceCopyWithImpl<$Res,
-        _$_UserCredentialsAuthService>
+    extends _$UserCredentialsAuthServiceCopyWithImpl<$Res, _$_UserCredentialsAuthService>
     implements _$$_UserCredentialsAuthServiceCopyWith<$Res> {
   __$$_UserCredentialsAuthServiceCopyWithImpl(
-      _$_UserCredentialsAuthService _value,
-      $Res Function(_$_UserCredentialsAuthService) _then)
+      _$_UserCredentialsAuthService _value, $Res Function(_$_UserCredentialsAuthService) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -148,10 +140,8 @@ class _$_UserCredentialsAuthService implements _UserCredentialsAuthService {
         (other.runtimeType == runtimeType &&
             other is _$_UserCredentialsAuthService &&
             (identical(other.login, login) || other.login == login) &&
-            (identical(other.password, password) ||
-                other.password == password) &&
-            (identical(other.fullName, fullName) ||
-                other.fullName == fullName));
+            (identical(other.password, password) || other.password == password) &&
+            (identical(other.fullName, fullName) || other.fullName == fullName));
   }
 
   @JsonKey(ignore: true)
@@ -161,9 +151,8 @@ class _$_UserCredentialsAuthService implements _UserCredentialsAuthService {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserCredentialsAuthServiceCopyWith<_$_UserCredentialsAuthService>
-      get copyWith => __$$_UserCredentialsAuthServiceCopyWithImpl<
-          _$_UserCredentialsAuthService>(this, _$identity);
+  _$$_UserCredentialsAuthServiceCopyWith<_$_UserCredentialsAuthService> get copyWith =>
+      __$$_UserCredentialsAuthServiceCopyWithImpl<_$_UserCredentialsAuthService>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -173,14 +162,11 @@ class _$_UserCredentialsAuthService implements _UserCredentialsAuthService {
   }
 }
 
-abstract class _UserCredentialsAuthService
-    implements UserCredentialsAuthService {
-  const factory _UserCredentialsAuthService(
-          final String login, final String password, final String? fullName) =
+abstract class _UserCredentialsAuthService implements UserCredentialsAuthService {
+  const factory _UserCredentialsAuthService(final String login, final String password, final String? fullName) =
       _$_UserCredentialsAuthService;
 
-  factory _UserCredentialsAuthService.fromJson(Map<String, dynamic> json) =
-      _$_UserCredentialsAuthService.fromJson;
+  factory _UserCredentialsAuthService.fromJson(Map<String, dynamic> json) = _$_UserCredentialsAuthService.fromJson;
 
   @override
   String get login;
@@ -190,6 +176,6 @@ abstract class _UserCredentialsAuthService
   String? get fullName;
   @override
   @JsonKey(ignore: true)
-  _$$_UserCredentialsAuthServiceCopyWith<_$_UserCredentialsAuthService>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_UserCredentialsAuthServiceCopyWith<_$_UserCredentialsAuthService> get copyWith =>
+      throw _privateConstructorUsedError;
 }

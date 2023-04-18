@@ -16,8 +16,7 @@ class AuthServiceImpl extends AuthService {
   @override
   Future<String> login(UserCredentialsAuthService loginCred) async {
     try {
-      final response =
-          await dio.post(_baseUrl + _signInUrl, data: loginCred.toJson());
+      final response = await dio.post(_baseUrl + _signInUrl, data: loginCred.toJson());
       return response.data['bearer'];
     } on DioError catch (e) {
       if (e.response?.statusCode == null) {
@@ -37,8 +36,7 @@ class AuthServiceImpl extends AuthService {
     try {
       await dio.post(_baseUrl + _signUpUrl, data: registerCred.toJson());
     } on DioError catch (e) {
-      if (e.response?.statusCode == null)
-        throw const InternetException.badConnection();
+      if (e.response?.statusCode == null) throw const InternetException.badConnection();
       if (e.response!.statusCode! >= 400 && e.response!.statusCode! < 500) {
         // TODO parse error from backend
         throw const InternetException.loginAlreadyExist();
