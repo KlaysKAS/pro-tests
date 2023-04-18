@@ -49,6 +49,7 @@ class AppLocator implements ServiceLocator {
       InterceptorsWrapper(
         onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
           options.headers['Authorization'] = 'Bearer $token';
+          handler.next(options);
         },
       ),
     );
@@ -82,7 +83,7 @@ class AppLocator implements ServiceLocator {
     final creationTime = decoded['iat'] as int?;
     if (creationTime == null) return false;
     final expireDate = DateTime.fromMillisecondsSinceEpoch(creationTime * 1000 + _kExpireTimeout.inMilliseconds);
-    if (DateTime.now().isBefore(expireDate)) return false;
+    if (!DateTime.now().isBefore(expireDate)) return false;
     return true;
   }
 }

@@ -25,7 +25,7 @@ class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
     try {
       final token = await repo.login(loginData);
       if (await serviceLocator.putToken(token)) {
-        state = _successState;
+        _updateState(_successState);
         return true;
       } else {
         _updateState(const AuthenticationState.signInError('Что-то пошло не так'));
@@ -47,8 +47,7 @@ class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
     _updateState(_upLoadingState);
     try {
       await repo.register(registerData);
-      await repo.login(registerData);
-      state = _successState;
+      login(registerData);
       return true;
     } on InternetException catch (e) {
       e.whenOrNull(
