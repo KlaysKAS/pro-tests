@@ -2,7 +2,6 @@ part of 'user_test_widget.dart';
 
 class _TileContent extends StatelessWidget {
   const _TileContent({
-    super.key,
     required this.isDismissing,
     required this.test,
   });

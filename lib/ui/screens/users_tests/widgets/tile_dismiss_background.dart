@@ -1,7 +1,7 @@
 part of 'user_test_widget.dart';
 
 class _TileDismissBackground extends StatelessWidget {
-  const _TileDismissBackground({super.key});
+  const _TileDismissBackground();
 
   @override
   Widget build(BuildContext context) {

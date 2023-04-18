@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:pro_tests/domain/repository/test_creation.dart';
 
+// ignore: non_type_as_type_argument
 class TestListStateNotifier extends StateNotifier<List<TestInfo>> {
   TestCreationRepository? repo;
 
@@ -10,6 +11,7 @@ class TestListStateNotifier extends StateNotifier<List<TestInfo>> {
     this.repo,
   });
 
+  // ignore: non_type_as_type_argument
   _updateState(List<TestInfo> newState) => state = newState;
 
   Future<bool> getUsersTests(String userId) async {

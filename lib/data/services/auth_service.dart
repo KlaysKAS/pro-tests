@@ -20,9 +20,11 @@ class AuthServiceImpl extends AuthService {
           await dio.post(_baseUrl + _signInUrl, data: loginCred.toJson());
       return response.data['bearer'];
     } on DioError catch (e) {
-      if (e.response?.statusCode == null)
+      if (e.response?.statusCode == null) {
         throw const InternetException.badConnection();
+      }
       if (e.response!.statusCode! >= 400 && e.response!.statusCode! < 500) {
+        // ignore: todo
         // TODO parse error from backend
         throw const InternetException.noAccount();
       }

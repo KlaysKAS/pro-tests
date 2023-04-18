@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:pro_tests/domain/repository/test_creation.dart';
 
+// ignore: non_type_as_type_argument
 class TestCreationStateNotifier extends StateNotifier<TestInfo> {
   TestCreationRepository? repo;
 
@@ -10,6 +11,7 @@ class TestCreationStateNotifier extends StateNotifier<TestInfo> {
     this.repo,
   });
 
+  // ignore: undefined_class
   void _updateState(TestInfo newState) => state = newState;
 
   Future<bool> createTest(String name, String description) async {
@@ -19,6 +21,7 @@ class TestCreationStateNotifier extends StateNotifier<TestInfo> {
     return test != null;
   }
 
+  // ignore: undefined_class
   Future<bool> addQuestion(Question question) async {
     final test = await repo?.addQuestion(state.id, question);
     _updateState(test);
