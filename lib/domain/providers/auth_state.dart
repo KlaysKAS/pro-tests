@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:pro_tests/domain/exceptions/internet_exception.dart';
 import 'package:pro_tests/domain/models/user_credentials.dart';
-import 'package:pro_tests/domain/repository/authentication.dart';
+import 'package:pro_tests/domain/repository/authentication/authentication.dart';
 import 'package:pro_tests/ui/states/authentication_state/authentication_state.dart';
 
 class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
@@ -22,7 +22,8 @@ class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
   Future<bool> login(UserCredentials loginData) async {
     _updateState(_inLoadingState);
     try {
-      await repo.login(loginData);
+      final _ = await repo.login(loginData);
+      // TODO pass token into secure storage
       state = _successState;
       return true;
     } on InternetException catch (e) {
@@ -68,6 +69,6 @@ class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
 
   void signOut() {
     _updateState(_initialState);
-    repo.signOut();
+    // TODO remove token from secure storage
   }
 }

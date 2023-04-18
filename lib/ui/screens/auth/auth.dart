@@ -2,10 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_tests/data/services/auth_service.dart';
-import 'package:pro_tests/domain/models/user_credentials.dart';
 import 'package:pro_tests/domain/providers/auth_state.dart';
-import 'package:pro_tests/domain/repository/authentication.dart';
-import 'package:pro_tests/domain/user_credentials_mapper.dart';
+import 'package:pro_tests/domain/repository/authentication/auth_repository.dart';
 import 'package:pro_tests/ui/router/router.dart';
 import 'package:pro_tests/ui/router/routes.dart';
 import 'package:pro_tests/ui/screens/auth/login.dart';
@@ -15,8 +13,8 @@ import 'package:pro_tests/ui/utils/text_controllers.dart';
 
 final authProvider = StateNotifierProvider<AuthenticationStateNotifier, AuthenticationState>(
   (ref) => AuthenticationStateNotifier(
-    Reps(
-      authService: AuthServiceImpl(
+    AuthenticationRepositoryImpl(
+      AuthServiceImpl(
         Dio(),
       ),
     ),
@@ -98,23 +96,4 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
     loginControllers.dispose();
     super.dispose();
   }
-}
-
-class Reps extends AuthenticationRepository {
-  Reps({required super.authService});
-
-  @override
-  Future<void> login(UserCredentials loginCred) async {
-    final data = UserCredentialsMapper.fromForm(loginCred);
-    await authService.login(data);
-  }
-
-  @override
-  Future<void> register(UserCredentials registerCred) async {
-    final data = UserCredentialsMapper.fromForm(registerCred);
-    await authService.register(data);
-  }
-
-  @override
-  void signOut() {}
 }
