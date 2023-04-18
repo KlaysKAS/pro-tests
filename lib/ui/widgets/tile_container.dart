@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../theme/const.dart';
+import 'package:pro_tests/ui/theme/const.dart';
 
 class TileContainer extends StatefulWidget {
   final Widget? child;

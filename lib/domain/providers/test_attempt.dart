@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../repository/test_passing.dart';
+import 'package:pro_tests/domain/repository/test_passing.dart';
 
 class TestAttemptStateNotifier extends StateNotifier<TestAttempt> {
   final TestPassingRepository? repo;
