@@ -21,5 +21,3 @@ class _ResultIcon extends StatelessWidget {
     );
   }
 }
-
-// Icons.check_circle

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pro_tests/ui/widgets/swipable_card.dart';
 
-import '../../../theme/const.dart';
-import '../../../widgets/detail_button.dart';
-import '../../../widgets/test_icon.dart';
-import '../../../widgets/tile_container.dart';
+import 'package:pro_tests/ui/theme/const.dart';
+import 'package:pro_tests/ui/widgets/detail_button.dart';
+import 'package:pro_tests/ui/widgets/test_icon.dart';
+import 'package:pro_tests/ui/widgets/tile_container.dart';
 
 part 'tile_dismiss_background.dart';
 part 'tile_content.dart';
