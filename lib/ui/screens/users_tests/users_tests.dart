@@ -48,11 +48,14 @@ class UsersTestsScreen extends ConsumerWidget {
                   // ignore: dead_code
                   : const Placeholder(),
             ),
-            MainButton(
-              btnText: text.createTestStartCreateBtn,
-              onPressed: () {
-                context.goNamed(AppRoutes.createTest.name);
-              },
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: Const.paddingBetweenSmall),
+              child: MainButton(
+                btnText: text.createTestStartCreateBtn,
+                onPressed: () {
+                  context.goNamed(AppRoutes.createTest.name);
+                },
+              ),
             ),
           ],
         ),
