@@ -18,12 +18,11 @@ class TestResultWidget extends StatelessWidget {
     required this.result,
   });
 
-  int get _rightAmount => result.questions.fold<int>(
-      0, (previousValue, element) => previousValue + (element.isRight ? 1 : 0));
+  int get _rightAmount =>
+      result.questions.fold<int>(0, (previousValue, element) => previousValue + (element.isRight ? 1 : 0));
 
   /// Calculate rightAnswers/questions
-  double _calcRate() =>
-      _rightAmount.toDouble() / result.questions.length.toDouble();
+  double _calcRate() => _rightAmount.toDouble() / result.questions.length.toDouble();
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +33,7 @@ class TestResultWidget extends StatelessWidget {
             ? Const.primaryColor
             : Const.rightAnswerColor;
     return Padding(
-      padding:
-          const EdgeInsets.symmetric(horizontal: Const.paddingBetweenLarge),
+      padding: const EdgeInsets.symmetric(horizontal: Const.paddingBetweenLarge),
       child: _Tile(
         color: color,
         test: test,

@@ -16,8 +16,7 @@ class UserCredentials {
     this.lastname,
   });
 
-  factory UserCredentials.fromJson(Map<String, dynamic> json) =>
-      _$UserCredentialsFromJson(json);
+  factory UserCredentials.fromJson(Map<String, dynamic> json) => _$UserCredentialsFromJson(json);
 
   Map<String, dynamic> toJson() => _$UserCredentialsToJson(this);
 }

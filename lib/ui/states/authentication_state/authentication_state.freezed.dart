@@ -32,8 +32,8 @@ AuthenticationState _$AuthenticationStateFromJson(Map<String, dynamic> json) {
       return Success.fromJson(json);
 
     default:
-      throw CheckedFromJsonException(json, 'runtimeType', 'AuthenticationState',
-          'Invalid union type "${json['runtimeType']}"!');
+      throw CheckedFromJsonException(
+          json, 'runtimeType', 'AuthenticationState', 'Invalid union type "${json['runtimeType']}"!');
   }
 }
 
@@ -112,8 +112,7 @@ mixin _$AuthenticationState {
 
 /// @nodoc
 abstract class $AuthenticationStateCopyWith<$Res> {
-  factory $AuthenticationStateCopyWith(
-          AuthenticationState value, $Res Function(AuthenticationState) then) =
+  factory $AuthenticationStateCopyWith(AuthenticationState value, $Res Function(AuthenticationState) then) =
       _$AuthenticationStateCopyWithImpl<$Res, AuthenticationState>;
 }
 
@@ -130,18 +129,14 @@ class _$AuthenticationStateCopyWithImpl<$Res, $Val extends AuthenticationState>
 
 /// @nodoc
 abstract class _$$SignInDataCopyWith<$Res> {
-  factory _$$SignInDataCopyWith(
-          _$SignInData value, $Res Function(_$SignInData) then) =
+  factory _$$SignInDataCopyWith(_$SignInData value, $Res Function(_$SignInData) then) =
       __$$SignInDataCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SignInDataCopyWithImpl<$Res>
-    extends _$AuthenticationStateCopyWithImpl<$Res, _$SignInData>
+class __$$SignInDataCopyWithImpl<$Res> extends _$AuthenticationStateCopyWithImpl<$Res, _$SignInData>
     implements _$$SignInDataCopyWith<$Res> {
-  __$$SignInDataCopyWithImpl(
-      _$SignInData _value, $Res Function(_$SignInData) _then)
-      : super(_value, _then);
+  __$$SignInDataCopyWithImpl(_$SignInData _value, $Res Function(_$SignInData) _then) : super(_value, _then);
 }
 
 /// @nodoc
@@ -149,8 +144,7 @@ class __$$SignInDataCopyWithImpl<$Res>
 class _$SignInData implements SignInData {
   const _$SignInData({final String? $type}) : $type = $type ?? 'signIn';
 
-  factory _$SignInData.fromJson(Map<String, dynamic> json) =>
-      _$$SignInDataFromJson(json);
+  factory _$SignInData.fromJson(Map<String, dynamic> json) => _$$SignInDataFromJson(json);
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -162,8 +156,7 @@ class _$SignInData implements SignInData {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SignInData);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$SignInData);
   }
 
   @JsonKey(ignore: true)
@@ -273,24 +266,19 @@ class _$SignInData implements SignInData {
 abstract class SignInData implements AuthenticationState {
   const factory SignInData() = _$SignInData;
 
-  factory SignInData.fromJson(Map<String, dynamic> json) =
-      _$SignInData.fromJson;
+  factory SignInData.fromJson(Map<String, dynamic> json) = _$SignInData.fromJson;
 }
 
 /// @nodoc
 abstract class _$$SignUpDataCopyWith<$Res> {
-  factory _$$SignUpDataCopyWith(
-          _$SignUpData value, $Res Function(_$SignUpData) then) =
+  factory _$$SignUpDataCopyWith(_$SignUpData value, $Res Function(_$SignUpData) then) =
       __$$SignUpDataCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SignUpDataCopyWithImpl<$Res>
-    extends _$AuthenticationStateCopyWithImpl<$Res, _$SignUpData>
+class __$$SignUpDataCopyWithImpl<$Res> extends _$AuthenticationStateCopyWithImpl<$Res, _$SignUpData>
     implements _$$SignUpDataCopyWith<$Res> {
-  __$$SignUpDataCopyWithImpl(
-      _$SignUpData _value, $Res Function(_$SignUpData) _then)
-      : super(_value, _then);
+  __$$SignUpDataCopyWithImpl(_$SignUpData _value, $Res Function(_$SignUpData) _then) : super(_value, _then);
 }
 
 /// @nodoc
@@ -298,8 +286,7 @@ class __$$SignUpDataCopyWithImpl<$Res>
 class _$SignUpData implements SignUpData {
   const _$SignUpData({final String? $type}) : $type = $type ?? 'signUp';
 
-  factory _$SignUpData.fromJson(Map<String, dynamic> json) =>
-      _$$SignUpDataFromJson(json);
+  factory _$SignUpData.fromJson(Map<String, dynamic> json) => _$$SignUpDataFromJson(json);
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -311,8 +298,7 @@ class _$SignUpData implements SignUpData {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SignUpData);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$SignUpData);
   }
 
   @JsonKey(ignore: true)
@@ -422,34 +408,27 @@ class _$SignUpData implements SignUpData {
 abstract class SignUpData implements AuthenticationState {
   const factory SignUpData() = _$SignUpData;
 
-  factory SignUpData.fromJson(Map<String, dynamic> json) =
-      _$SignUpData.fromJson;
+  factory SignUpData.fromJson(Map<String, dynamic> json) = _$SignUpData.fromJson;
 }
 
 /// @nodoc
 abstract class _$$SignInLoadingCopyWith<$Res> {
-  factory _$$SignInLoadingCopyWith(
-          _$SignInLoading value, $Res Function(_$SignInLoading) then) =
+  factory _$$SignInLoadingCopyWith(_$SignInLoading value, $Res Function(_$SignInLoading) then) =
       __$$SignInLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SignInLoadingCopyWithImpl<$Res>
-    extends _$AuthenticationStateCopyWithImpl<$Res, _$SignInLoading>
+class __$$SignInLoadingCopyWithImpl<$Res> extends _$AuthenticationStateCopyWithImpl<$Res, _$SignInLoading>
     implements _$$SignInLoadingCopyWith<$Res> {
-  __$$SignInLoadingCopyWithImpl(
-      _$SignInLoading _value, $Res Function(_$SignInLoading) _then)
-      : super(_value, _then);
+  __$$SignInLoadingCopyWithImpl(_$SignInLoading _value, $Res Function(_$SignInLoading) _then) : super(_value, _then);
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$SignInLoading implements SignInLoading {
-  const _$SignInLoading({final String? $type})
-      : $type = $type ?? 'signInLoading';
+  const _$SignInLoading({final String? $type}) : $type = $type ?? 'signInLoading';
 
-  factory _$SignInLoading.fromJson(Map<String, dynamic> json) =>
-      _$$SignInLoadingFromJson(json);
+  factory _$SignInLoading.fromJson(Map<String, dynamic> json) => _$$SignInLoadingFromJson(json);
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -461,8 +440,7 @@ class _$SignInLoading implements SignInLoading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SignInLoading);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$SignInLoading);
   }
 
   @JsonKey(ignore: true)
@@ -572,34 +550,27 @@ class _$SignInLoading implements SignInLoading {
 abstract class SignInLoading implements AuthenticationState {
   const factory SignInLoading() = _$SignInLoading;
 
-  factory SignInLoading.fromJson(Map<String, dynamic> json) =
-      _$SignInLoading.fromJson;
+  factory SignInLoading.fromJson(Map<String, dynamic> json) = _$SignInLoading.fromJson;
 }
 
 /// @nodoc
 abstract class _$$SignUpLoadingCopyWith<$Res> {
-  factory _$$SignUpLoadingCopyWith(
-          _$SignUpLoading value, $Res Function(_$SignUpLoading) then) =
+  factory _$$SignUpLoadingCopyWith(_$SignUpLoading value, $Res Function(_$SignUpLoading) then) =
       __$$SignUpLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SignUpLoadingCopyWithImpl<$Res>
-    extends _$AuthenticationStateCopyWithImpl<$Res, _$SignUpLoading>
+class __$$SignUpLoadingCopyWithImpl<$Res> extends _$AuthenticationStateCopyWithImpl<$Res, _$SignUpLoading>
     implements _$$SignUpLoadingCopyWith<$Res> {
-  __$$SignUpLoadingCopyWithImpl(
-      _$SignUpLoading _value, $Res Function(_$SignUpLoading) _then)
-      : super(_value, _then);
+  __$$SignUpLoadingCopyWithImpl(_$SignUpLoading _value, $Res Function(_$SignUpLoading) _then) : super(_value, _then);
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$SignUpLoading implements SignUpLoading {
-  const _$SignUpLoading({final String? $type})
-      : $type = $type ?? 'signUpLoading';
+  const _$SignUpLoading({final String? $type}) : $type = $type ?? 'signUpLoading';
 
-  factory _$SignUpLoading.fromJson(Map<String, dynamic> json) =>
-      _$$SignUpLoadingFromJson(json);
+  factory _$SignUpLoading.fromJson(Map<String, dynamic> json) => _$$SignUpLoadingFromJson(json);
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -611,8 +582,7 @@ class _$SignUpLoading implements SignUpLoading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SignUpLoading);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$SignUpLoading);
   }
 
   @JsonKey(ignore: true)
@@ -722,26 +692,21 @@ class _$SignUpLoading implements SignUpLoading {
 abstract class SignUpLoading implements AuthenticationState {
   const factory SignUpLoading() = _$SignUpLoading;
 
-  factory SignUpLoading.fromJson(Map<String, dynamic> json) =
-      _$SignUpLoading.fromJson;
+  factory SignUpLoading.fromJson(Map<String, dynamic> json) = _$SignUpLoading.fromJson;
 }
 
 /// @nodoc
 abstract class _$$SignInErrorCopyWith<$Res> {
-  factory _$$SignInErrorCopyWith(
-          _$SignInError value, $Res Function(_$SignInError) then) =
+  factory _$$SignInErrorCopyWith(_$SignInError value, $Res Function(_$SignInError) then) =
       __$$SignInErrorCopyWithImpl<$Res>;
   @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$SignInErrorCopyWithImpl<$Res>
-    extends _$AuthenticationStateCopyWithImpl<$Res, _$SignInError>
+class __$$SignInErrorCopyWithImpl<$Res> extends _$AuthenticationStateCopyWithImpl<$Res, _$SignInError>
     implements _$$SignInErrorCopyWith<$Res> {
-  __$$SignInErrorCopyWithImpl(
-      _$SignInError _value, $Res Function(_$SignInError) _then)
-      : super(_value, _then);
+  __$$SignInErrorCopyWithImpl(_$SignInError _value, $Res Function(_$SignInError) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -760,11 +725,9 @@ class __$$SignInErrorCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SignInError implements SignInError {
-  const _$SignInError([this.message, final String? $type])
-      : $type = $type ?? 'signInError';
+  const _$SignInError([this.message, final String? $type]) : $type = $type ?? 'signInError';
 
-  factory _$SignInError.fromJson(Map<String, dynamic> json) =>
-      _$$SignInErrorFromJson(json);
+  factory _$SignInError.fromJson(Map<String, dynamic> json) => _$$SignInErrorFromJson(json);
 
   @override
   final String? message;
@@ -792,8 +755,7 @@ class _$SignInError implements SignInError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SignInErrorCopyWith<_$SignInError> get copyWith =>
-      __$$SignInErrorCopyWithImpl<_$SignInError>(this, _$identity);
+  _$$SignInErrorCopyWith<_$SignInError> get copyWith => __$$SignInErrorCopyWithImpl<_$SignInError>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -898,31 +860,25 @@ class _$SignInError implements SignInError {
 abstract class SignInError implements AuthenticationState {
   const factory SignInError([final String? message]) = _$SignInError;
 
-  factory SignInError.fromJson(Map<String, dynamic> json) =
-      _$SignInError.fromJson;
+  factory SignInError.fromJson(Map<String, dynamic> json) = _$SignInError.fromJson;
 
   String? get message;
   @JsonKey(ignore: true)
-  _$$SignInErrorCopyWith<_$SignInError> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SignInErrorCopyWith<_$SignInError> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SignUpErrorCopyWith<$Res> {
-  factory _$$SignUpErrorCopyWith(
-          _$SignUpError value, $Res Function(_$SignUpError) then) =
+  factory _$$SignUpErrorCopyWith(_$SignUpError value, $Res Function(_$SignUpError) then) =
       __$$SignUpErrorCopyWithImpl<$Res>;
   @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$SignUpErrorCopyWithImpl<$Res>
-    extends _$AuthenticationStateCopyWithImpl<$Res, _$SignUpError>
+class __$$SignUpErrorCopyWithImpl<$Res> extends _$AuthenticationStateCopyWithImpl<$Res, _$SignUpError>
     implements _$$SignUpErrorCopyWith<$Res> {
-  __$$SignUpErrorCopyWithImpl(
-      _$SignUpError _value, $Res Function(_$SignUpError) _then)
-      : super(_value, _then);
+  __$$SignUpErrorCopyWithImpl(_$SignUpError _value, $Res Function(_$SignUpError) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -941,11 +897,9 @@ class __$$SignUpErrorCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SignUpError implements SignUpError {
-  const _$SignUpError([this.message, final String? $type])
-      : $type = $type ?? 'signUpError';
+  const _$SignUpError([this.message, final String? $type]) : $type = $type ?? 'signUpError';
 
-  factory _$SignUpError.fromJson(Map<String, dynamic> json) =>
-      _$$SignUpErrorFromJson(json);
+  factory _$SignUpError.fromJson(Map<String, dynamic> json) => _$$SignUpErrorFromJson(json);
 
   @override
   final String? message;
@@ -973,8 +927,7 @@ class _$SignUpError implements SignUpError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SignUpErrorCopyWith<_$SignUpError> get copyWith =>
-      __$$SignUpErrorCopyWithImpl<_$SignUpError>(this, _$identity);
+  _$$SignUpErrorCopyWith<_$SignUpError> get copyWith => __$$SignUpErrorCopyWithImpl<_$SignUpError>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1079,27 +1032,22 @@ class _$SignUpError implements SignUpError {
 abstract class SignUpError implements AuthenticationState {
   const factory SignUpError([final String? message]) = _$SignUpError;
 
-  factory SignUpError.fromJson(Map<String, dynamic> json) =
-      _$SignUpError.fromJson;
+  factory SignUpError.fromJson(Map<String, dynamic> json) = _$SignUpError.fromJson;
 
   String? get message;
   @JsonKey(ignore: true)
-  _$$SignUpErrorCopyWith<_$SignUpError> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SignUpErrorCopyWith<_$SignUpError> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$SuccessCopyWith<$Res> {
-  factory _$$SuccessCopyWith(_$Success value, $Res Function(_$Success) then) =
-      __$$SuccessCopyWithImpl<$Res>;
+  factory _$$SuccessCopyWith(_$Success value, $Res Function(_$Success) then) = __$$SuccessCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SuccessCopyWithImpl<$Res>
-    extends _$AuthenticationStateCopyWithImpl<$Res, _$Success>
+class __$$SuccessCopyWithImpl<$Res> extends _$AuthenticationStateCopyWithImpl<$Res, _$Success>
     implements _$$SuccessCopyWith<$Res> {
-  __$$SuccessCopyWithImpl(_$Success _value, $Res Function(_$Success) _then)
-      : super(_value, _then);
+  __$$SuccessCopyWithImpl(_$Success _value, $Res Function(_$Success) _then) : super(_value, _then);
 }
 
 /// @nodoc
@@ -1107,8 +1055,7 @@ class __$$SuccessCopyWithImpl<$Res>
 class _$Success implements Success {
   const _$Success({final String? $type}) : $type = $type ?? 'success';
 
-  factory _$Success.fromJson(Map<String, dynamic> json) =>
-      _$$SuccessFromJson(json);
+  factory _$Success.fromJson(Map<String, dynamic> json) => _$$SuccessFromJson(json);
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -1120,8 +1067,7 @@ class _$Success implements Success {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Success);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$Success);
   }
 
   @JsonKey(ignore: true)

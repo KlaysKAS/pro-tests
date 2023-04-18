@@ -14,14 +14,11 @@ class AuthenticationState with _$AuthenticationState {
 
   const factory AuthenticationState.signUpLoading() = SignUpLoading;
 
-  const factory AuthenticationState.signInError([String? message]) =
-      SignInError;
+  const factory AuthenticationState.signInError([String? message]) = SignInError;
 
-  const factory AuthenticationState.signUpError([String? message]) =
-      SignUpError;
+  const factory AuthenticationState.signUpError([String? message]) = SignUpError;
 
   const factory AuthenticationState.success() = Success;
 
-  factory AuthenticationState.fromJson(Map<String, dynamic> json) =>
-      _$AuthenticationStateFromJson(json);
+  factory AuthenticationState.fromJson(Map<String, dynamic> json) => _$AuthenticationStateFromJson(json);
 }

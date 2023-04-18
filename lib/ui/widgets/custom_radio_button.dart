@@ -12,28 +12,20 @@ class CustomRadioButton<T> extends StatefulWidget {
 
   bool get isChecked => value == groupValue;
 
-  const CustomRadioButton(
-      {Key? key,
-      required this.callback,
-      required this.value,
-      required this.groupValue})
+  const CustomRadioButton({Key? key, required this.callback, required this.value, required this.groupValue})
       : super(key: key);
 
   @override
   State<CustomRadioButton> createState() => _CustomRadioButtonState();
 }
 
-class _CustomRadioButtonState extends State<CustomRadioButton>
-    with TickerProviderStateMixin {
+class _CustomRadioButtonState extends State<CustomRadioButton> with TickerProviderStateMixin {
   late AnimationController _animation;
 
   @override
   void initState() {
     super.initState();
-    _animation = AnimationController(
-        vsync: this,
-        duration: _kToggleDuration,
-        value: widget.isChecked ? 1 : 0);
+    _animation = AnimationController(vsync: this, duration: _kToggleDuration, value: widget.isChecked ? 1 : 0);
     _animation.addListener(() {
       setState(() {});
     });
@@ -99,12 +91,10 @@ class _CheckboxPainter extends ToggleablePainter {
   final Color checkedInnerColor;
   final Color unCheckedColor;
 
-  late final _colorAnimation =
-      ColorTween(begin: unCheckedColor, end: checkedColor);
+  late final _colorAnimation = ColorTween(begin: unCheckedColor, end: checkedColor);
 
   late final _innerPaint = Paint()..color = checkedInnerColor;
-  late final _outerPaint = Paint()
-    ..color = _colorAnimation.lerp(animationValue) ?? unCheckedColor;
+  late final _outerPaint = Paint()..color = _colorAnimation.lerp(animationValue) ?? unCheckedColor;
   late final _clearPaint = Paint()..blendMode = BlendMode.clear;
 
   final double animationValue;
@@ -118,12 +108,9 @@ class _CheckboxPainter extends ToggleablePainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawCircle(Offset(size.width / 2, size.height / 2),
-        size.width * _bigRadius, _outerPaint);
-    canvas.drawCircle(Offset(size.width / 2, size.height / 2),
-        size.width * _mediumRadius, _clearPaint);
-    canvas.drawCircle(Offset(size.width / 2, size.height / 2),
-        size.width * _smallRadius * animationValue, _innerPaint);
+    canvas.drawCircle(Offset(size.width / 2, size.height / 2), size.width * _bigRadius, _outerPaint);
+    canvas.drawCircle(Offset(size.width / 2, size.height / 2), size.width * _mediumRadius, _clearPaint);
+    canvas.drawCircle(Offset(size.width / 2, size.height / 2), size.width * _smallRadius * animationValue, _innerPaint);
   }
 
   @override

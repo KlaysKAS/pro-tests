@@ -23,8 +23,7 @@ class TestListStateNotifier extends StateNotifier<List<TestInfo>> {
 
   Future<bool> delete(String testId) async {
     final deletedTestId = repo?.deleteTest(testId);
-    _updateState(
-        state.where((element) => element.id != deletedTestId).toList());
+    _updateState(state.where((element) => element.id != deletedTestId).toList());
 
     return deletedTestId == testId;
   }

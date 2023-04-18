@@ -25,22 +25,19 @@ mixin _$TestResults {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $TestResultsCopyWith<TestResults> get copyWith =>
-      throw _privateConstructorUsedError;
+  $TestResultsCopyWith<TestResults> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $TestResultsCopyWith<$Res> {
-  factory $TestResultsCopyWith(
-          TestResults value, $Res Function(TestResults) then) =
+  factory $TestResultsCopyWith(TestResults value, $Res Function(TestResults) then) =
       _$TestResultsCopyWithImpl<$Res, TestResults>;
   @useResult
   $Res call({int id, List<QuestionResult> questions});
 }
 
 /// @nodoc
-class _$TestResultsCopyWithImpl<$Res, $Val extends TestResults>
-    implements $TestResultsCopyWith<$Res> {
+class _$TestResultsCopyWithImpl<$Res, $Val extends TestResults> implements $TestResultsCopyWith<$Res> {
   _$TestResultsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -68,10 +65,8 @@ class _$TestResultsCopyWithImpl<$Res, $Val extends TestResults>
 }
 
 /// @nodoc
-abstract class _$$_TestResultsCopyWith<$Res>
-    implements $TestResultsCopyWith<$Res> {
-  factory _$$_TestResultsCopyWith(
-          _$_TestResults value, $Res Function(_$_TestResults) then) =
+abstract class _$$_TestResultsCopyWith<$Res> implements $TestResultsCopyWith<$Res> {
+  factory _$$_TestResultsCopyWith(_$_TestResults value, $Res Function(_$_TestResults) then) =
       __$$_TestResultsCopyWithImpl<$Res>;
   @override
   @useResult
@@ -79,12 +74,9 @@ abstract class _$$_TestResultsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TestResultsCopyWithImpl<$Res>
-    extends _$TestResultsCopyWithImpl<$Res, _$_TestResults>
+class __$$_TestResultsCopyWithImpl<$Res> extends _$TestResultsCopyWithImpl<$Res, _$_TestResults>
     implements _$$_TestResultsCopyWith<$Res> {
-  __$$_TestResultsCopyWithImpl(
-      _$_TestResults _value, $Res Function(_$_TestResults) _then)
-      : super(_value, _then);
+  __$$_TestResultsCopyWithImpl(_$_TestResults _value, $Res Function(_$_TestResults) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -108,12 +100,9 @@ class __$$_TestResultsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_TestResults implements _TestResults {
-  const _$_TestResults(
-      {required this.id, required final List<QuestionResult> questions})
-      : _questions = questions;
+  const _$_TestResults({required this.id, required final List<QuestionResult> questions}) : _questions = questions;
 
-  factory _$_TestResults.fromJson(Map<String, dynamic> json) =>
-      _$$_TestResultsFromJson(json);
+  factory _$_TestResults.fromJson(Map<String, dynamic> json) => _$$_TestResultsFromJson(json);
 
   @override
   final int id;
@@ -136,14 +125,12 @@ class _$_TestResults implements _TestResults {
         (other.runtimeType == runtimeType &&
             other is _$_TestResults &&
             (identical(other.id, id) || other.id == id) &&
-            const DeepCollectionEquality()
-                .equals(other._questions, _questions));
+            const DeepCollectionEquality().equals(other._questions, _questions));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, const DeepCollectionEquality().hash(_questions));
+  int get hashCode => Object.hash(runtimeType, id, const DeepCollectionEquality().hash(_questions));
 
   @JsonKey(ignore: true)
   @override
@@ -160,12 +147,9 @@ class _$_TestResults implements _TestResults {
 }
 
 abstract class _TestResults implements TestResults {
-  const factory _TestResults(
-      {required final int id,
-      required final List<QuestionResult> questions}) = _$_TestResults;
+  const factory _TestResults({required final int id, required final List<QuestionResult> questions}) = _$_TestResults;
 
-  factory _TestResults.fromJson(Map<String, dynamic> json) =
-      _$_TestResults.fromJson;
+  factory _TestResults.fromJson(Map<String, dynamic> json) = _$_TestResults.fromJson;
 
   @override
   int get id;
@@ -173,6 +157,5 @@ abstract class _TestResults implements TestResults {
   List<QuestionResult> get questions;
   @override
   @JsonKey(ignore: true)
-  _$$_TestResultsCopyWith<_$_TestResults> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_TestResultsCopyWith<_$_TestResults> get copyWith => throw _privateConstructorUsedError;
 }
