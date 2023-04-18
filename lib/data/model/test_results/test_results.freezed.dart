@@ -21,6 +21,7 @@ TestResults _$TestResultsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$TestResults {
   int get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   List<QuestionResult> get questions => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -33,7 +34,7 @@ abstract class $TestResultsCopyWith<$Res> {
   factory $TestResultsCopyWith(TestResults value, $Res Function(TestResults) then) =
       _$TestResultsCopyWithImpl<$Res, TestResults>;
   @useResult
-  $Res call({int id, List<QuestionResult> questions});
+  $Res call({int id, String title, List<QuestionResult> questions});
 }
 
 /// @nodoc
@@ -49,6 +50,7 @@ class _$TestResultsCopyWithImpl<$Res, $Val extends TestResults> implements $Test
   @override
   $Res call({
     Object? id = null,
+    Object? title = null,
     Object? questions = null,
   }) {
     return _then(_value.copyWith(
@@ -56,6 +58,10 @@ class _$TestResultsCopyWithImpl<$Res, $Val extends TestResults> implements $Test
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
       questions: null == questions
           ? _value.questions
           : questions // ignore: cast_nullable_to_non_nullable
@@ -70,7 +76,7 @@ abstract class _$$_TestResultsCopyWith<$Res> implements $TestResultsCopyWith<$Re
       __$$_TestResultsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, List<QuestionResult> questions});
+  $Res call({int id, String title, List<QuestionResult> questions});
 }
 
 /// @nodoc
@@ -82,6 +88,7 @@ class __$$_TestResultsCopyWithImpl<$Res> extends _$TestResultsCopyWithImpl<$Res,
   @override
   $Res call({
     Object? id = null,
+    Object? title = null,
     Object? questions = null,
   }) {
     return _then(_$_TestResults(
@@ -89,6 +96,10 @@ class __$$_TestResultsCopyWithImpl<$Res> extends _$TestResultsCopyWithImpl<$Res,
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
       questions: null == questions
           ? _value._questions
           : questions // ignore: cast_nullable_to_non_nullable
@@ -100,12 +111,15 @@ class __$$_TestResultsCopyWithImpl<$Res> extends _$TestResultsCopyWithImpl<$Res,
 /// @nodoc
 @JsonSerializable()
 class _$_TestResults implements _TestResults {
-  const _$_TestResults({required this.id, required final List<QuestionResult> questions}) : _questions = questions;
+  const _$_TestResults({required this.id, required this.title, required final List<QuestionResult> questions})
+      : _questions = questions;
 
   factory _$_TestResults.fromJson(Map<String, dynamic> json) => _$$_TestResultsFromJson(json);
 
   @override
   final int id;
+  @override
+  final String title;
   final List<QuestionResult> _questions;
   @override
   List<QuestionResult> get questions {
@@ -116,7 +130,7 @@ class _$_TestResults implements _TestResults {
 
   @override
   String toString() {
-    return 'TestResults(id: $id, questions: $questions)';
+    return 'TestResults(id: $id, title: $title, questions: $questions)';
   }
 
   @override
@@ -125,12 +139,13 @@ class _$_TestResults implements _TestResults {
         (other.runtimeType == runtimeType &&
             other is _$_TestResults &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
             const DeepCollectionEquality().equals(other._questions, _questions));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, const DeepCollectionEquality().hash(_questions));
+  int get hashCode => Object.hash(runtimeType, id, title, const DeepCollectionEquality().hash(_questions));
 
   @JsonKey(ignore: true)
   @override
@@ -147,12 +162,17 @@ class _$_TestResults implements _TestResults {
 }
 
 abstract class _TestResults implements TestResults {
-  const factory _TestResults({required final int id, required final List<QuestionResult> questions}) = _$_TestResults;
+  const factory _TestResults(
+      {required final int id,
+      required final String title,
+      required final List<QuestionResult> questions}) = _$_TestResults;
 
   factory _TestResults.fromJson(Map<String, dynamic> json) = _$_TestResults.fromJson;
 
   @override
   int get id;
+  @override
+  String get title;
   @override
   List<QuestionResult> get questions;
   @override

@@ -9,16 +9,20 @@ void main() {
       const QuestionResult(id: 1, question: 'quest2', answer: '2', isRight: false),
     ];
 
+    const title = 'title';
+
     test('Test factory method', () {
-      final testResults = TestResults(id: 0, questions: questions);
+      final testResults = TestResults(id: 0, title: title, questions: questions);
 
       expect(testResults.id, 0);
+      expect(testResults.title, title);
       expect(testResults.questions, questions);
     });
 
     test('Test from json', () {
       final json = <String, Object>{
         'id': 0,
+        'title': title,
         'questions': [
           questions[0].toJson(),
           questions[1].toJson(),
@@ -26,15 +30,17 @@ void main() {
       };
       final testResults = TestResults.fromJson(json);
       expect(testResults.id, 0);
+      expect(testResults.title, title);
       expect(testResults.questions, questions);
     });
 
     test('Test equals', () {
-      final testResults1 = TestResults(id: 0, questions: questions);
-      final testResults2 = TestResults(id: 0, questions: questions);
-      const testResults3 = TestResults(id: 1, questions: []);
+      final testResults1 = TestResults(id: 0, title: title, questions: questions);
+      final testResults2 = TestResults(id: 0, title: title, questions: questions);
+      const testResults3 = TestResults(id: 1, title: '', questions: []);
       expect(testResults1 == testResults2, true);
       expect(testResults1.id == testResults2.id, true);
+      expect(testResults1.title == testResults2.title, true);
       expect(testResults1.questions == testResults2.questions, true);
 
       expect(testResults1 == testResults3, false);

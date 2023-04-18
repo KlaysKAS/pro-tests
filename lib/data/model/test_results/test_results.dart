@@ -9,6 +9,7 @@ part 'test_results.g.dart';
 class TestResults with _$TestResults {
   const factory TestResults({
     required int id,
+    required String title,
     required List<QuestionResult> questions,
   }) = _TestResults;
 
