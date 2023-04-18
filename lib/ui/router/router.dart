@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:pro_tests/ui/router/routes.dart';
+import 'package:pro_tests/ui/screens/home_screen.dart';
 
 import '../screens/screens.dart';
 
@@ -18,9 +19,9 @@ class AppRouter {
         builder: (context, state) => const AuthScreen(),
       ),
       GoRoute(
-        path: '/${AppRoutes.myTest.name}',
-        name: AppRoutes.myTest.name,
-        builder: (context, state) => const UsersTestsScreen(),
+        path: '/${AppRoutes.home.name}',
+        name: AppRoutes.home.name,
+        builder: (context, state) => const HomeScreen(),
         routes: [
           GoRoute(
             path: AppRoutes.createTest.name,
@@ -42,13 +43,6 @@ class AppRouter {
             name: AppRoutes.testDetails.name,
             builder: (context, state) => const TestDetailsScreen(),
           ),
-        ],
-      ),
-      GoRoute(
-        path: '/${AppRoutes.passedTest.name}',
-        name: AppRoutes.passedTest.name,
-        builder: (context, state) => const PassedTestScreen(),
-        routes: [
           GoRoute(
             path: AppRoutes.addTest.name,
             name: AppRoutes.addTest.name,

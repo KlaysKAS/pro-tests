@@ -1,6 +1,5 @@
 export './auth/auth.dart';
 export './splash/splash.dart';
-export './test_passing/passed_tests.dart';
 export './test_passing/test_adding/test_adding.dart';
 export './test_passing/test_attempt/test_attempt.dart';
 export './test_passing/test_results/test_results.dart';
@@ -8,4 +7,3 @@ export './users_tests/test_creation/test_creation.dart';
 export './users_tests/test_details/test_details.dart';
 export './users_tests/test_edit/test_edit.dart';
 export './users_tests/test_share/test_share.dart';
-export './users_tests/users_tests.dart';
