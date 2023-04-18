@@ -8,6 +8,8 @@ class MainFormInput extends StatelessWidget {
   final InputDecoration? decoration;
   final bool obscureText;
   final Validator? validator;
+  final int? minLines;
+  final int? maxLines;
 
   const MainFormInput({
     Key? key,
@@ -15,6 +17,8 @@ class MainFormInput extends StatelessWidget {
     this.controller,
     this.decoration = const InputDecoration(),
     this.validator,
+    this.minLines,
+    this.maxLines,
   }) : super(key: key);
 
   @override
@@ -22,6 +26,8 @@ class MainFormInput extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: Const.paddingBetweenLarge),
       child: TextFormField(
+        minLines: minLines,
+        maxLines: maxLines,
         validator: validator,
         obscureText: obscureText,
         controller: controller,
