@@ -24,7 +24,7 @@ class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
     _updateState(_inLoadingState);
     try {
       final token = await repo.login(loginData);
-      if (await serviceLocator.putToken(token)) {
+      if (await serviceLocator.tokenManager.putToken(token)) {
         _updateState(_successState);
         return true;
       } else {
