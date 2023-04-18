@@ -5,8 +5,10 @@ import 'package:pro_tests/data/model/test_results/test_results.dart';
 void main() {
   group('Test results model testing', () {
     final questions = [
-      const QuestionResult(id: 0, question: 'quest1', answer: '1', isRight: true),
-      const QuestionResult(id: 1, question: 'quest2', answer: '2', isRight: false),
+      const QuestionResult(
+          id: 0, question: 'quest1', answer: '1', isRight: true),
+      const QuestionResult(
+          id: 1, question: 'quest2', answer: '2', isRight: false),
     ];
 
     test('Test factory method', () {

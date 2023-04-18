@@ -25,9 +25,7 @@ class AppThemes {
     ),
     inputDecorationTheme: TextFieldThemes.main,
     elevatedButtonTheme: ElevatedButtonThemes.main,
-    extensions: const [
-      PaddingThemeExtention()
-    ],
+    extensions: const [PaddingThemeExtention()],
   );
 
   static final darkTheme = ThemeData(
@@ -49,8 +47,6 @@ class AppThemes {
     ),
     inputDecorationTheme: TextFieldThemes.dark,
     elevatedButtonTheme: ElevatedButtonThemes.dark,
-    extensions: const [
-      PaddingThemeExtention()
-    ],
+    extensions: const [PaddingThemeExtention()],
   );
 }

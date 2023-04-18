@@ -1,8 +1,8 @@
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Validators {
-
-  static final _passRegexp = RegExp(r'^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]).*$');
+  static final _passRegexp =
+      RegExp(r'^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]).*$');
 
   static String? passwordLoginValidator(String? value, AppLocalizations local) {
     if (value == '') {
@@ -18,7 +18,8 @@ class Validators {
     return null;
   }
 
-  static String? passwordRegisterValidator(String? value, AppLocalizations local) {
+  static String? passwordRegisterValidator(
+      String? value, AppLocalizations local) {
     if (value == '') {
       return local.loginFormPasswordEmpty;
     }
@@ -31,7 +32,8 @@ class Validators {
     return null;
   }
 
-  static String? repeatPasswordRegisterValidator(String? value, String? originalPass, AppLocalizations local) {
+  static String? repeatPasswordRegisterValidator(
+      String? value, String? originalPass, AppLocalizations local) {
     if (value == '') {
       return local.loginFormPasswordEmpty;
     }

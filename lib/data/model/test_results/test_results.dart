@@ -12,5 +12,6 @@ class TestResults with _$TestResults {
     required List<QuestionResult> questions,
   }) = _TestResults;
 
-  factory TestResults.fromJson(Map<String, Object?> json) => _$TestResultsFromJson(json);
+  factory TestResults.fromJson(Map<String, Object?> json) =>
+      _$TestResultsFromJson(json);
 }

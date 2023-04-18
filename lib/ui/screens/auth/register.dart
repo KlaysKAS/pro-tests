@@ -18,8 +18,12 @@ class RegisterScreen extends ConsumerWidget {
 
   final _formKey = GlobalKey<FormState>();
 
-  RegisterScreen(this._loginFormController, this._passwordFormController, this._lastnameFormController,
-      this._firstnameFormController, this._repeatPasswordFormController,
+  RegisterScreen(
+      this._loginFormController,
+      this._passwordFormController,
+      this._lastnameFormController,
+      this._firstnameFormController,
+      this._repeatPasswordFormController,
       {super.key});
 
   @override
@@ -40,10 +44,18 @@ class RegisterScreen extends ConsumerWidget {
             ),
           ),
           const SizedBox(height: Const.paddingBetweenLarge * 3),
-          _Content(errorMessage, _formKey, _loginFormController, _firstnameFormController, _lastnameFormController,
-              _passwordFormController, _repeatPasswordFormController),
+          _Content(
+              errorMessage,
+              _formKey,
+              _loginFormController,
+              _firstnameFormController,
+              _lastnameFormController,
+              _passwordFormController,
+              _repeatPasswordFormController),
           const SizedBox(height: Const.paddingBetweenLarge),
-          MainButton(btnText: AppLocalizations.of(context)!.registerBtn, onPressed: () => _register(notifier)),
+          MainButton(
+              btnText: AppLocalizations.of(context)!.registerBtn,
+              onPressed: () => _register(notifier)),
           const SizedBox(height: Const.paddingBetweenLarge),
         ],
       ),
@@ -55,7 +67,11 @@ class RegisterScreen extends ConsumerWidget {
     final firstname = _firstnameFormController.text;
     final lastname = _lastnameFormController.text;
     final pass = _passwordFormController.text;
-    return UserCredentials(username: login, firstname: firstname, lastname: lastname, password: pass);
+    return UserCredentials(
+        username: login,
+        firstname: firstname,
+        lastname: lastname,
+        password: pass);
   }
 
   void _register(AuthenticationStateNotifier notifier) {
@@ -88,8 +104,14 @@ class _Content extends StatefulWidget {
   final TextEditingController passwordController;
   final TextEditingController repeatPasswordController;
 
-  const _Content(this.errorText, this.formKey, this.loginController, this.firstnameController, this.lastnameController,
-      this.passwordController, this.repeatPasswordController);
+  const _Content(
+      this.errorText,
+      this.formKey,
+      this.loginController,
+      this.firstnameController,
+      this.lastnameController,
+      this.passwordController,
+      this.repeatPasswordController);
 
   @override
   State<_Content> createState() => _ContentState();
@@ -111,48 +133,56 @@ class _ContentState extends State<_Content> {
           const SizedBox(height: Const.paddingBetweenLarge),
           MainFormInput(
             controller: widget.loginController,
-            decoration: InputDecoration(label: Text(locale.registerFormLoginTitle)),
+            decoration:
+                InputDecoration(label: Text(locale.registerFormLoginTitle)),
             validator: (value) => Validators.loginValidator(value, locale),
           ),
           const SizedBox(height: Const.paddingBetweenLarge),
           MainFormInput(
             controller: widget.firstnameController,
-            decoration: InputDecoration(label: Text(locale.registerFormFirstnameTitle)),
+            decoration:
+                InputDecoration(label: Text(locale.registerFormFirstnameTitle)),
             validator: (value) => Validators.firstnameValidator(value, locale),
           ),
           const SizedBox(height: Const.paddingBetweenLarge),
           MainFormInput(
             controller: widget.lastnameController,
-            decoration: InputDecoration(label: Text(locale.registerFormLastnameTitle)),
+            decoration:
+                InputDecoration(label: Text(locale.registerFormLastnameTitle)),
             validator: (value) => Validators.lastnameValidator(value, locale),
           ),
           const SizedBox(height: Const.paddingBetweenLarge),
           MainFormInput(
             obscureText: _hidePass,
-            validator: (value) => Validators.passwordRegisterValidator(value, locale),
+            validator: (value) =>
+                Validators.passwordRegisterValidator(value, locale),
             controller: widget.passwordController,
             decoration: InputDecoration(
               errorText: widget.errorText,
               suffixIcon: GestureDetector(
                 onTap: () => {_hidePass = !_hidePass, setState(() => {})},
-                child: Icon(_hidePass ? Icons.visibility : Icons.visibility_off),
+                child:
+                    Icon(_hidePass ? Icons.visibility : Icons.visibility_off),
               ),
-              label: Text(AppLocalizations.of(context)!.registerFormPasswordTitle),
+              label:
+                  Text(AppLocalizations.of(context)!.registerFormPasswordTitle),
             ),
           ),
           const SizedBox(height: Const.paddingBetweenLarge),
           MainFormInput(
             obscureText: _hidePass,
-            validator: (value) =>
-                Validators.repeatPasswordRegisterValidator(value, widget.passwordController.text, locale),
+            validator: (value) => Validators.repeatPasswordRegisterValidator(
+                value, widget.passwordController.text, locale),
             controller: widget.repeatPasswordController,
             decoration: InputDecoration(
               errorText: widget.errorText,
               suffixIcon: GestureDetector(
                 onTap: () => {_hidePass = !_hidePass, setState(() => {})},
-                child: Icon(_hidePass ? Icons.visibility : Icons.visibility_off),
+                child:
+                    Icon(_hidePass ? Icons.visibility : Icons.visibility_off),
               ),
-              label: Text(AppLocalizations.of(context)!.registerFormRePasswordTitle),
+              label: Text(
+                  AppLocalizations.of(context)!.registerFormRePasswordTitle),
             ),
           ),
         ],

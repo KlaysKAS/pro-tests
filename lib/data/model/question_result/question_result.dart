@@ -13,5 +13,6 @@ class QuestionResult with _$QuestionResult {
     required bool isRight,
   }) = _QuestionResult;
 
-  factory QuestionResult.fromJson(Map<String, Object?> json) => _$QuestionResultFromJson(json);
+  factory QuestionResult.fromJson(Map<String, Object?> json) =>
+      _$QuestionResultFromJson(json);
 }
