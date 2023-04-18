@@ -7,6 +7,7 @@ import 'package:pro_tests/domain/providers/auth_state.dart';
 import 'package:pro_tests/domain/repository/authentication.dart';
 import 'package:pro_tests/domain/user_credentials_mapper.dart';
 import 'package:pro_tests/ui/router/router.dart';
+import 'package:pro_tests/ui/router/routes.dart';
 import 'package:pro_tests/ui/screens/auth/login.dart';
 import 'package:pro_tests/ui/screens/auth/register.dart';
 import 'package:pro_tests/ui/states/authentication_state/authentication_state.dart';
@@ -77,11 +78,10 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
     WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((timeStamp) {
       registerControllers.clear();
       loginControllers.clear();
+      AppRouter.router.pushNamed(AppRoutes.myTest.name);
     });
 
-    return MaterialApp.router(
-      routerConfig: AppRouter.router,
-    );
+    return Container();
   }
 
   Widget _loginPage() {
