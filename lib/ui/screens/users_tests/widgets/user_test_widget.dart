@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pro_tests/data/model/test_info/test_info.dart';
 import 'package:pro_tests/ui/widgets/swipable_card.dart';
 
 import 'package:pro_tests/ui/theme/const.dart';
@@ -12,23 +13,18 @@ part 'tile_content.dart';
 
 class UserTestWidget extends StatefulWidget {
   final TestInfo test;
+  final VoidCallback? onDismiss;
+  final void Function(int id) onDetalePressed;
 
   const UserTestWidget({
     super.key,
-    this.test = const TestInfo(),
+    required this.test,
+    required this.onDetalePressed,
+    this.onDismiss,
   });
 
   @override
   State<UserTestWidget> createState() => _UserTestWidgetState();
-}
-
-class TestInfo {
-  const TestInfo();
-
-  final id = 1;
-  final title = 'bebra';
-  final questions = const [1, 2, 3];
-  final partisipants = 400;
 }
 
 class _UserTestWidgetState extends State<UserTestWidget> {
@@ -40,16 +36,17 @@ class _UserTestWidgetState extends State<UserTestWidget> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: Const.paddingBetweenLarge),
       child: SwipableCard(
+        onBackGroundTap: widget.onDismiss,
         onDrag: (ratio) {
           setState(() {
             isDismissing = ratio >= 0.001;
           });
         },
-        key: ValueKey(test.id),
         background: const _TileDismissBackground(),
         child: _TileContent(
           isDismissing: isDismissing,
           test: test,
+          onDetalePressed: widget.onDetalePressed,
         ),
       ),
     );
