@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:pro_tests/ui/router/router.dart';
 import 'package:pro_tests/ui/router/routes.dart';
 
@@ -13,7 +14,8 @@ class SplashScreenScreen extends StatelessWidget {
     return const Placeholder();
   }
 
-  void _pushAuth() {
+  void _pushAuth() async {
     AppRouter.router.replaceNamed(AppRoutes.auth.name);
+    FlutterNativeSplash.remove();
   }
 }
