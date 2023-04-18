@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pro_tests/domain/exceptions/internet_exception.dart';
-import 'package:pro_tests/ui/states/authentication_state/authentication_state.dart';
 
-import '../models/user_credentials.dart';
-import '../repository/authentication.dart';
+import 'package:pro_tests/domain/exceptions/internet_exception.dart';
+import 'package:pro_tests/domain/models/user_credentials.dart';
+import 'package:pro_tests/domain/repository/authentication.dart';
+import 'package:pro_tests/ui/states/authentication_state/authentication_state.dart';
 
 class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
   static const _initialState = AuthenticationState.signIn();
@@ -27,13 +27,13 @@ class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
       return true;
     } on InternetException catch (e) {
       e.whenOrNull(
-          // noAccount: () => _updateState(const AuthenticationState.error('Неверная почта или пароль')),
-          // badConnection: () => _updateState(const AuthenticationState.error('Нет соединения с интернетом')),
-          );
+        noAccount: () => _updateState(const AuthenticationState.signInError('Неверная почта или пароль')),
+        badConnection: () => _updateState(const AuthenticationState.signInError('Нет соединения с интернетом')),
+      );
     } on Object catch (e, s) {
       debugPrint(e as String?);
       debugPrintStack(stackTrace: s);
-      // _updateState(const AuthenticationState.error('Что-то пошло не так'));
+      _updateState(const AuthenticationState.signInError('Что-то пошло не так'));
     }
     return false;
   }
@@ -47,19 +47,23 @@ class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
       return true;
     } on InternetException catch (e) {
       e.whenOrNull(
-          // loginAlreadyExist: () => _updateState(const AuthenticationState.error('Логин уже занят')),
-          // badConnection: () => _updateState(const AuthenticationState.error('Нет соединения с интернетом')),
-          );
+        loginAlreadyExist: () => _updateState(const AuthenticationState.signUpError('Логин уже занят')),
+        badConnection: () => _updateState(const AuthenticationState.signUpError('Нет соединения с интернетом')),
+      );
     } on Object catch (e, s) {
       debugPrint(e as String?);
       debugPrintStack(stackTrace: s);
-      // _updateState(const AuthenticationState.error('Что-то пошло не так'));
+      _updateState(const AuthenticationState.signUpError('Что-то пошло не так'));
     }
     return false;
   }
 
   void openRegisterForm() {
     _updateState(_initialSignUpState);
+  }
+
+  void openLoginForm() {
+    _updateState(_initialState);
   }
 
   void signOut() {

@@ -6,6 +6,7 @@
   "loginFormPasswordError": "Wrong password",
   "loginFormPasswordEmpty": "Empty password",
   "loginBtn": "Sign In",
+  "loginDontHaveAnAccount": "Don't have an account? Sign Up!",
 
   "registerMainTitle":"Sign Up",
   "registerFormLoginTitle": "Login",
@@ -16,9 +17,11 @@
   "registerFormRePasswordTitle": "Repeat password",
   "registerFormPasswordError": "The password does not meet the security requirements",
   "registerFormPasswordMatchError": "Passwords don't match",
+  "registerFormPasswordEmpty": "Empty password",
   "registerFormFirstnameTitle": "Name",
   "registerFormLastnameTitle": "Surname",
   "registerBtn": "Sign Up",
+  "registerAlreadyRegistered": "Already have an account? Sign in!",
 
   "homeCreateTestsMainTitle":"My tests",
   "homeCreateTestName": "{testName}",
