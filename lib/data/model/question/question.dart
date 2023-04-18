@@ -13,5 +13,6 @@ class Question with _$Question {
     required String? answer,
   }) = _Question;
 
-  factory Question.fromJson(Map<String, Object?> json) => _$QuestionFromJson(json);
+  factory Question.fromJson(Map<String, Object?> json) =>
+      _$QuestionFromJson(json);
 }

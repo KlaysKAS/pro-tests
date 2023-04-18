@@ -10,8 +10,8 @@ class MainButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-          horizontal: Const.paddingBetweenLarge),
+      padding:
+          const EdgeInsets.symmetric(horizontal: Const.paddingBetweenLarge),
       child: Row(
         children: [
           Expanded(

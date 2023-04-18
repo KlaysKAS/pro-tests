@@ -15,7 +15,8 @@ class LoginScreen extends ConsumerWidget {
 
   final _formKey = GlobalKey<FormState>();
 
-  LoginScreen(this._loginFormController, this._passwordFormController, {super.key});
+  LoginScreen(this._loginFormController, this._passwordFormController,
+      {super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -34,9 +35,12 @@ class LoginScreen extends ConsumerWidget {
             style: const TextStyle(fontSize: Const.fontSizeBodyTitle),
           ),
           const SizedBox(height: Const.paddingBetweenLarge * 3),
-          _Content(errorMessage, _formKey, _loginFormController, _passwordFormController),
+          _Content(errorMessage, _formKey, _loginFormController,
+              _passwordFormController),
           const Spacer(),
-          MainButton(btnText: AppLocalizations.of(context)!.loginBtn, onPressed: () => _login(notifier)),
+          MainButton(
+              btnText: AppLocalizations.of(context)!.loginBtn,
+              onPressed: () => _login(notifier)),
           const SizedBox(height: Const.paddingBetweenLarge),
         ],
       ),
@@ -76,7 +80,8 @@ class _Content extends StatefulWidget {
   final TextEditingController loginController;
   final TextEditingController passwordController;
 
-  const _Content(this.errorText, this.formKey, this.loginController, this.passwordController);
+  const _Content(this.errorText, this.formKey, this.loginController,
+      this.passwordController);
 
   @override
   State<_Content> createState() => _ContentState();
@@ -98,19 +103,22 @@ class _ContentState extends State<_Content> {
           const SizedBox(height: Const.paddingBetweenLarge),
           MainFormInput(
             controller: widget.loginController,
-            decoration: InputDecoration(label: Text(locale.loginFormLoginTitle)),
+            decoration:
+                InputDecoration(label: Text(locale.loginFormLoginTitle)),
             validator: (value) => Validators.loginValidator(value, locale),
           ),
           const SizedBox(height: Const.paddingBetweenLarge),
           MainFormInput(
             obscureText: _hidePass,
-            validator: (value) => Validators.passwordLoginValidator(value, locale),
+            validator: (value) =>
+                Validators.passwordLoginValidator(value, locale),
             controller: widget.passwordController,
             decoration: InputDecoration(
               errorText: widget.errorText,
               suffixIcon: GestureDetector(
                 onTap: () => {_hidePass = !_hidePass, setState(() => {})},
-                child: Icon(_hidePass ? Icons.visibility : Icons.visibility_off),
+                child:
+                    Icon(_hidePass ? Icons.visibility : Icons.visibility_off),
               ),
               label: Text(AppLocalizations.of(context)!.loginFormPasswordTitle),
             ),

@@ -1,4 +1,4 @@
-enum AppRoutes{
+enum AppRoutes {
   splash('splash'),
   auth('auth'),
   passedTest('passedTests'),

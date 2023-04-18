@@ -3,9 +3,9 @@ import 'package:pro_tests/data/model/question_result/question_result.dart';
 
 void main() {
   group('Question result model testing', () {
-
     test('Test factory method', () {
-      const questionResult = QuestionResult(id: 0, question: 'quest1', answer: '1', isRight: true);
+      const questionResult =
+          QuestionResult(id: 0, question: 'quest1', answer: '1', isRight: true);
 
       expect(questionResult.id, 0);
       expect(questionResult.question, 'quest1');
@@ -28,9 +28,12 @@ void main() {
     });
 
     test('Test equals', () {
-      const first = QuestionResult(id: 0, question: 'quest1', answer: '1', isRight: true);
-      const second = QuestionResult(id: 0, question: 'quest1', answer: '1', isRight: true);
-      const third = QuestionResult(id: 1, question: 'quest2', answer: '2', isRight: false);
+      const first =
+          QuestionResult(id: 0, question: 'quest1', answer: '1', isRight: true);
+      const second =
+          QuestionResult(id: 0, question: 'quest1', answer: '1', isRight: true);
+      const third = QuestionResult(
+          id: 1, question: 'quest2', answer: '2', isRight: false);
       expect(first == second, true);
       expect(first.id == second.id, true);
       expect(first.question == second.question, true);

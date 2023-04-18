@@ -9,14 +9,16 @@ void main() {
     const answer = 'b';
 
     test('Test factory method', () {
-      final questionO = Question(id: id, question: question, answers: answers, answer: answer);
+      final questionO = Question(
+          id: id, question: question, answers: answers, answer: answer);
 
       expect(questionO.id, id);
       expect(questionO.question, question);
       expect(questionO.answers, answers);
       expect(questionO.answer, answer);
 
-      final questionONull = Question(id: id, question: question, answers: answers, answer: null);
+      final questionONull =
+          Question(id: id, question: question, answers: answers, answer: null);
       expect(questionONull.answer, null);
     });
 
@@ -39,8 +41,10 @@ void main() {
     });
 
     test('Test to json', () {
-      final questionO = Question(id: id, question: question, answers: answers, answer: answer);
-      final questionNull = Question(id: id, question: question, answers: answers, answer: null);
+      final questionO = Question(
+          id: id, question: question, answers: answers, answer: answer);
+      final questionNull =
+          Question(id: id, question: question, answers: answers, answer: null);
       final json = questionO.toJson();
       final jsonNull = questionNull.toJson();
       final questionOb = Question.fromJson(json);
@@ -59,10 +63,14 @@ void main() {
 
     test('Test equals', () {
       final newAnswers = ['a'];
-      final question1 = Question(id: id, question: question, answers: answers, answer: answer);
-      final question2 = Question(id: id, question: question, answers: answers, answer: answer);
-      final question3 = Question(id: 2, question: '', answers: newAnswers, answer: null);
-      final question4 = Question(id: 2, question: '', answers: newAnswers, answer: null);
+      final question1 = Question(
+          id: id, question: question, answers: answers, answer: answer);
+      final question2 = Question(
+          id: id, question: question, answers: answers, answer: answer);
+      final question3 =
+          Question(id: 2, question: '', answers: newAnswers, answer: null);
+      final question4 =
+          Question(id: 2, question: '', answers: newAnswers, answer: null);
       expect(question1 == question2, true);
       expect(question1.id == question2.id, true);
       expect(question1.question == question2.question, true);

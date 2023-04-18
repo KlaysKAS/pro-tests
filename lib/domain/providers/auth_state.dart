@@ -27,9 +27,9 @@ class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
       return true;
     } on InternetException catch (e) {
       e.whenOrNull(
-        // noAccount: () => _updateState(const AuthenticationState.error('Неверная почта или пароль')),
-        // badConnection: () => _updateState(const AuthenticationState.error('Нет соединения с интернетом')),
-      );
+          // noAccount: () => _updateState(const AuthenticationState.error('Неверная почта или пароль')),
+          // badConnection: () => _updateState(const AuthenticationState.error('Нет соединения с интернетом')),
+          );
     } on Object catch (e, s) {
       debugPrint(e as String?);
       debugPrintStack(stackTrace: s);
@@ -47,9 +47,9 @@ class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
       return true;
     } on InternetException catch (e) {
       e.whenOrNull(
-        // loginAlreadyExist: () => _updateState(const AuthenticationState.error('Логин уже занят')),
-        // badConnection: () => _updateState(const AuthenticationState.error('Нет соединения с интернетом')),
-      );
+          // loginAlreadyExist: () => _updateState(const AuthenticationState.error('Логин уже занят')),
+          // badConnection: () => _updateState(const AuthenticationState.error('Нет соединения с интернетом')),
+          );
     } on Object catch (e, s) {
       debugPrint(e as String?);
       debugPrintStack(stackTrace: s);
