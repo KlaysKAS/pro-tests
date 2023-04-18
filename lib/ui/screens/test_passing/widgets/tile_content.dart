@@ -1,14 +1,16 @@
 part of 'test_result_widget.dart';
 
 class _Tile extends StatelessWidget {
-  final TestInfo test;
+  final TestResults test;
   final int rightAmount;
   final Color color;
+  final VoidCallback onDetailPressed;
 
   const _Tile({
     required this.color,
     required this.test,
     required this.rightAmount,
+    required this.onDetailPressed,
   });
 
   @override
@@ -37,9 +39,7 @@ class _Tile extends StatelessWidget {
           ),
         ),
         DetailButton(
-          onTap: () {
-            //TODO: implement UserTile detail button
-          },
+          onTap: onDetailPressed,
         )
       ],
     );
@@ -52,7 +52,7 @@ class _Content extends StatelessWidget {
     required this.rightAmount,
   });
 
-  final TestInfo test;
+  final TestResults test;
   final int rightAmount;
 
   @override
