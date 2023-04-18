@@ -2,9 +2,10 @@ name: Run checks in pr
 
 on:
   pull_request:
+
   push:
     branches:
-      - main
+      - master
 
 jobs:
   lint:
