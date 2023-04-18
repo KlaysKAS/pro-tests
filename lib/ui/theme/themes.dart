@@ -3,6 +3,7 @@ import 'package:pro_tests/ui/theme/extentions/padding_extention.dart';
 
 import 'ElevatedButton/elevated_button.dart';
 import 'TextField/text_field.dart';
+import 'bottom_navigation/bottom_navigation_theme.dart';
 import 'const.dart';
 
 class AppThemes {
@@ -25,6 +26,7 @@ class AppThemes {
     ),
     inputDecorationTheme: TextFieldThemes.main,
     elevatedButtonTheme: ElevatedButtonThemes.main,
+    bottomNavigationBarTheme: BottomNavigationTheme.main,
     extensions: const [PaddingThemeExtention()],
   );
 
@@ -47,6 +49,7 @@ class AppThemes {
     ),
     inputDecorationTheme: TextFieldThemes.dark,
     elevatedButtonTheme: ElevatedButtonThemes.dark,
+    bottomNavigationBarTheme: BottomNavigationTheme.dark,
     extensions: const [PaddingThemeExtention()],
   );
 }
