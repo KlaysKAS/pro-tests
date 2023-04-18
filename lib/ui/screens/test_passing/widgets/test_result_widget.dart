@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:pro_tests/data/model/test_info/test_info.dart';
 import 'package:pro_tests/data/model/test_results/test_results.dart';
 import 'package:pro_tests/ui/theme/const.dart';
 import 'package:pro_tests/ui/widgets/detail_button.dart';

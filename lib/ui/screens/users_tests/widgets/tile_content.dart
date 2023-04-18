@@ -1,10 +1,9 @@
 part of 'user_test_widget.dart';
 
 class _TileContent extends StatelessWidget {
-  const _TileContent({
-    required this.isDismissing,
-    required this.test,
-  });
+  final void Function(int id) onDetalePressed;
+
+  const _TileContent({required this.isDismissing, required this.test, required this.onDetalePressed});
 
   final bool isDismissing;
   final TestInfo test;
@@ -35,7 +34,7 @@ class _TileContent extends StatelessWidget {
                     const SizedBox(height: 8),
                     Text('${test.questions.length} вопросов'),
                     const SizedBox(height: 8),
-                    Text('Прошло ${test.partisipants} человек'),
+                    Text('Прошло ${test.participants ?? 0} человек'),
                   ],
                 ),
               ),
@@ -44,7 +43,7 @@ class _TileContent extends StatelessWidget {
         ),
         DetailButton(
           onTap: () {
-            //TODO: implement UserTile detail button
+            onDetalePressed(test.id);
           },
         )
       ],
