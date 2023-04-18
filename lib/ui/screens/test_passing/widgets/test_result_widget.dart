@@ -27,9 +27,7 @@ class TestResultWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(test.questions.length);
     final rate = _calcRate();
-    print(rate);
     final color = rate < Const.testResultLowerBound
         ? Const.wrongAnswerColor
         : rate < Const.testResultUpperBound
