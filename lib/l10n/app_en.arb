@@ -39,6 +39,7 @@
 
   "homeLinkDialogCodeTestTitle": "Enter the code of test",
   "homeLinkDialogBtn": "Ok",
+  "homeNoTests": "There are no tests",
 
 
   "createdTestDetailsAppbarTitle": "{appbarTitle}",
