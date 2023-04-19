@@ -19,12 +19,20 @@ class SplashScreenScreen extends StatelessWidget {
 
   void _pushAuth() async {
     AppRouter.router.replaceNamed(AppRoutes.auth.name);
-    FlutterNativeSplash.remove();
+  }
+
+  void _pushHome() async {
+    AppRouter.router.replaceNamed(AppRoutes.home.name);
   }
 
   Future<void> _initLocator() async {
     serviceLocator = AppLocator();
-    await serviceLocator.init();
-    _pushAuth();
+    final hasToken = await serviceLocator.init();
+    if (!hasToken) {
+      _pushAuth();
+    } else {
+      _pushHome();
+    }
+    FlutterNativeSplash.remove();
   }
 }

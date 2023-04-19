@@ -26,8 +26,8 @@ class MainFormInput extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: Const.paddingBetweenLarge),
       child: TextFormField(
-        minLines: minLines,
-        maxLines: maxLines,
+        minLines: minLines ?? 1,
+        maxLines: maxLines ?? 1,
         validator: validator,
         obscureText: obscureText,
         controller: controller,
