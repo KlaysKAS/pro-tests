@@ -6,17 +6,20 @@ import 'package:pro_tests/domain/services/auth_service.dart';
 class AuthServiceImpl extends AuthService {
   final Dio dio;
 
-  final String _signInUrl = '/api/v1/auth/signin';
-  final String _signUpUrl = '/api/v1/auth/signup';
+  final String _signInUrl = '/auth/signin';
+  final String _signUpUrl = '/auth/signup';
 
-  final String _baseUrl = 'https://protests.cfeee1e5e4e00a.ru';
+  final String _baseUrl = 'https://protests.cfeee1e5e4e00a.ru/api/v1';
 
   AuthServiceImpl(this.dio);
 
   @override
   Future<String> login(UserCredentialsAuthService loginCred) async {
     try {
-      final response = await dio.post(_baseUrl + _signInUrl, data: loginCred.toJson());
+      final response = await dio.post(
+        _baseUrl + _signInUrl,
+        data: loginCred.toJson(),
+      );
       return response.data['bearer'];
     } on DioError catch (e) {
       if (e.response?.statusCode == null) {

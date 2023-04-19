@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:pro_tests/data/model/test_results/test_results.dart';
-import 'package:pro_tests/ui/screens/users_tests/widgets/user_test_widget.dart';
 import 'package:pro_tests/ui/theme/const.dart';
 import 'package:pro_tests/ui/widgets/detail_button.dart';
 import 'package:pro_tests/ui/widgets/test_icon.dart';
@@ -10,12 +9,13 @@ import 'package:pro_tests/ui/widgets/tile_container.dart';
 part 'tile_content.dart';
 
 class TestResultWidget extends StatelessWidget {
-  final TestInfo test;
   final TestResults result;
+  final VoidCallback onDetailPressed;
+
   const TestResultWidget({
     super.key,
-    required this.test,
     required this.result,
+    required this.onDetailPressed,
   });
 
   int get _rightAmount =>
@@ -35,8 +35,9 @@ class TestResultWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: Const.paddingBetweenLarge),
       child: _Tile(
+        onDetailPressed: onDetailPressed,
         color: color,
-        test: test,
+        test: result,
         rightAmount: _rightAmount,
       ),
     );

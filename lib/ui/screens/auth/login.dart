@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pro_tests/domain/models/user_credentials.dart';
 import 'package:pro_tests/domain/providers/auth_state.dart';
-import 'package:pro_tests/ui/screens/auth/auth.dart';
+import 'package:pro_tests/main.dart';
 import 'package:pro_tests/ui/theme/const.dart';
 import 'package:pro_tests/ui/utils/text_controllers.dart';
 import 'package:pro_tests/ui/widgets/main_button.dart';
@@ -20,8 +20,10 @@ class LoginScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final notifier = ref.read(authProvider.notifier);
-    final errorMessage = _parseError(ref.read(authProvider).whenOrNull(signInError: (s) => s));
+    final notifier = ref.read(serviceLocator.authenticationStateNotifier.notifier);
+    final errorMessage = _parseError(
+      ref.read(serviceLocator.authenticationStateNotifier).whenOrNull(signInError: (s) => s),
+    );
 
     return Scaffold(
       body: Column(
