@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:pro_tests/data/model/test_info/test_info.dart';
 import 'package:pro_tests/ui/widgets/swipable_card.dart';
 

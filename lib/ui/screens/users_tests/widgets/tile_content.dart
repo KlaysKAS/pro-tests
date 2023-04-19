@@ -10,6 +10,7 @@ class _TileContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final text = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
     return Stack(
       alignment: AlignmentDirectional.bottomEnd,
@@ -32,9 +33,9 @@ class _TileContent extends StatelessWidget {
                   children: [
                     Text(test.title),
                     const SizedBox(height: 8),
-                    Text('${test.questions.length} вопросов'),
+                    Text(text.homeTestQuestionsNum(test.questions.length)),
                     const SizedBox(height: 8),
-                    Text('Прошло ${test.participants ?? 0} человек'),
+                    Text(text.homeTestPassedPeopleNum(test.participants ?? 0)),
                   ],
                 ),
               ),
