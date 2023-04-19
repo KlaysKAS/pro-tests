@@ -17,5 +17,5 @@ abstract class ServiceLocator {
 // abstract final TestCreationStateNotifier testCreationStateNotifier;
 // abstract final TestListStateNotifier testListStateNotifier;
 
-  Future<void> init();
+  Future<bool> init();
 }

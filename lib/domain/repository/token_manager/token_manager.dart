@@ -5,17 +5,24 @@ const String _kTokenStorageKey = 'User bearer token';
 const Duration _kExpireTimeout = Duration(days: 30);
 
 class TokenManager {
+  final Function _initInterceptor;
+  final Function _removeInterceptor;
+
+  TokenManager(this._initInterceptor, this._removeInterceptor);
+
   final storage = const FlutterSecureStorage();
 
   Future<bool> putToken(String token) async {
     final isValid = isTokenValid(token);
     if (!isValid) return false;
     await storage.write(key: _kTokenStorageKey, value: token);
+    _initInterceptor(token);
     return true;
   }
 
   Future<void> deleteToken() async {
     await storage.delete(key: _kTokenStorageKey);
+    _removeInterceptor();
   }
 
   Future<String?> readToken() async {

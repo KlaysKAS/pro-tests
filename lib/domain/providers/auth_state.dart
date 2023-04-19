@@ -16,7 +16,7 @@ class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
 
   final AuthenticationRepository repo;
 
-  AuthenticationStateNotifier(this.repo, bool _weHaveToken) : super(_weHaveToken ? _successState : _initialState);
+  AuthenticationStateNotifier(this.repo) : super(_initialState);
 
   void _updateState(AuthenticationState newState) => state = newState;
 
