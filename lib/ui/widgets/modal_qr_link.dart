@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
 import 'package:pro_tests/ui/router/routes.dart';
+import 'package:pro_tests/ui/widgets/test_code_dialog.dart';
 
 class ModalBottomContent extends StatefulWidget {
-  const ModalBottomContent({
-    super.key,
-  });
+  final Future<void> Function() showMyDialog;
+  final void Function(String key) handleQrOrLink;
+
+  const ModalBottomContent({super.key, required this.showMyDialog, required this.handleQrOrLink});
 
   @override
   State<ModalBottomContent> createState() => _ModalBottomContentState();
@@ -28,20 +31,15 @@ class _ModalBottomContentState extends State<ModalBottomContent> {
           GestureDetector(
               child: const Icon(Icons.qr_code_2, size: 80, semanticLabel: 'by qr'),
               onTap: () {
-                _handleTap('qr');
+                widget.handleQrOrLink('qr');
               }),
           GestureDetector(
               child: const Icon(Icons.add_link, size: 80, semanticLabel: 'by link'),
               onTap: () {
-                _handleTap('link');
+                widget.handleQrOrLink('link');
               })
         ],
       ),
     );
   }
-
-  void _handleTap(key) => setState(() {
-        context.pop();
-        context.goNamed(AppRoutes.addTest.name, queryParams: <String, String>{'method': key});
-      });
 }

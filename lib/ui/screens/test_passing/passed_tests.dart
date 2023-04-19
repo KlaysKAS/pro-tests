@@ -9,6 +9,7 @@ import 'package:pro_tests/ui/screens/test_passing/widgets/test_result_widget.dar
 import 'package:pro_tests/ui/theme/const.dart';
 import 'package:pro_tests/ui/widgets/main_button.dart';
 import 'package:pro_tests/ui/widgets/modal_qr_link.dart';
+import 'package:pro_tests/ui/widgets/test_code_dialog.dart';
 
 class PassedTestScreen extends ConsumerWidget {
   const PassedTestScreen({super.key});
@@ -20,6 +21,21 @@ class PassedTestScreen extends ConsumerWidget {
     // final PassedTestState state = ref.watch(passedTestStateProvider);
     // final tests = state.tests
     final text = AppLocalizations.of(context)!;
+    Future<void> showMyDialog() async {
+      return showDialog<void>(
+        context: context,
+        barrierDismissible: false, // user must tap button!
+        builder: (BuildContext context) {
+          return const TestCodeDialog();
+        },
+      );
+    }
+
+    void handleQrOrLink(key) {
+      context.pop();
+      key == 'qr' ? context.goNamed(AppRoutes.addTest.name) : showMyDialog();
+    }
+
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -55,7 +71,10 @@ class PassedTestScreen extends ConsumerWidget {
                       ),
                       context: context,
                       builder: (BuildContext context) {
-                        return const ModalBottomContent();
+                        return ModalBottomContent(
+                          showMyDialog: showMyDialog,
+                          handleQrOrLink: handleQrOrLink,
+                        );
                       });
                 },
               ),
