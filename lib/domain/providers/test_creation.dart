@@ -1,31 +1,27 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pro_tests/domain/models/question/question.dart';
+import 'package:pro_tests/domain/models/test_with_question/test_with_questions.dart';
 
 import 'package:pro_tests/domain/repository/test_create_delete/test_create_delete_repository.dart';
 
-// ignore: non_type_as_type_argument
-class TestCreationStateNotifier extends StateNotifier<TestInfo> {
-  TestCreateDeleteRepository? repo;
+class TestCreationStateNotifier extends StateNotifier<TestWithQuestion> {
+  final TestCreateDeleteRepository repo;
 
   TestCreationStateNotifier(
     super.state, {
-    this.repo,
+    required this.repo,
   });
 
-  // ignore: undefined_class
-  void _updateState(TestInfo newState) => state = newState;
+  void _updateState(TestWithQuestion newState) => state = newState;
 
-  Future<bool> createTest(String name, String description) async {
-    final test = await repo?.createTest(name, description);
-    _updateState(test);
-
-    return test != null;
+  Future<void> createTest(String name, String description) async {
+    final test = await repo.createTest(name, description);
+    _updateState(state.copyWith(test: test));
   }
 
-  // ignore: undefined_class
-  Future<bool> addQuestion(Question question) async {
-    final test = await repo?.addQuestion(state.id, question);
-    _updateState(test);
-
-    return test != null;
+  Future<void> addQuestion(Question question) async {
+    final quest = await repo.addQuestion(state.test.id, question);
+    final list = state.question;
+    _updateState(state.copyWith(question: list..add(quest)));
   }
 }

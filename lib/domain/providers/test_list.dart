@@ -13,10 +13,14 @@ class TestListStateNotifier extends StateNotifier<List<TestInfo>> {
 
   _updateState(List<TestInfo> newState) => state = newState;
 
-  Future<bool> getUsersTests(String userId) async {
+  Future<void> getMyTests() async {
+    final tests = await repo.getUsersTests(myOwn: false);
+    _updateState(tests);
+  }
+
+  Future<void> getMyOwnedTests() async {
     final tests = await repo.getUsersTests();
     _updateState(tests);
-    return tests.isNotEmpty;
   }
 
   Future<bool> delete(int testId) async {
