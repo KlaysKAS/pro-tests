@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pro_tests/ui/router/routes.dart';
-
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'package:pro_tests/ui/router/routes.dart';
 import 'package:pro_tests/ui/theme/const.dart';
 
 class TestCodeDialog extends StatefulWidget {
@@ -15,17 +15,17 @@ class TestCodeDialog extends StatefulWidget {
 }
 
 class _TestCodeDialogState extends State<TestCodeDialog> {
-  late final TextEditingController testCodeController;
+  late final TextEditingController _testCodeController;
 
   @override
   void initState() {
-    testCodeController = TextEditingController();
+    _testCodeController = TextEditingController();
     super.initState();
   }
 
   @override
   void dispose() {
-    testCodeController.dispose();
+    _testCodeController.dispose();
     super.dispose();
   }
 
@@ -33,7 +33,7 @@ class _TestCodeDialogState extends State<TestCodeDialog> {
   Widget build(context) {
     return AlertDialog(
       title: _TitleTestCodeDialog(),
-      content: _ContentTestCodeDialog(testCodeController),
+      content: _ContentTestCodeDialog(_testCodeController),
     );
   }
 }
@@ -66,12 +66,13 @@ class _ContentTestCodeDialog extends StatelessWidget {
       child: Row(
         children: [
           Flexible(
-              child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: Const.paddingBetweenStandart),
-            child: TextFormField(
-              controller: _testCodeController,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: Const.paddingBetweenStandart),
+              child: TextFormField(
+                controller: _testCodeController,
+              ),
             ),
-          )),
+          ),
           ElevatedButton(
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: Const.paddingBetweenStandart),
