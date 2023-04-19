@@ -30,10 +30,11 @@ class _ModalBottomContentState extends State<ModalBottomContent> {
                 widget.handleQrOrLink('qr');
               }),
           GestureDetector(
-              child: const Icon(Icons.add_link, size: 80, semanticLabel: 'by link'),
-              onTap: () {
-                widget.handleQrOrLink('link');
-              })
+            child: const Icon(Icons.add_link, size: 80, semanticLabel: 'by link'),
+            onTap: () {
+              widget.handleQrOrLink('link');
+            },
+          )
         ],
       ),
     );

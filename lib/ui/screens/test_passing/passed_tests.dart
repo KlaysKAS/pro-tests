@@ -63,19 +63,20 @@ class PassedTestScreen extends ConsumerWidget {
                 btnText: text.homePassButton,
                 onPressed: () {
                   showModalBottomSheet<void>(
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Const.borderRadiusStandart,
-                          topRight: Const.borderRadiusStandart,
-                        ),
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Const.borderRadiusStandart,
+                        topRight: Const.borderRadiusStandart,
                       ),
-                      context: context,
-                      builder: (BuildContext context) {
-                        return ModalBottomContent(
-                          showMyDialog: showMyDialog,
-                          handleQrOrLink: handleQrOrLink,
-                        );
-                      });
+                    ),
+                    context: context,
+                    builder: (BuildContext context) {
+                      return ModalBottomContent(
+                        showMyDialog: showMyDialog,
+                        handleQrOrLink: handleQrOrLink,
+                      );
+                    },
+                  );
                 },
               ),
             ),
@@ -97,15 +98,18 @@ class _Content extends StatelessWidget {
   Widget build(BuildContext context) {
     if (tests.isNotEmpty) {
       return ListView.separated(
-          itemBuilder: (context, index) => TestResultWidget(
-                result: tests[index],
-                onDetailPressed: () =>
-                    context.goNamed(AppRoutes.testDetails.name, params: {'testId': '${tests[index]}'}),
-              ),
-          separatorBuilder: (context, index) => const SizedBox(
-                height: Const.paddingBetweenStandart,
-              ),
-          itemCount: tests.length);
+        itemBuilder: (context, index) => TestResultWidget(
+          result: tests[index],
+          onDetailPressed: () => context.goNamed(
+            AppRoutes.testDetails.name,
+            params: {'testId': '${tests[index]}'},
+          ),
+        ),
+        separatorBuilder: (context, index) => const SizedBox(
+          height: Const.paddingBetweenStandart,
+        ),
+        itemCount: tests.length,
+      );
     } else {
       return const Center(
         child: Text('There is no test right now'),
