@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'package:pro_tests/domain/providers/app_locator.dart';
-import 'package:pro_tests/ext.dart';
 import 'package:pro_tests/main.dart';
 import 'package:pro_tests/ui/router/router.dart';
 import 'package:pro_tests/ui/router/routes.dart';

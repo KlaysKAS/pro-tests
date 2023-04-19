@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:pro_tests/domain/exceptions/internet_exception.dart';
-import 'package:pro_tests/domain/models/user_credentials.dart';
+import 'package:pro_tests/domain/models/user_credentials/user_credentials.dart';
 import 'package:pro_tests/domain/repository/authentication/authentication.dart';
 import 'package:pro_tests/main.dart';
 import 'package:pro_tests/ui/states/authentication_state/authentication_state.dart';

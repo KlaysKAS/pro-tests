@@ -1,30 +1,27 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pro_tests/domain/models/test_info/test_info.dart';
 
-import 'package:pro_tests/domain/repository/test_creation.dart';
+import 'package:pro_tests/domain/repository/test_create_delete/test_create_delete_repository.dart';
 
-// ignore: non_type_as_type_argument
 class TestListStateNotifier extends StateNotifier<List<TestInfo>> {
-  TestCreationRepository? repo;
+  final TestCreateDeleteRepository repo;
 
   TestListStateNotifier(
     super.state, {
-    this.repo,
+    required this.repo,
   });
 
-  // ignore: non_type_as_type_argument
   _updateState(List<TestInfo> newState) => state = newState;
 
   Future<bool> getUsersTests(String userId) async {
-    final tests = repo?.getUsersTests(userId);
-    _updateState(tests ?? []);
-
-    return tests != null;
+    final tests = await repo.getUsersTests();
+    _updateState(tests);
+    return tests.isNotEmpty;
   }
 
-  Future<bool> delete(String testId) async {
-    final deletedTestId = repo?.deleteTest(testId);
-    _updateState(state.where((element) => element.id != deletedTestId).toList());
-
-    return deletedTestId == testId;
+  Future<bool> delete(int testId) async {
+    await repo.deleteTest(testId);
+    _updateState(state.where((element) => element.id != testId).toList());
+    return true;
   }
 }

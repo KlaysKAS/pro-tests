@@ -1,5 +1,5 @@
 import 'package:pro_tests/data/model/user/user_credentials_auth_service.dart';
-import 'package:pro_tests/domain/models/user_credentials.dart';
+import 'package:pro_tests/domain/models/user_credentials/user_credentials.dart';
 
 class UserCredentialsMapper {
   static UserCredentials fromBackend(UserCredentialsAuthService cred) {

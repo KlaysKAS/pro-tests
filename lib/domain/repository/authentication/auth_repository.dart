@@ -1,7 +1,7 @@
-import 'package:pro_tests/domain/models/user_credentials.dart';
+import 'package:pro_tests/domain/models/user_credentials/user_credentials.dart';
 import 'package:pro_tests/domain/repository/authentication/authentication.dart';
 import 'package:pro_tests/domain/services/auth_service.dart';
-import 'package:pro_tests/domain/user_credentials_mapper.dart';
+import 'package:pro_tests/domain/models/user_credentials/user_credentials_mapper.dart';
 
 class AuthenticationRepositoryImpl implements AuthenticationRepository {
   @override
