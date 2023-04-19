@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_tests/domain/providers/service_locator.dart';
 import 'package:pro_tests/ui/router/router.dart';
@@ -22,6 +23,8 @@ void main() {
       opts.tracesSampleRate = 1.0;
       opts.debug = true;
     });
+    WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+    FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
     runApp(const ProviderScope(child: MyApp()));
   }, (error, trace) async {

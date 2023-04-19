@@ -50,6 +50,7 @@ dependencies:
   sentry_dio: ^7.4.2
   flutter_secure_storage: ^8.0.0
   jwt_decoder: ^2.0.1
+  flutter_native_splash: ^2.2.19
 
 dev_dependencies:
   flutter_test:
