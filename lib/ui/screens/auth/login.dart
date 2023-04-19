@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:pro_tests/domain/models/user_credentials.dart';
+import 'package:pro_tests/domain/models/user_credentials/user_credentials.dart';
 import 'package:pro_tests/domain/providers/auth_state.dart';
 import 'package:pro_tests/main.dart';
 import 'package:pro_tests/ui/theme/const.dart';
