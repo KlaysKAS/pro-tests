@@ -1,9 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_tests/data/services/auth_service.dart';
+import 'package:pro_tests/data/services/test_create_delete_service_impl.dart';
+import 'package:pro_tests/domain/models/test_info/test_info.dart';
+import 'package:pro_tests/domain/models/test_lists/test_lists.dart';
+import 'package:pro_tests/domain/models/test_with_question/test_with_questions.dart';
 import 'package:pro_tests/domain/providers/auth_state.dart';
 import 'package:pro_tests/domain/providers/service_locator.dart';
+import 'package:pro_tests/domain/providers/test_creation.dart';
+import 'package:pro_tests/domain/providers/test_list.dart';
 import 'package:pro_tests/domain/repository/authentication/auth_repository.dart';
+import 'package:pro_tests/domain/repository/test_create_delete/test_create_delete_repository_impl.dart';
 import 'package:pro_tests/domain/repository/token_manager/token_manager.dart';
 import 'package:pro_tests/ui/router/router.dart';
 import 'package:pro_tests/ui/router/routes.dart';
@@ -23,22 +30,20 @@ class AppLocator implements ServiceLocator {
   // // TODO: implement testAttemptStateNotifier
   // TestAttemptStateNotifier get testAttemptStateNotifier => throw UnimplementedError();
   //
-  // @override
-  // // TODO: implement testCreationStateNotifier
-  // TestCreationStateNotifier get testCreationStateNotifier => throw UnimplementedError();
-  //
-  // @override
-  // // TODO: implement testListStateNotifier
-  // TestListStateNotifier get testListStateNotifier => throw UnimplementedError();
+  @override
+  late final StateNotifierProvider<TestCreationStateNotifier, TestWithQuestion> testCreationStateNotifier;
 
   @override
-  Future<bool> init() async {
+  late final StateNotifierProvider<TestListStateNotifier, TestLists> testListStateNotifier;
+
+  @override
+  Future<void> init() async {
     final token = await tokenManager.readToken();
     final isTokenValid = tokenManager.isTokenValid(token);
 
     _initInterceptors(token);
     _initAuth(isTokenValid);
-    return isTokenValid;
+    _initTestManage();
   }
 
   void _initInterceptors(String? token) {
@@ -64,6 +69,35 @@ class AppLocator implements ServiceLocator {
     final authenticationRepository = AuthenticationRepositoryImpl(authService);
     authenticationStateNotifier = StateNotifierProvider<AuthenticationStateNotifier, AuthenticationState>(
       (ref) => AuthenticationStateNotifier(authenticationRepository),
+    );
+  }
+
+  void _initTestManage() {
+    final testManageService = TestCreateDeleteServiceImpl(dio);
+    final testManageRepository = TestCreateDeleteRepositoryImpl(testManageService);
+    testCreationStateNotifier = StateNotifierProvider<TestCreationStateNotifier, TestWithQuestion>(
+      (ref) {
+        return TestCreationStateNotifier(
+          TestWithQuestion(
+            test: TestInfo(
+              0,
+              '',
+              '',
+              '',
+            ),
+            question: [],
+          ),
+          repo: testManageRepository,
+        );
+      },
+    );
+    testListStateNotifier = StateNotifierProvider<TestListStateNotifier, TestLists>(
+      (ref) {
+        return TestListStateNotifier(
+          const TestLists(myOwn: [], my: []),
+          repo: testManageRepository,
+        );
+      },
     );
   }
 }

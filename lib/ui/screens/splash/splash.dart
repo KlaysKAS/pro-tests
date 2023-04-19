@@ -27,8 +27,8 @@ class SplashScreenScreen extends StatelessWidget {
 
   Future<void> _initLocator() async {
     serviceLocator = AppLocator();
-    final hasToken = await serviceLocator.init();
-    if (!hasToken) {
+    final tm = serviceLocator.tokenManager;
+    if (tm.isTokenValid(await tm.readToken())) {
       _pushAuth();
     } else {
       _pushHome();
