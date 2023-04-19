@@ -49,7 +49,9 @@ class PassedTestScreen extends ConsumerWidget {
                   showModalBottomSheet<void>(
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
-                            topLeft: Const.borderRadiusStandart, topRight: Const.borderRadiusStandart),
+                          topLeft: Const.borderRadiusStandart,
+                          topRight: Const.borderRadiusStandart,
+                        ),
                       ),
                       context: context,
                       builder: (BuildContext context) {
