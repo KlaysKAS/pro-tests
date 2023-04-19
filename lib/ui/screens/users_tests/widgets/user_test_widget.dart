@@ -15,7 +15,7 @@ part 'tile_content.dart';
 class UserTestWidget extends StatefulWidget {
   final TestInfo test;
   final VoidCallback? onDismiss;
-  final void Function(int id) onDetalePressed;
+  final void Function(int? id) onDetalePressed;
 
   const UserTestWidget({
     super.key,

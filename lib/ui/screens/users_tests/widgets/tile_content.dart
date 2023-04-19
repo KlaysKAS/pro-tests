@@ -1,7 +1,7 @@
 part of 'user_test_widget.dart';
 
 class _TileContent extends StatelessWidget {
-  final void Function(int id) onDetalePressed;
+  final void Function(int? id) onDetalePressed;
 
   const _TileContent({required this.isDismissing, required this.test, required this.onDetalePressed});
 
@@ -33,9 +33,9 @@ class _TileContent extends StatelessWidget {
                   children: [
                     Text(test.title),
                     const SizedBox(height: 8),
-                    Text(text.homeTestQuestionsNum(test.questions.length)),
+                    Text(text.homeTestQuestionsNum('WIP')),
                     const SizedBox(height: 8),
-                    Text(text.homeTestPassedPeopleNum(test.participants ?? 0)),
+                    Text(text.homeTestPassedPeopleNum('WIP')),
                   ],
                 ),
               ),
