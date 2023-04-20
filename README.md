@@ -1,16 +1,38 @@
-# pro_tests
+<h5 align="center"><img src="./.github/docs/logo.png" alt="Про-тесты" height="100" /></h5>
+<h1 align="center">Про-тесты</h1>
 
-A new Flutter project.
+<p align="center">мобильное приложение для образования разработанное в рамках интенсива по Flutter-разработке от Яндекс в Сириусе 2023</p>
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Попробовать
 
-A few resources to get you started if this is your first Flutter project:
+Скачайте последную версию приложения из вкладки [Releases](https://github.com/sirius-pro-tests/app/releases)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Стек
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Flutter](https://flutter.dev/)
+- [Riverpod](https://riverpod.dev/)
+- [GoRouter](https://pub.dev/packages/go_router)
+- [Dio](https://pub.dev/packages/dio)
+- [freezed_annotation](https://pub.dev/packages/freezed_annotation)
+
+## Команда
+- Никита Березовский
+    - [@nikberX](https://github.com/nikberX)
+    - [Telegram](https://t.me/nikberX)
+
+- Нерлих Максим
+    - [@nerlihmax](https://github.com/nerlihmax)
+    - [Telegram](https://t.me/nerlihmax)
+    
+- Кирилл Долматов
+    - [@KlaysKAS](https://github.com/KlaysKAS)
+    - [Telegram](https://t.me/KlaysKAS)
+
+- Евгений Худышкин
+    - [@khudysh](https://github.com/khudysh)
+    - [Telegram](https://t.me/Galanga)
+
+- Валентин Чернышов
+    - [@zZzwat4er](https://github.com/zZzwat4er)
+    - [Telegram](https://t.me/wat4err)
