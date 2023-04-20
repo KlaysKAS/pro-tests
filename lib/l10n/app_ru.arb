@@ -40,8 +40,7 @@
   "homeLinkDialogCodeTestTitle": "Введите код теста",
   "homeLinkDialogBtn": "Ок",
   "homeLinkDialogCodeError": "Поле не может быть пустым",
-
-  "homeNoTests": "В списке нет тестов",
+  "homeNoTests": "Нет созданных тестов",
 
   "createdTestDetailsAppbarTitle": "{appbarTitle}",
   "createdTestDetailsTestName": "{testName}",

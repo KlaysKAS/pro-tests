@@ -24,7 +24,7 @@ void main() {
       opts.debug = true;
     });
     WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-    FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+    // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
     runApp(const ProviderScope(child: MyApp()));
   }, (error, trace) async {
