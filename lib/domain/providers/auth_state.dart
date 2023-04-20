@@ -5,6 +5,8 @@ import 'package:pro_tests/domain/exceptions/internet_exception.dart';
 import 'package:pro_tests/domain/models/user_credentials/user_credentials.dart';
 import 'package:pro_tests/domain/repository/authentication/authentication.dart';
 import 'package:pro_tests/main.dart';
+import 'package:pro_tests/ui/router/router.dart';
+import 'package:pro_tests/ui/router/routes.dart';
 import 'package:pro_tests/ui/states/authentication_state/authentication_state.dart';
 
 class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
@@ -72,5 +74,7 @@ class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
 
   void signOut() {
     _updateState(_initialState);
+    serviceLocator.tokenManager.deleteToken();
+    AppRouter.router.replaceNamed(AppRoutes.auth.name);
   }
 }

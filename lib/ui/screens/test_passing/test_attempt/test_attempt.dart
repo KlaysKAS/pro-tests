@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_tests/domain/exceptions/internet_exception.dart';
 import 'package:pro_tests/domain/models/question/question.dart';
 import 'package:pro_tests/domain/models/test_info/test_info.dart';
-import 'package:pro_tests/main.dart';
 import 'package:pro_tests/ui/theme/const.dart';
 import 'package:pro_tests/ui/widgets/custom_radio_button.dart';
 import 'package:pro_tests/ui/widgets/main_button.dart';
