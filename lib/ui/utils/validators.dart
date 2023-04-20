@@ -55,7 +55,7 @@ class Validators {
   }
 
   static String? testCodeValidator(String? value, AppLocalizations local) {
-    if (value == '') {
+    if (value == null || value.isEmpty) {
       return local.homeLinkDialogCodeError;
     }
     return null;
