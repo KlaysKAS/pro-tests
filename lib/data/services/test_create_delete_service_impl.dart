@@ -46,6 +46,7 @@ class TestCreateDeleteServiceImpl extends TestCreateDeleteService {
   Future<void> deleteTest(int testId) async {
     try {
       await dio.delete('$_baseUrl$_deleteTestURL/$testId');
+      return;
     } on DioError catch (e) {
       _errorResolver(e);
     } catch (e, s) {

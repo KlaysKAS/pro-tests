@@ -2,24 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pro_tests/data/model/test_info/test_info.dart';
+import 'package:pro_tests/domain/models/test_info/test_info.dart';
+import 'package:pro_tests/main.dart';
 import 'package:pro_tests/ui/router/routes.dart';
 import 'package:pro_tests/ui/screens/users_tests/widgets/user_test_widget.dart';
+import 'package:pro_tests/ui/states/test_list_state/test_list_stete.dart';
 import 'package:pro_tests/ui/theme/const.dart';
 import 'package:pro_tests/ui/widgets/main_button.dart';
 
 // in this code all commented code is nessesary and
 // should be uncommented as soon as DI is ready
-class UsersTestsScreen extends ConsumerWidget {
+class UsersTestsScreen extends ConsumerStatefulWidget {
   const UsersTestsScreen({super.key});
 
-  // Remove this line
-  final tests = const <TestInfo>[];
+  @override
+  ConsumerState<UsersTestsScreen> createState() => _UsersTestsScreenState();
+}
+
+class _UsersTestsScreenState extends ConsumerState<UsersTestsScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration.zero, () => ref.read(serviceLocator.testListStateNotifier.notifier).getMyOwnedTests());
+  }
 
   @override
-  Widget build(context, ref) {
-    // final UsersTestState state = ref.watch(usersTestStateProvider);
-    // final tests = state.tests
+  Widget build(context) {
+    final TestListState state = ref.watch(serviceLocator.testListStateNotifier);
     final text = AppLocalizations.of(context)!;
     return Scaffold(
       body: SafeArea(
@@ -33,20 +42,16 @@ class UsersTestsScreen extends ConsumerWidget {
               ),
             ),
             Expanded(
-              // Replace with commented code
-              child: (true)
-                  // child: (state.state == state.ready)
-                  ? _Content(
-                      tests: tests,
-                      onItemDismiss: (index) {
-                        // Replace with commented code
-                        tests.removeAt(index);
-                        // remove test action
-                        // ref.read(usersTestStateProvider).delete(tests[index].id);
-                      },
-                    )
-                  // ignore: dead_code
-                  : const Placeholder(),
+              child: state.when(
+                loading: (tests) => const CircularProgressIndicator(),
+                readyShow: (tests) => _Content(
+                  tests: tests.myOwn,
+                  onItemDismiss: (index) {
+                    ref.read(serviceLocator.testListStateNotifier.notifier).delete(tests.myOwn[index].id);
+                  },
+                ),
+                error: (tests, message) => Center(child: Text(message ?? '')),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: Const.paddingBetweenSmall),
@@ -81,7 +86,7 @@ class _Content extends StatelessWidget {
           itemBuilder: (context, index) => UserTestWidget(
                 key: ValueKey(tests[index].id),
                 test: tests[index],
-                onDetalePressed: (id) => context.goNamed(AppRoutes.editTest.name, params: {'testId': '$id'}),
+                onDetalePressed: (id) => context.goNamed(AppRoutes.testDetails.name, params: {'testId': '$id'}),
                 onDismiss: () => onItemDismiss(index),
               ),
           separatorBuilder: (context, index) => const SizedBox(
