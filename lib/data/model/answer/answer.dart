@@ -7,7 +7,7 @@ part 'answer.g.dart';
 @freezed
 class Answer with _$Answer {
   const factory Answer({
-    required final String title,
+    required final String question,
     required final String answer,
     final bool? right,
   }) = _Answer;

@@ -1,7 +1,7 @@
 part of 'question_answer_tile.dart';
 
 class _Content extends StatelessWidget {
-  final QuestionResult question;
+  final Answer question;
   final Color answerColor;
 
   const _Content({
@@ -16,7 +16,7 @@ class _Content extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          text.passedTestDetailsQuestion(question.question),
+          text.passedTestDetailsQuestion(question.title),
         ),
         const SizedBox(height: Const.paddingBetweenStandart),
         Text(

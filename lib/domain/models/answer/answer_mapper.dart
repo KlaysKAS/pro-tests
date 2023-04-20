@@ -3,10 +3,10 @@ import 'package:pro_tests/domain/models/answer/answer.dart';
 
 class AnswerMapper {
   static Answer fromBackend(data.Answer ans) {
-    return Answer(title: ans.title, answer: ans.answer, right: ans.right!);
+    return Answer(title: ans.question, answer: ans.answer, right: ans.right!);
   }
 
   static data.Answer fromDomain(Answer ans) {
-    return data.Answer(title: ans.title, answer: ans.answer);
+    return data.Answer(question: ans.title, answer: ans.answer);
   }
 }

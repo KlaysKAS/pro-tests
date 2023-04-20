@@ -7,7 +7,7 @@ import 'package:pro_tests/domain/exceptions/internet_exception.dart';
 import 'package:pro_tests/domain/services/test_get_passing_results_service.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
-abstract class TestGetPassingResultsServiceImpl extends TestGetPassingResultsService {
+class TestGetPassingResultsServiceImpl extends TestGetPassingResultsService {
   TestGetPassingResultsServiceImpl(super.dio);
 
   final _baseUrl = 'https://protests.cfeee1e5e4e00a.ru/api/v1/tests/';
@@ -48,7 +48,7 @@ abstract class TestGetPassingResultsServiceImpl extends TestGetPassingResultsSer
     try {
       final response = await dio.get(url);
       if (response.statusCode == 204) return [];
-      return response.data.map((quest) => Answer.fromJson(quest)).toList();
+      return (response.data as List<dynamic>).map((quest) => Answer.fromJson(quest)).toList();
     } on DioError catch (e, s) {
       _errorResolver(e, s);
     } catch (e, s) {

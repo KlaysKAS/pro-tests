@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_tests/data/services/auth_service.dart';
 import 'package:pro_tests/data/services/test_create_delete_service_impl.dart';
+import 'package:pro_tests/data/services/test_get_passing_results_service_imp.dart';
 import 'package:pro_tests/domain/models/test_info/test_info.dart';
 import 'package:pro_tests/domain/models/test_lists/test_lists.dart';
 import 'package:pro_tests/domain/models/test_with_question/test_with_questions.dart';
@@ -9,12 +10,16 @@ import 'package:pro_tests/domain/providers/auth_state.dart';
 import 'package:pro_tests/domain/providers/service_locator.dart';
 import 'package:pro_tests/domain/providers/test_creation.dart';
 import 'package:pro_tests/domain/providers/test_list.dart';
+import 'package:pro_tests/domain/providers/test_results.dart';
 import 'package:pro_tests/domain/repository/authentication/auth_repository.dart';
 import 'package:pro_tests/domain/repository/test_create_delete/test_create_delete_repository_impl.dart';
+import 'package:pro_tests/domain/repository/test_get_passing_result/test_get_passing_result_repo_impl.dart';
 import 'package:pro_tests/domain/repository/token_manager/token_manager.dart';
 import 'package:pro_tests/ui/router/router.dart';
 import 'package:pro_tests/ui/router/routes.dart';
 import 'package:pro_tests/ui/states/authentication_state/authentication_state.dart';
+import 'package:pro_tests/ui/states/test_results_state/test_results_state.dart';
+import 'package:sentry_dio/sentry_dio.dart';
 
 class AppLocator implements ServiceLocator {
   @override
@@ -37,6 +42,9 @@ class AppLocator implements ServiceLocator {
   late final StateNotifierProvider<TestListStateNotifier, TestLists> testListStateNotifier;
 
   @override
+  late final StateNotifierProvider<TestResultStateNotifier, TestResultState> testResultsStateNotifier;
+
+  @override
   Future<void> init() async {
     final token = await tokenManager.readToken();
     final isTokenValid = tokenManager.isTokenValid(token);
@@ -44,6 +52,8 @@ class AppLocator implements ServiceLocator {
     _initInterceptors(token);
     _initAuth(isTokenValid);
     _initTestManage();
+    _initTestResults();
+    dio.addSentry();
   }
 
   void _initInterceptors(String? token) {
@@ -99,6 +109,12 @@ class AppLocator implements ServiceLocator {
         );
       },
     );
+  }
+
+  void _initTestResults() {
+    final service = TestGetPassingResultsServiceImpl(dio);
+    final repo = TestGetPassingResultRepoImpl(service);
+    testResultsStateNotifier = StateNotifierProvider((ref) => TestResultStateNotifier(repo));
   }
 }
 

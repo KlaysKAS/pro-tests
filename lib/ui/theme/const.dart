@@ -10,6 +10,7 @@ class Const {
   static const formErrorColor = Color(0xFFB3261E);
   static const rightAnswerColor = Color(0xFF38A305);
   static const wrongAnswerColor = Color(0xFFFF3F1E);
+  static const lightenPrimaryColor = Color(0xFFFADF87);
 
   static const darkPrimaryColor = Color(0xFFFFCC00);
   static const darkBackgroundColor = Color(0xFF3A3A3A);
@@ -20,6 +21,7 @@ class Const {
   static const darkFormErrorColor = Color(0xFFB3261E);
   static const darkRightAnswerColor = Color(0xFF38A305);
   static const darkWrongAnswerColor = Color(0xFFFF3F1E);
+  static const darkestPrimaryColor = Color(0xFFA88500);
 
   static const borderRadiusSmall = Radius.circular(4);
   static const borderRadiusStandart = Radius.circular(8);

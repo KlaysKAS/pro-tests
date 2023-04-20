@@ -20,7 +20,7 @@ Answer _$AnswerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Answer {
-  String get title => throw _privateConstructorUsedError;
+  String get question => throw _privateConstructorUsedError;
   String get answer => throw _privateConstructorUsedError;
   bool? get right => throw _privateConstructorUsedError;
 
@@ -33,7 +33,7 @@ mixin _$Answer {
 abstract class $AnswerCopyWith<$Res> {
   factory $AnswerCopyWith(Answer value, $Res Function(Answer) then) = _$AnswerCopyWithImpl<$Res, Answer>;
   @useResult
-  $Res call({String title, String answer, bool? right});
+  $Res call({String question, String answer, bool? right});
 }
 
 /// @nodoc
@@ -48,14 +48,14 @@ class _$AnswerCopyWithImpl<$Res, $Val extends Answer> implements $AnswerCopyWith
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = null,
+    Object? question = null,
     Object? answer = null,
     Object? right = freezed,
   }) {
     return _then(_value.copyWith(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+      question: null == question
+          ? _value.question
+          : question // ignore: cast_nullable_to_non_nullable
               as String,
       answer: null == answer
           ? _value.answer
@@ -74,7 +74,7 @@ abstract class _$$_AnswerCopyWith<$Res> implements $AnswerCopyWith<$Res> {
   factory _$$_AnswerCopyWith(_$_Answer value, $Res Function(_$_Answer) then) = __$$_AnswerCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String title, String answer, bool? right});
+  $Res call({String question, String answer, bool? right});
 }
 
 /// @nodoc
@@ -84,14 +84,14 @@ class __$$_AnswerCopyWithImpl<$Res> extends _$AnswerCopyWithImpl<$Res, _$_Answer
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? title = null,
+    Object? question = null,
     Object? answer = null,
     Object? right = freezed,
   }) {
     return _then(_$_Answer(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
+      question: null == question
+          ? _value.question
+          : question // ignore: cast_nullable_to_non_nullable
               as String,
       answer: null == answer
           ? _value.answer
@@ -108,12 +108,12 @@ class __$$_AnswerCopyWithImpl<$Res> extends _$AnswerCopyWithImpl<$Res, _$_Answer
 /// @nodoc
 @JsonSerializable()
 class _$_Answer implements _Answer {
-  const _$_Answer({required this.title, required this.answer, this.right});
+  const _$_Answer({required this.question, required this.answer, this.right});
 
   factory _$_Answer.fromJson(Map<String, dynamic> json) => _$$_AnswerFromJson(json);
 
   @override
-  final String title;
+  final String question;
   @override
   final String answer;
   @override
@@ -121,7 +121,7 @@ class _$_Answer implements _Answer {
 
   @override
   String toString() {
-    return 'Answer(title: $title, answer: $answer, right: $right)';
+    return 'Answer(question: $question, answer: $answer, right: $right)';
   }
 
   @override
@@ -129,14 +129,14 @@ class _$_Answer implements _Answer {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Answer &&
-            (identical(other.title, title) || other.title == title) &&
+            (identical(other.question, question) || other.question == question) &&
             (identical(other.answer, answer) || other.answer == answer) &&
             (identical(other.right, right) || other.right == right));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, title, answer, right);
+  int get hashCode => Object.hash(runtimeType, question, answer, right);
 
   @JsonKey(ignore: true)
   @override
@@ -152,12 +152,12 @@ class _$_Answer implements _Answer {
 }
 
 abstract class _Answer implements Answer {
-  const factory _Answer({required final String title, required final String answer, final bool? right}) = _$_Answer;
+  const factory _Answer({required final String question, required final String answer, final bool? right}) = _$_Answer;
 
   factory _Answer.fromJson(Map<String, dynamic> json) = _$_Answer.fromJson;
 
   @override
-  String get title;
+  String get question;
   @override
   String get answer;
   @override
