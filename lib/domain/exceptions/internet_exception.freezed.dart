@@ -22,6 +22,8 @@ mixin _$InternetException {
     required TResult Function() loginAlreadyExist,
     required TResult Function() badConnection,
     required TResult Function() somethingWentWrong,
+    required TResult Function() notFound,
+    required TResult Function() permissionDenied,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +32,8 @@ mixin _$InternetException {
     TResult? Function()? loginAlreadyExist,
     TResult? Function()? badConnection,
     TResult? Function()? somethingWentWrong,
+    TResult? Function()? notFound,
+    TResult? Function()? permissionDenied,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +42,8 @@ mixin _$InternetException {
     TResult Function()? loginAlreadyExist,
     TResult Function()? badConnection,
     TResult Function()? somethingWentWrong,
+    TResult Function()? notFound,
+    TResult Function()? permissionDenied,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +53,8 @@ mixin _$InternetException {
     required TResult Function(LoginAlreadyExist value) loginAlreadyExist,
     required TResult Function(BadConnection value) badConnection,
     required TResult Function(SomethingWentWrong value) somethingWentWrong,
+    required TResult Function(NotFound value) notFound,
+    required TResult Function(PermissionDenied value) permissionDenied,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +63,8 @@ mixin _$InternetException {
     TResult? Function(LoginAlreadyExist value)? loginAlreadyExist,
     TResult? Function(BadConnection value)? badConnection,
     TResult? Function(SomethingWentWrong value)? somethingWentWrong,
+    TResult? Function(NotFound value)? notFound,
+    TResult? Function(PermissionDenied value)? permissionDenied,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +73,8 @@ mixin _$InternetException {
     TResult Function(LoginAlreadyExist value)? loginAlreadyExist,
     TResult Function(BadConnection value)? badConnection,
     TResult Function(SomethingWentWrong value)? somethingWentWrong,
+    TResult Function(NotFound value)? notFound,
+    TResult Function(PermissionDenied value)? permissionDenied,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +133,8 @@ class _$NoAccount implements NoAccount {
     required TResult Function() loginAlreadyExist,
     required TResult Function() badConnection,
     required TResult Function() somethingWentWrong,
+    required TResult Function() notFound,
+    required TResult Function() permissionDenied,
   }) {
     return noAccount();
   }
@@ -132,6 +146,8 @@ class _$NoAccount implements NoAccount {
     TResult? Function()? loginAlreadyExist,
     TResult? Function()? badConnection,
     TResult? Function()? somethingWentWrong,
+    TResult? Function()? notFound,
+    TResult? Function()? permissionDenied,
   }) {
     return noAccount?.call();
   }
@@ -143,6 +159,8 @@ class _$NoAccount implements NoAccount {
     TResult Function()? loginAlreadyExist,
     TResult Function()? badConnection,
     TResult Function()? somethingWentWrong,
+    TResult Function()? notFound,
+    TResult Function()? permissionDenied,
     required TResult orElse(),
   }) {
     if (noAccount != null) {
@@ -158,6 +176,8 @@ class _$NoAccount implements NoAccount {
     required TResult Function(LoginAlreadyExist value) loginAlreadyExist,
     required TResult Function(BadConnection value) badConnection,
     required TResult Function(SomethingWentWrong value) somethingWentWrong,
+    required TResult Function(NotFound value) notFound,
+    required TResult Function(PermissionDenied value) permissionDenied,
   }) {
     return noAccount(this);
   }
@@ -169,6 +189,8 @@ class _$NoAccount implements NoAccount {
     TResult? Function(LoginAlreadyExist value)? loginAlreadyExist,
     TResult? Function(BadConnection value)? badConnection,
     TResult? Function(SomethingWentWrong value)? somethingWentWrong,
+    TResult? Function(NotFound value)? notFound,
+    TResult? Function(PermissionDenied value)? permissionDenied,
   }) {
     return noAccount?.call(this);
   }
@@ -180,6 +202,8 @@ class _$NoAccount implements NoAccount {
     TResult Function(LoginAlreadyExist value)? loginAlreadyExist,
     TResult Function(BadConnection value)? badConnection,
     TResult Function(SomethingWentWrong value)? somethingWentWrong,
+    TResult Function(NotFound value)? notFound,
+    TResult Function(PermissionDenied value)? permissionDenied,
     required TResult orElse(),
   }) {
     if (noAccount != null) {
@@ -231,6 +255,8 @@ class _$LoginAlreadyExist implements LoginAlreadyExist {
     required TResult Function() loginAlreadyExist,
     required TResult Function() badConnection,
     required TResult Function() somethingWentWrong,
+    required TResult Function() notFound,
+    required TResult Function() permissionDenied,
   }) {
     return loginAlreadyExist();
   }
@@ -242,6 +268,8 @@ class _$LoginAlreadyExist implements LoginAlreadyExist {
     TResult? Function()? loginAlreadyExist,
     TResult? Function()? badConnection,
     TResult? Function()? somethingWentWrong,
+    TResult? Function()? notFound,
+    TResult? Function()? permissionDenied,
   }) {
     return loginAlreadyExist?.call();
   }
@@ -253,6 +281,8 @@ class _$LoginAlreadyExist implements LoginAlreadyExist {
     TResult Function()? loginAlreadyExist,
     TResult Function()? badConnection,
     TResult Function()? somethingWentWrong,
+    TResult Function()? notFound,
+    TResult Function()? permissionDenied,
     required TResult orElse(),
   }) {
     if (loginAlreadyExist != null) {
@@ -268,6 +298,8 @@ class _$LoginAlreadyExist implements LoginAlreadyExist {
     required TResult Function(LoginAlreadyExist value) loginAlreadyExist,
     required TResult Function(BadConnection value) badConnection,
     required TResult Function(SomethingWentWrong value) somethingWentWrong,
+    required TResult Function(NotFound value) notFound,
+    required TResult Function(PermissionDenied value) permissionDenied,
   }) {
     return loginAlreadyExist(this);
   }
@@ -279,6 +311,8 @@ class _$LoginAlreadyExist implements LoginAlreadyExist {
     TResult? Function(LoginAlreadyExist value)? loginAlreadyExist,
     TResult? Function(BadConnection value)? badConnection,
     TResult? Function(SomethingWentWrong value)? somethingWentWrong,
+    TResult? Function(NotFound value)? notFound,
+    TResult? Function(PermissionDenied value)? permissionDenied,
   }) {
     return loginAlreadyExist?.call(this);
   }
@@ -290,6 +324,8 @@ class _$LoginAlreadyExist implements LoginAlreadyExist {
     TResult Function(LoginAlreadyExist value)? loginAlreadyExist,
     TResult Function(BadConnection value)? badConnection,
     TResult Function(SomethingWentWrong value)? somethingWentWrong,
+    TResult Function(NotFound value)? notFound,
+    TResult Function(PermissionDenied value)? permissionDenied,
     required TResult orElse(),
   }) {
     if (loginAlreadyExist != null) {
@@ -340,6 +376,8 @@ class _$BadConnection implements BadConnection {
     required TResult Function() loginAlreadyExist,
     required TResult Function() badConnection,
     required TResult Function() somethingWentWrong,
+    required TResult Function() notFound,
+    required TResult Function() permissionDenied,
   }) {
     return badConnection();
   }
@@ -351,6 +389,8 @@ class _$BadConnection implements BadConnection {
     TResult? Function()? loginAlreadyExist,
     TResult? Function()? badConnection,
     TResult? Function()? somethingWentWrong,
+    TResult? Function()? notFound,
+    TResult? Function()? permissionDenied,
   }) {
     return badConnection?.call();
   }
@@ -362,6 +402,8 @@ class _$BadConnection implements BadConnection {
     TResult Function()? loginAlreadyExist,
     TResult Function()? badConnection,
     TResult Function()? somethingWentWrong,
+    TResult Function()? notFound,
+    TResult Function()? permissionDenied,
     required TResult orElse(),
   }) {
     if (badConnection != null) {
@@ -377,6 +419,8 @@ class _$BadConnection implements BadConnection {
     required TResult Function(LoginAlreadyExist value) loginAlreadyExist,
     required TResult Function(BadConnection value) badConnection,
     required TResult Function(SomethingWentWrong value) somethingWentWrong,
+    required TResult Function(NotFound value) notFound,
+    required TResult Function(PermissionDenied value) permissionDenied,
   }) {
     return badConnection(this);
   }
@@ -388,6 +432,8 @@ class _$BadConnection implements BadConnection {
     TResult? Function(LoginAlreadyExist value)? loginAlreadyExist,
     TResult? Function(BadConnection value)? badConnection,
     TResult? Function(SomethingWentWrong value)? somethingWentWrong,
+    TResult? Function(NotFound value)? notFound,
+    TResult? Function(PermissionDenied value)? permissionDenied,
   }) {
     return badConnection?.call(this);
   }
@@ -399,6 +445,8 @@ class _$BadConnection implements BadConnection {
     TResult Function(LoginAlreadyExist value)? loginAlreadyExist,
     TResult Function(BadConnection value)? badConnection,
     TResult Function(SomethingWentWrong value)? somethingWentWrong,
+    TResult Function(NotFound value)? notFound,
+    TResult Function(PermissionDenied value)? permissionDenied,
     required TResult orElse(),
   }) {
     if (badConnection != null) {
@@ -450,6 +498,8 @@ class _$SomethingWentWrong implements SomethingWentWrong {
     required TResult Function() loginAlreadyExist,
     required TResult Function() badConnection,
     required TResult Function() somethingWentWrong,
+    required TResult Function() notFound,
+    required TResult Function() permissionDenied,
   }) {
     return somethingWentWrong();
   }
@@ -461,6 +511,8 @@ class _$SomethingWentWrong implements SomethingWentWrong {
     TResult? Function()? loginAlreadyExist,
     TResult? Function()? badConnection,
     TResult? Function()? somethingWentWrong,
+    TResult? Function()? notFound,
+    TResult? Function()? permissionDenied,
   }) {
     return somethingWentWrong?.call();
   }
@@ -472,6 +524,8 @@ class _$SomethingWentWrong implements SomethingWentWrong {
     TResult Function()? loginAlreadyExist,
     TResult Function()? badConnection,
     TResult Function()? somethingWentWrong,
+    TResult Function()? notFound,
+    TResult Function()? permissionDenied,
     required TResult orElse(),
   }) {
     if (somethingWentWrong != null) {
@@ -487,6 +541,8 @@ class _$SomethingWentWrong implements SomethingWentWrong {
     required TResult Function(LoginAlreadyExist value) loginAlreadyExist,
     required TResult Function(BadConnection value) badConnection,
     required TResult Function(SomethingWentWrong value) somethingWentWrong,
+    required TResult Function(NotFound value) notFound,
+    required TResult Function(PermissionDenied value) permissionDenied,
   }) {
     return somethingWentWrong(this);
   }
@@ -498,6 +554,8 @@ class _$SomethingWentWrong implements SomethingWentWrong {
     TResult? Function(LoginAlreadyExist value)? loginAlreadyExist,
     TResult? Function(BadConnection value)? badConnection,
     TResult? Function(SomethingWentWrong value)? somethingWentWrong,
+    TResult? Function(NotFound value)? notFound,
+    TResult? Function(PermissionDenied value)? permissionDenied,
   }) {
     return somethingWentWrong?.call(this);
   }
@@ -509,6 +567,8 @@ class _$SomethingWentWrong implements SomethingWentWrong {
     TResult Function(LoginAlreadyExist value)? loginAlreadyExist,
     TResult Function(BadConnection value)? badConnection,
     TResult Function(SomethingWentWrong value)? somethingWentWrong,
+    TResult Function(NotFound value)? notFound,
+    TResult Function(PermissionDenied value)? permissionDenied,
     required TResult orElse(),
   }) {
     if (somethingWentWrong != null) {
@@ -520,4 +580,246 @@ class _$SomethingWentWrong implements SomethingWentWrong {
 
 abstract class SomethingWentWrong implements InternetException {
   const factory SomethingWentWrong() = _$SomethingWentWrong;
+}
+
+/// @nodoc
+abstract class _$$NotFoundCopyWith<$Res> {
+  factory _$$NotFoundCopyWith(_$NotFound value, $Res Function(_$NotFound) then) = __$$NotFoundCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NotFoundCopyWithImpl<$Res> extends _$InternetExceptionCopyWithImpl<$Res, _$NotFound>
+    implements _$$NotFoundCopyWith<$Res> {
+  __$$NotFoundCopyWithImpl(_$NotFound _value, $Res Function(_$NotFound) _then) : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NotFound implements NotFound {
+  const _$NotFound();
+
+  @override
+  String toString() {
+    return 'InternetException.notFound()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$NotFound);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noAccount,
+    required TResult Function() loginAlreadyExist,
+    required TResult Function() badConnection,
+    required TResult Function() somethingWentWrong,
+    required TResult Function() notFound,
+    required TResult Function() permissionDenied,
+  }) {
+    return notFound();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? noAccount,
+    TResult? Function()? loginAlreadyExist,
+    TResult? Function()? badConnection,
+    TResult? Function()? somethingWentWrong,
+    TResult? Function()? notFound,
+    TResult? Function()? permissionDenied,
+  }) {
+    return notFound?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noAccount,
+    TResult Function()? loginAlreadyExist,
+    TResult Function()? badConnection,
+    TResult Function()? somethingWentWrong,
+    TResult Function()? notFound,
+    TResult Function()? permissionDenied,
+    required TResult orElse(),
+  }) {
+    if (notFound != null) {
+      return notFound();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NoAccount value) noAccount,
+    required TResult Function(LoginAlreadyExist value) loginAlreadyExist,
+    required TResult Function(BadConnection value) badConnection,
+    required TResult Function(SomethingWentWrong value) somethingWentWrong,
+    required TResult Function(NotFound value) notFound,
+    required TResult Function(PermissionDenied value) permissionDenied,
+  }) {
+    return notFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NoAccount value)? noAccount,
+    TResult? Function(LoginAlreadyExist value)? loginAlreadyExist,
+    TResult? Function(BadConnection value)? badConnection,
+    TResult? Function(SomethingWentWrong value)? somethingWentWrong,
+    TResult? Function(NotFound value)? notFound,
+    TResult? Function(PermissionDenied value)? permissionDenied,
+  }) {
+    return notFound?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NoAccount value)? noAccount,
+    TResult Function(LoginAlreadyExist value)? loginAlreadyExist,
+    TResult Function(BadConnection value)? badConnection,
+    TResult Function(SomethingWentWrong value)? somethingWentWrong,
+    TResult Function(NotFound value)? notFound,
+    TResult Function(PermissionDenied value)? permissionDenied,
+    required TResult orElse(),
+  }) {
+    if (notFound != null) {
+      return notFound(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NotFound implements InternetException {
+  const factory NotFound() = _$NotFound;
+}
+
+/// @nodoc
+abstract class _$$PermissionDeniedCopyWith<$Res> {
+  factory _$$PermissionDeniedCopyWith(_$PermissionDenied value, $Res Function(_$PermissionDenied) then) =
+      __$$PermissionDeniedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$PermissionDeniedCopyWithImpl<$Res> extends _$InternetExceptionCopyWithImpl<$Res, _$PermissionDenied>
+    implements _$$PermissionDeniedCopyWith<$Res> {
+  __$$PermissionDeniedCopyWithImpl(_$PermissionDenied _value, $Res Function(_$PermissionDenied) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$PermissionDenied implements PermissionDenied {
+  const _$PermissionDenied();
+
+  @override
+  String toString() {
+    return 'InternetException.permissionDenied()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$PermissionDenied);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noAccount,
+    required TResult Function() loginAlreadyExist,
+    required TResult Function() badConnection,
+    required TResult Function() somethingWentWrong,
+    required TResult Function() notFound,
+    required TResult Function() permissionDenied,
+  }) {
+    return permissionDenied();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? noAccount,
+    TResult? Function()? loginAlreadyExist,
+    TResult? Function()? badConnection,
+    TResult? Function()? somethingWentWrong,
+    TResult? Function()? notFound,
+    TResult? Function()? permissionDenied,
+  }) {
+    return permissionDenied?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noAccount,
+    TResult Function()? loginAlreadyExist,
+    TResult Function()? badConnection,
+    TResult Function()? somethingWentWrong,
+    TResult Function()? notFound,
+    TResult Function()? permissionDenied,
+    required TResult orElse(),
+  }) {
+    if (permissionDenied != null) {
+      return permissionDenied();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NoAccount value) noAccount,
+    required TResult Function(LoginAlreadyExist value) loginAlreadyExist,
+    required TResult Function(BadConnection value) badConnection,
+    required TResult Function(SomethingWentWrong value) somethingWentWrong,
+    required TResult Function(NotFound value) notFound,
+    required TResult Function(PermissionDenied value) permissionDenied,
+  }) {
+    return permissionDenied(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NoAccount value)? noAccount,
+    TResult? Function(LoginAlreadyExist value)? loginAlreadyExist,
+    TResult? Function(BadConnection value)? badConnection,
+    TResult? Function(SomethingWentWrong value)? somethingWentWrong,
+    TResult? Function(NotFound value)? notFound,
+    TResult? Function(PermissionDenied value)? permissionDenied,
+  }) {
+    return permissionDenied?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NoAccount value)? noAccount,
+    TResult Function(LoginAlreadyExist value)? loginAlreadyExist,
+    TResult Function(BadConnection value)? badConnection,
+    TResult Function(SomethingWentWrong value)? somethingWentWrong,
+    TResult Function(NotFound value)? notFound,
+    TResult Function(PermissionDenied value)? permissionDenied,
+    required TResult orElse(),
+  }) {
+    if (permissionDenied != null) {
+      return permissionDenied(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PermissionDenied implements InternetException {
+  const factory PermissionDenied() = _$PermissionDenied;
 }
