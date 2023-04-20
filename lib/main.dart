@@ -5,9 +5,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
+
 import 'package:pro_tests/domain/providers/service_locator.dart';
 import 'package:pro_tests/ui/router/router.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:pro_tests/domain/providers/app_locator.dart';
 
 import 'l10n/all_locales.dart';
 import 'ui/theme/themes.dart';
@@ -24,8 +26,11 @@ void main() {
       opts.debug = true;
     });
     WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-    FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+    WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((timeStamp) {
+      serviceLocator = AppLocator();
+      FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
+    });
     runApp(const ProviderScope(child: MyApp()));
   }, (error, trace) async {
     await Sentry.captureException(error, stackTrace: trace);
