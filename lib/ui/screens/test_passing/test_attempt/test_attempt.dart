@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class TestAttemptScreen extends StatelessWidget {
-  TestAttemptScreen({super.key, this.testId});
+  const TestAttemptScreen({super.key, this.testId});
 
-  String? testId;
+  final String? testId;
 
   @override
   Widget build(BuildContext context) {
