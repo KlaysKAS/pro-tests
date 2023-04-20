@@ -46,8 +46,7 @@ class AppRouter {
           GoRoute(
               path: AppRoutes.addTest.name,
               name: AppRoutes.addTest.name,
-              builder: (context, state) => TestAddingScreen()
-          ),
+              builder: (context, state) => const TestAddingScreen()),
           GoRoute(
             path: '${AppRoutes.attemptTest.name}/:testId',
             name: AppRoutes.attemptTest.name,
