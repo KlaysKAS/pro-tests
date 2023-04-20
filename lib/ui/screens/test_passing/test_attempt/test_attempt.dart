@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TestAttemptScreen extends StatelessWidget {
-  const TestAttemptScreen({super.key});
+  TestAttemptScreen({super.key, this.testId});
+
+  String? testId;
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Text(testId!);
   }
 }

@@ -44,14 +44,17 @@ class AppRouter {
             builder: (context, state) => const TestDetailsScreen(),
           ),
           GoRoute(
-            path: AppRoutes.addTest.name,
-            name: AppRoutes.addTest.name,
-            builder: (context, state) => const TestAddingScreen(),
+              path: AppRoutes.addTest.name,
+              name: AppRoutes.addTest.name,
+              builder: (context, state) => TestAddingScreen()
           ),
           GoRoute(
             path: '${AppRoutes.attemptTest.name}/:testId',
             name: AppRoutes.attemptTest.name,
-            builder: (context, state) => const TestAttemptScreen(),
+            builder: (context, state) {
+              final testId = state.params['testId'] ?? 'Not';
+              return TestAttemptScreen(testId: testId);
+            },
           ),
           GoRoute(
             path: '${AppRoutes.testResults.name}/:testId',

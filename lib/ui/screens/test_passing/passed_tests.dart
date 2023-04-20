@@ -24,7 +24,7 @@ class PassedTestScreen extends ConsumerWidget {
     Future<void> showMyDialog() async {
       return showDialog<void>(
         context: context,
-        barrierDismissible: false, // user must tap button!
+        barrierDismissible: false,
         builder: (BuildContext context) {
           return const TestCodeDialog();
         },
@@ -33,7 +33,7 @@ class PassedTestScreen extends ConsumerWidget {
 
     void handleQrOrLink(key) {
       context.pop();
-      key == 'qr' ? context.goNamed(AppRoutes.addTest.name) : showMyDialog();
+      key == 'qr' ? context.goNamed(AppRoutes.attemptTest.name) : showMyDialog();
     }
 
     return Scaffold(
