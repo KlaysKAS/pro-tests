@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import 'package:pro_tests/data/services/auth_service.dart';
 import 'package:pro_tests/data/services/test_create_delete_service_impl.dart';
 import 'package:pro_tests/data/services/test_get_passing_results_service_imp.dart';
@@ -18,6 +21,7 @@ import 'package:pro_tests/domain/repository/token_manager/token_manager.dart';
 import 'package:pro_tests/ui/router/router.dart';
 import 'package:pro_tests/ui/router/routes.dart';
 import 'package:pro_tests/ui/states/authentication_state/authentication_state.dart';
+import 'package:pro_tests/ui/states/settings_state/settings_state.dart';
 import 'package:pro_tests/ui/states/test_results_state/test_results_state.dart';
 import 'package:sentry_dio/sentry_dio.dart';
 
@@ -27,6 +31,9 @@ class AppLocator implements ServiceLocator {
 
   @override
   late final tokenManager = TokenManager(_initInterceptors, _removeInterceptors);
+
+  @override
+  late final settingsProvider;
 
   @override
   late final StateNotifierProvider<AuthenticationStateNotifier, AuthenticationState> authenticationStateNotifier;
@@ -53,7 +60,15 @@ class AppLocator implements ServiceLocator {
     _initAuth(isTokenValid);
     _initTestManage();
     _initTestResults();
+    _initSettings();
+
     dio.addSentry();
+  }
+
+  void _initSettings() {
+    settingsProvider = StateProvider<SettingsState>((ref) {
+      return SettingsState(ThemeMode.dark, AppLocalizations.supportedLocales[0]);
+    });
   }
 
   void _initInterceptors(String? token) {

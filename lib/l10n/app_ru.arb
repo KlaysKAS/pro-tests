@@ -37,10 +37,22 @@
   "homePassButton":"Пройти",
   "homeBottomNavPassBtn":"Пройти тест",
 
+  "homeSettingsMainTitle": "Настройки",
+  "homeSettingsCommonSectionTitle": "Общие",
+  "homeSettingsLanguageTitle": "Язык",
+  "homeSettingsCurrentLanguage": "Русский",
+  "homeSettingsEnglishLanguage": "Английский",
+  "homeSettingsRussianLanguage": "Русский",
+  "homeSettingsDarkThemeTitle": "Темная тема",
+  "homeSettingsAccountSectionTitle": "Аккаунт",
+  "homeSettingsLogoutTitle": "Выйти",
+  "homeBottomNavSettingsBtn": "Настройки",
+
   "homeLinkDialogCodeTestTitle": "Введите код теста",
   "homeLinkDialogBtn": "Ок",
   "homeLinkDialogCodeError": "Поле не может быть пустым",
-  "homeNoTests": "Нет созданных тестов",
+
+  "homeNoTests": "Здесь ещё нет тестов",
 
   "createdTestDetailsAppbarTitle": "{appbarTitle}",
   "createdTestDetailsTestName": "{testName}",

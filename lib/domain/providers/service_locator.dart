@@ -10,6 +10,7 @@ import 'package:pro_tests/domain/providers/test_list.dart';
 import 'package:pro_tests/domain/providers/test_results.dart';
 import 'package:pro_tests/domain/repository/token_manager/token_manager.dart';
 import 'package:pro_tests/ui/states/authentication_state/authentication_state.dart';
+import 'package:pro_tests/ui/states/settings_state/settings_state.dart';
 import 'package:pro_tests/ui/states/test_results_state/test_results_state.dart';
 
 abstract class ServiceLocator {
@@ -19,6 +20,8 @@ abstract class ServiceLocator {
   abstract final TokenManager tokenManager;
 
   abstract final StateNotifierProvider<AuthenticationStateNotifier, AuthenticationState> authenticationStateNotifier;
+
+  abstract final StateProvider<SettingsState> settingsProvider;
 
 // abstract final TestAttemptStateNotifier testAttemptStateNotifier;
   abstract final StateNotifierProvider<TestCreationStateNotifier, TestWithQuestion> testCreationStateNotifier;
