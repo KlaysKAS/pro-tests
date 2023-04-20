@@ -20,6 +20,7 @@ import 'package:pro_tests/domain/repository/token_manager/token_manager.dart';
 import 'package:pro_tests/ui/router/router.dart';
 import 'package:pro_tests/ui/router/routes.dart';
 import 'package:pro_tests/ui/states/authentication_state/authentication_state.dart';
+import 'package:pro_tests/ui/states/test_list_state/test_list_stete.dart';
 import 'package:pro_tests/ui/states/settings_state/settings_state.dart';
 import 'package:pro_tests/ui/states/test_results_state/test_results_state.dart';
 import 'package:sentry_dio/sentry_dio.dart';
@@ -45,7 +46,7 @@ class AppLocator implements ServiceLocator {
   late final StateNotifierProvider<TestCreationStateNotifier, TestWithQuestion> testCreationStateNotifier;
 
   @override
-  late final StateNotifierProvider<TestListStateNotifier, TestLists> testListStateNotifier;
+  late final StateNotifierProvider<TestListStateNotifier, TestListState> testListStateNotifier;
 
   @override
   late final StateNotifierProvider<TestResultStateNotifier, TestResultState> testResultsStateNotifier;
@@ -104,10 +105,9 @@ class AppLocator implements ServiceLocator {
         return TestCreationStateNotifier(repo: testManageRepository);
       },
     );
-    testListStateNotifier = StateNotifierProvider<TestListStateNotifier, TestLists>(
+    testListStateNotifier = StateNotifierProvider<TestListStateNotifier, TestListState>(
       (ref) {
         return TestListStateNotifier(
-          const TestLists(myOwn: [], my: []),
           repo: testManageRepository,
         );
       },

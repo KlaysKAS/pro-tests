@@ -10,6 +10,7 @@ import 'package:pro_tests/domain/providers/test_list.dart';
 import 'package:pro_tests/domain/providers/test_results.dart';
 import 'package:pro_tests/domain/repository/token_manager/token_manager.dart';
 import 'package:pro_tests/ui/states/authentication_state/authentication_state.dart';
+import 'package:pro_tests/ui/states/test_list_state/test_list_stete.dart';
 import 'package:pro_tests/ui/states/settings_state/settings_state.dart';
 import 'package:pro_tests/ui/states/test_results_state/test_results_state.dart';
 
@@ -25,7 +26,7 @@ abstract class ServiceLocator {
 
 // abstract final TestAttemptStateNotifier testAttemptStateNotifier;
   abstract final StateNotifierProvider<TestCreationStateNotifier, TestWithQuestion> testCreationStateNotifier;
-  abstract final StateNotifierProvider<TestListStateNotifier, TestLists> testListStateNotifier;
+  abstract final StateNotifierProvider<TestListStateNotifier, TestListState> testListStateNotifier;
   abstract final StateNotifierProvider<TestResultStateNotifier, TestResultState> testResultsStateNotifier;
 
   Future<void> init();
