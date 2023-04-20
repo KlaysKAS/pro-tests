@@ -42,7 +42,7 @@ class SettingsScreen extends ConsumerWidget {
                       text.homeSettingsLanguageTitle,
                     ),
                     leading: const Icon(Icons.language),
-                    childrenPadding: EdgeInsets.symmetric(horizontal: Const.paddingBetweenStandart),
+                    childrenPadding: const EdgeInsets.symmetric(horizontal: Const.paddingBetweenStandart),
                     children: [
                       ListTile(
                         title: Text(text.homeSettingsEnglishLanguage),

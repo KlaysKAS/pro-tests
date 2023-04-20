@@ -33,7 +33,7 @@ class AppLocator implements ServiceLocator {
   late final tokenManager = TokenManager(_initInterceptors, _removeInterceptors);
 
   @override
-  late final settingsProvider;
+  late final StateProvider<SettingsState> settingsProvider;
 
   @override
   late final StateNotifierProvider<AuthenticationStateNotifier, AuthenticationState> authenticationStateNotifier;
