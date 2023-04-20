@@ -37,6 +37,17 @@
   "homePassButton":"Pass",
   "homeBottomNavPassBtn":"Pass test",
 
+  "homeSettingsMainTitle": "Settings",
+  "homeSettingsCommonSectionTitle": "Common",
+  "homeSettingsLanguageTitle": "Language",
+  "homeSettingsCurrentLanguage": "English",
+  "homeSettingsEnglishLanguage": "English",
+  "homeSettingsRussianLanguage": "Russian",
+  "homeSettingsDarkThemeTitle": "Dark Theme",
+  "homeSettingsAccountSectionTitle": "Account",
+  "homeSettingsLogoutTitle": "Logout",
+  "homeBottomNavSettingsBtn": "Settings",
+
   "homeLinkDialogCodeTestTitle": "Enter the code of test",
   "homeLinkDialogBtn": "Ok",
   "homeLinkDialogCodeError": "The field cannot be empty",

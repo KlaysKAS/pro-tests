@@ -96,6 +96,8 @@ class _Content extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final text = AppLocalizations.of(context)!;
+
     if (tests.isNotEmpty) {
       return ListView.separated(
         itemBuilder: (context, index) => TestResultWidget(
@@ -111,8 +113,8 @@ class _Content extends StatelessWidget {
         itemCount: tests.length,
       );
     } else {
-      return const Center(
-        child: Text('There is no test right now'),
+      return Center(
+        child: Text(text.homeNoTests),
       );
     }
   }

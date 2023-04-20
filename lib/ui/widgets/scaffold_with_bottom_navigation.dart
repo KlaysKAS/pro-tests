@@ -39,6 +39,10 @@ class _BottomNavState extends State<ScaffoldWithBottomNav> {
             label: text.homeBottomNavPassBtn,
             icon: const Icon(Icons.edit_note),
           ),
+          BottomNavigationBarItem(
+            label: text.homeBottomNavSettingsBtn,
+            icon: const Icon(Icons.settings),
+          ),
         ],
       ),
       body: pages[page],

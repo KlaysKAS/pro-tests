@@ -52,6 +52,7 @@ dependencies:
   jwt_decoder: ^2.0.1
   flutter_native_splash: ^2.2.19
   skeletons: ^0.0.3
+  settings_ui: ^2.0.2
 
 dev_dependencies:
   flutter_test:

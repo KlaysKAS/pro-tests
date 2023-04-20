@@ -32,7 +32,7 @@ class _SplashScreenScreenState extends ConsumerState<SplashScreenScreen> {
 
   Future<void> _initLocator() async {
     final tm = serviceLocator.tokenManager;
-    if (tm.isTokenValid(await tm.readToken())) {
+    if (!tm.isTokenValid(await tm.readToken())) {
       _pushAuth();
     } else {
       _pushHome();

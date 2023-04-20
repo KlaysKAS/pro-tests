@@ -35,20 +35,22 @@ void main() {
   });
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(serviceLocator.settingsProvider);
     return MaterialApp.router(
       supportedLocales: AllLocale.all,
+      locale: state.locale,
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
-      themeMode: ThemeMode.dark,
+      themeMode: state.theme,
       theme: AppThemes.lightTheme,
       darkTheme: AppThemes.darkTheme,
       routerConfig: AppRouter.router,
