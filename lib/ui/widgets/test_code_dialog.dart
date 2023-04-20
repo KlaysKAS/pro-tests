@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:pro_tests/ui/router/routes.dart';
 import 'package:pro_tests/ui/theme/const.dart';
+import 'package:pro_tests/ui/utils/validators.dart';
 
 class TestCodeDialog extends StatefulWidget {
   const TestCodeDialog({
@@ -55,41 +56,49 @@ class _TitleTestCodeDialog extends StatelessWidget {
 
 class _ContentTestCodeDialog extends StatelessWidget {
   final TextEditingController _testCodeController;
+  final formKey = GlobalKey<FormState>();
 
-  const _ContentTestCodeDialog(this._testCodeController);
+  _ContentTestCodeDialog(this._testCodeController);
 
   @override
   Widget build(BuildContext context) {
     final locale = AppLocalizations.of(context)!;
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: Const.paddingBetweenStandart),
-      child: Row(
-        children: [
-          Flexible(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: Const.paddingBetweenStandart),
-              child: TextFormField(
-                controller: _testCodeController,
+    return Form(
+      key: formKey,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: Const.paddingBetweenStandart),
+        child: Row(
+          children: [
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: Const.paddingBetweenStandart),
+                child: TextFormField(
+                  validator: (value) => Validators.testCodeValidator(value, locale),
+                  controller: _testCodeController,
+                ),
               ),
             ),
-          ),
-          ElevatedButton(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: Const.paddingBetweenStandart),
-              child: Text(
-                locale.homeLinkDialogBtn,
-                style: const TextStyle(fontSize: Const.fontSizeButton),
+            ElevatedButton(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: Const.paddingBetweenStandart),
+                child: Text(
+                  locale.homeLinkDialogBtn,
+                  style: const TextStyle(fontSize: Const.fontSizeButton),
+                ),
               ),
+              onPressed: () {
+                if (formKey.currentState!.validate()) {
+                  context.pop();
+                  context.goNamed(
+                    AppRoutes.attemptTest.name,
+                    params: <String, String>{'testId': _testCodeController.text},
+                  );
+                }
+              },
             ),
-            onPressed: () {
-              context.pop();
-              context.goNamed(
-                AppRoutes.addTest.name,
-                queryParams: <String, String>{'testCode': _testCodeController.text},
-              );
-            },
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

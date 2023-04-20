@@ -53,4 +53,11 @@ class Validators {
     }
     return null;
   }
+
+  static String? testCodeValidator(String? value, AppLocalizations local) {
+    if (value == '') {
+      return local.homeLinkDialogCodeError;
+    }
+    return null;
+  }
 }
