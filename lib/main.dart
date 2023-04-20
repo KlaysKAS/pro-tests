@@ -29,7 +29,6 @@ void main() {
     WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((timeStamp) {
       serviceLocator = AppLocator();
       FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-
     });
     runApp(const ProviderScope(child: MyApp()));
   }, (error, trace) async {
