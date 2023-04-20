@@ -2,9 +2,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_tests/domain/models/question/question.dart';
-import 'package:pro_tests/ext.dart';
 import 'package:pro_tests/main.dart';
-import 'package:pro_tests/ui/screens/users_tests/test_edit/widgets/add_answer_button.dart';
 import 'package:pro_tests/ui/theme/const.dart';
 import 'package:pro_tests/ui/widgets/custom_radio_button.dart';
 import 'package:pro_tests/ui/widgets/main_button.dart';
@@ -54,7 +52,7 @@ class _TestEditScreenState extends ConsumerState<TestEditScreen> {
             ),
             MainFormInput(
               controller: questionController,
-              decoration: InputDecoration(label: text.questionCreateFormQuestionTextTitle.toText()),
+              decoration: InputDecoration(label: Text(text.questionCreateFormQuestionTextTitle)),
             ),
             const Divider(),
             Expanded(
@@ -79,7 +77,7 @@ class _TestEditScreenState extends ConsumerState<TestEditScreen> {
   }
 
   void _pushQuestion() {
-    if (manager.getAnswers().isNotEmpty) return;
+    if (manager.getAnswers().isEmpty) return;
 
     final notifier = ref.read(serviceLocator.testCreationStateNotifier.notifier);
 
@@ -117,6 +115,7 @@ class _TestEditScreenState extends ConsumerState<TestEditScreen> {
     }
     questionController.clear();
     manager.init(questionType);
+    setState(() {});
   }
 }
 

@@ -2,7 +2,6 @@ part of '../test_edit.dart';
 
 class _Content extends StatefulWidget {
   const _Content({
-    super.key,
     required this.type,
     required this.onChanged,
     required this.manager,
@@ -63,7 +62,6 @@ class _ContentState extends State<_Content> {
 
   Widget _buildItems(BuildContext context, int index) {
     final text = AppLocalizations.of(context)!;
-    print(index);
     if (type != QuestionTypes.free && index < controllers.controllers.length) {
       return Row(
         children: [
@@ -99,17 +97,29 @@ class _ContentState extends State<_Content> {
           Expanded(
             child: MainFormInput(
               controller: controllers.controllers[index],
-              decoration: InputDecoration(label: text.questionCreateFormAnswerTextTitle(index + 1).toText()),
+              decoration: InputDecoration(label: Text(text.questionCreateFormAnswerTextTitle(index + 1))),
             ),
           ),
         ],
       );
     } else if (index == controllers.controllers.length) {
-      return AddAnswerButton(onPressed: () => setState(() => controllers.add()));
+      return Ink(
+        decoration: ShapeDecoration(
+          color: Theme.of(context).colorScheme.secondary,
+          shape: const CircleBorder(),
+        ),
+        child: Center(
+          child: IconButton(
+            onPressed: () => setState(() => controllers.add()),
+            icon: const Icon(Icons.add),
+            color: Theme.of(context).colorScheme.onSecondary,
+          ),
+        ),
+      );
     }
     return MainFormInput(
       controller: controllers.controllers[index],
-      decoration: InputDecoration(label: text.questionCreateFormAnswerTextPlaceholder.toText()),
+      decoration: InputDecoration(label: Text(text.questionCreateFormAnswerTextPlaceholder)),
     );
   }
 }

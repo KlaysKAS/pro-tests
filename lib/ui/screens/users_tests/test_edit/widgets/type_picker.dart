@@ -26,14 +26,15 @@ class _TypePicker extends StatelessWidget {
           value: QuestionTypes.single,
           child: Text(text.questionCreateQuestionTypeSingle),
         ),
-        DropdownMenuItem(
-          value: QuestionTypes.multiple,
-          child: Text(text.questionCreateQuestionTypeMultiple),
-        ),
-        DropdownMenuItem(
-          value: QuestionTypes.free,
-          child: Text(text.questionCreateQuestionTypeFree),
-        ),
+        // not implemented yet
+        // DropdownMenuItem(
+        //   value: QuestionTypes.multiple,
+        //   child: Text(text.questionCreateQuestionTypeMultiple),
+        // ),
+        // DropdownMenuItem(
+        //   value: QuestionTypes.free,
+        //   child: Text(text.questionCreateQuestionTypeFree),
+        // ),
       ],
     );
   }
