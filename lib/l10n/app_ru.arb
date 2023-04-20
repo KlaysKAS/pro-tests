@@ -93,5 +93,7 @@
   "passingTestNextBtn": "Дальше",
 
   "passingTestDrawerAppbarTitle": "Вопросы",
-  "passingTestDrawerQuestion": "{question}"
+  "passingTestDrawerQuestion": "{question}",
+
+  "buttonRetry": "Попробовать ещё"
 }

@@ -94,5 +94,7 @@
   "passingTestNextBtn": "Next",
 
   "passingTestDrawerAppbarTitle": "Questions",
-  "passingTestDrawerQuestion": "{question}"
+  "passingTestDrawerQuestion": "{question}",
+
+  "buttonRetry": "Try again"
 }
