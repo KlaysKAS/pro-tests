@@ -26,10 +26,9 @@ void main() {
       opts.debug = true;
     });
     WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-    WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((timeStamp) {
-      serviceLocator = AppLocator();
-      FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-    });
+    serviceLocator = AppLocator();
+    FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+    await serviceLocator.init();
     runApp(const ProviderScope(child: MyApp()));
   }, (error, trace) async {
     await Sentry.captureException(error, stackTrace: trace);
