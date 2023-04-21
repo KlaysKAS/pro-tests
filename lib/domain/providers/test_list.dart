@@ -29,11 +29,8 @@ class TestListStateNotifier extends StateNotifier<TestListState> {
 
   Future<void> getMyOwnedTests() async {
     _updateState(TestListState.loading(state.tests));
-    print('asdf');
     try {
-      print('asdf');
       final tests = await repo.getUsersTests();
-      print('asdf');
       _updateState(TestListState.readyShow(state.tests.copyWith(myOwn: tests)));
     } on InternetException catch (e) {
       e.mapOrNull(

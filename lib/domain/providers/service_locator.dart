@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:pro_tests/domain/models/test_lists/test_lists.dart';
 import 'package:pro_tests/domain/models/test_with_question/test_with_questions.dart';
 import 'package:pro_tests/domain/providers/auth_state.dart';
 import 'package:pro_tests/domain/providers/test_creation.dart';

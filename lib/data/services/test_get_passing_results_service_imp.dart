@@ -35,6 +35,7 @@ class TestGetPassingResultsServiceImpl extends TestGetPassingResultsService {
       final response = await dio.post(url, data: qa.map((e) => e.toJson()).toList());
       return response.data.map((quest) => Answer.fromJson(quest)).toList();
     } on DioError catch (e, s) {
+      await Sentry.captureException(e, stackTrace: s);
       _errorResolver(e, s);
     } catch (e, s) {
       await Sentry.captureException(e, stackTrace: s);
