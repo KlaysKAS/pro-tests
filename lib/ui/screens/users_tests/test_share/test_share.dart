@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_zxing/flutter_zxing.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pro_tests/ext.dart';
+import 'package:flutter_share_me/flutter_share_me.dart';
+import 'package:image/image.dart' as imglib;
+import 'dart:typed_data';
+
 import 'package:pro_tests/ui/router/routes.dart';
 import 'package:pro_tests/ui/theme/const.dart';
-import 'dart:typed_data';
-import 'package:image/image.dart' as imglib;
 import 'package:pro_tests/ui/widgets/main_button.dart';
-import 'package:flutter_share_me/flutter_share_me.dart';
 
 class TestShareScreen extends StatefulWidget {
   final String testId;
