@@ -107,5 +107,8 @@
   "passingTestDrawerAppbarTitle": "Questions",
   "passingTestDrawerQuestion": "{question}",
 
-  "buttonRetry": "Try again"
+  "buttonRetry": "Try again",
+
+  "badConnection": "Bad connection",
+  "somethingWentWrong": "Something went wrong"
 }
