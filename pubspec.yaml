@@ -55,6 +55,7 @@ dependencies:
   settings_ui: ^2.0.2
   flutter_zxing: ^1.1.2
   flutter_share_me: ^1.4.0
+  image: ^4.0.15
 
 dev_dependencies:
   flutter_test:

@@ -1,14 +1,16 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_zxing/flutter_zxing.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_share_me/flutter_share_me.dart';
 import 'package:image/image.dart' as imglib;
-import 'dart:typed_data';
 
 import 'package:pro_tests/ui/router/routes.dart';
 import 'package:pro_tests/ui/theme/const.dart';
 import 'package:pro_tests/ui/widgets/main_button.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 class TestShareScreen extends StatefulWidget {
   final String testId;
@@ -52,7 +54,6 @@ class _TestShareScreenState extends State<TestShareScreen> {
         eccLevel: ecc,
       ),
     );
-    String? error;
     if (result.isValid && result.data != null) {
       try {
         final imglib.Image img = imglib.Image.fromBytes(
@@ -65,8 +66,8 @@ class _TestShareScreenState extends State<TestShareScreen> {
           imglib.encodeJpg(img),
         );
         bytess = encodedBytes;
-      } catch (e) {
-        error = e.toString();
+      } catch (e, s) {
+        Sentry.captureException(e, stackTrace: s);
       }
     }
   }
@@ -136,9 +137,8 @@ class _TestShareScreenState extends State<TestShareScreen> {
                 MainButton(
                   btnText: text.shareTestLinkBtn,
                   onPressed: () async {
-                    String? response;
                     final FlutterShareMe flutterShareMe = FlutterShareMe();
-                    response = await flutterShareMe.shareToSystem(
+                    await flutterShareMe.shareToSystem(
                       msg: 'http://protests.cfeee1e5e4e00a.ru/home/attemptTest/${widget.testId}',
                     );
                   },
