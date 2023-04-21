@@ -22,6 +22,7 @@ mixin _$TestResultState {
     required TResult Function(TestWithResults results) readyShow,
     required TResult Function(String? message, TestInfo info) error,
     required TResult Function() noTest,
+    required TResult Function(String? message) invalidId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$TestResultState {
     TResult? Function(TestWithResults results)? readyShow,
     TResult? Function(String? message, TestInfo info)? error,
     TResult? Function()? noTest,
+    TResult? Function(String? message)? invalidId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$TestResultState {
     TResult Function(TestWithResults results)? readyShow,
     TResult Function(String? message, TestInfo info)? error,
     TResult Function()? noTest,
+    TResult Function(String? message)? invalidId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$TestResultState {
     required TResult Function(ReadyShow value) readyShow,
     required TResult Function(Error value) error,
     required TResult Function(ClearResult value) noTest,
+    required TResult Function(InvalidId value) invalidId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$TestResultState {
     TResult? Function(ReadyShow value)? readyShow,
     TResult? Function(Error value)? error,
     TResult? Function(ClearResult value)? noTest,
+    TResult? Function(InvalidId value)? invalidId,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$TestResultState {
     TResult Function(ReadyShow value)? readyShow,
     TResult Function(Error value)? error,
     TResult Function(ClearResult value)? noTest,
+    TResult Function(InvalidId value)? invalidId,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -148,6 +154,7 @@ class _$LoadingResults implements LoadingResults {
     required TResult Function(TestWithResults results) readyShow,
     required TResult Function(String? message, TestInfo info) error,
     required TResult Function() noTest,
+    required TResult Function(String? message) invalidId,
   }) {
     return loading(info);
   }
@@ -159,6 +166,7 @@ class _$LoadingResults implements LoadingResults {
     TResult? Function(TestWithResults results)? readyShow,
     TResult? Function(String? message, TestInfo info)? error,
     TResult? Function()? noTest,
+    TResult? Function(String? message)? invalidId,
   }) {
     return loading?.call(info);
   }
@@ -170,6 +178,7 @@ class _$LoadingResults implements LoadingResults {
     TResult Function(TestWithResults results)? readyShow,
     TResult Function(String? message, TestInfo info)? error,
     TResult Function()? noTest,
+    TResult Function(String? message)? invalidId,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -185,6 +194,7 @@ class _$LoadingResults implements LoadingResults {
     required TResult Function(ReadyShow value) readyShow,
     required TResult Function(Error value) error,
     required TResult Function(ClearResult value) noTest,
+    required TResult Function(InvalidId value) invalidId,
   }) {
     return loading(this);
   }
@@ -196,6 +206,7 @@ class _$LoadingResults implements LoadingResults {
     TResult? Function(ReadyShow value)? readyShow,
     TResult? Function(Error value)? error,
     TResult? Function(ClearResult value)? noTest,
+    TResult? Function(InvalidId value)? invalidId,
   }) {
     return loading?.call(this);
   }
@@ -207,6 +218,7 @@ class _$LoadingResults implements LoadingResults {
     TResult Function(ReadyShow value)? readyShow,
     TResult Function(Error value)? error,
     TResult Function(ClearResult value)? noTest,
+    TResult Function(InvalidId value)? invalidId,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -296,6 +308,7 @@ class _$ReadyShow implements ReadyShow {
     required TResult Function(TestWithResults results) readyShow,
     required TResult Function(String? message, TestInfo info) error,
     required TResult Function() noTest,
+    required TResult Function(String? message) invalidId,
   }) {
     return readyShow(results);
   }
@@ -307,6 +320,7 @@ class _$ReadyShow implements ReadyShow {
     TResult? Function(TestWithResults results)? readyShow,
     TResult? Function(String? message, TestInfo info)? error,
     TResult? Function()? noTest,
+    TResult? Function(String? message)? invalidId,
   }) {
     return readyShow?.call(results);
   }
@@ -318,6 +332,7 @@ class _$ReadyShow implements ReadyShow {
     TResult Function(TestWithResults results)? readyShow,
     TResult Function(String? message, TestInfo info)? error,
     TResult Function()? noTest,
+    TResult Function(String? message)? invalidId,
     required TResult orElse(),
   }) {
     if (readyShow != null) {
@@ -333,6 +348,7 @@ class _$ReadyShow implements ReadyShow {
     required TResult Function(ReadyShow value) readyShow,
     required TResult Function(Error value) error,
     required TResult Function(ClearResult value) noTest,
+    required TResult Function(InvalidId value) invalidId,
   }) {
     return readyShow(this);
   }
@@ -344,6 +360,7 @@ class _$ReadyShow implements ReadyShow {
     TResult? Function(ReadyShow value)? readyShow,
     TResult? Function(Error value)? error,
     TResult? Function(ClearResult value)? noTest,
+    TResult? Function(InvalidId value)? invalidId,
   }) {
     return readyShow?.call(this);
   }
@@ -355,6 +372,7 @@ class _$ReadyShow implements ReadyShow {
     TResult Function(ReadyShow value)? readyShow,
     TResult Function(Error value)? error,
     TResult Function(ClearResult value)? noTest,
+    TResult Function(InvalidId value)? invalidId,
     required TResult orElse(),
   }) {
     if (readyShow != null) {
@@ -442,6 +460,7 @@ class _$Error implements Error {
     required TResult Function(TestWithResults results) readyShow,
     required TResult Function(String? message, TestInfo info) error,
     required TResult Function() noTest,
+    required TResult Function(String? message) invalidId,
   }) {
     return error(message, info);
   }
@@ -453,6 +472,7 @@ class _$Error implements Error {
     TResult? Function(TestWithResults results)? readyShow,
     TResult? Function(String? message, TestInfo info)? error,
     TResult? Function()? noTest,
+    TResult? Function(String? message)? invalidId,
   }) {
     return error?.call(message, info);
   }
@@ -464,6 +484,7 @@ class _$Error implements Error {
     TResult Function(TestWithResults results)? readyShow,
     TResult Function(String? message, TestInfo info)? error,
     TResult Function()? noTest,
+    TResult Function(String? message)? invalidId,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -479,6 +500,7 @@ class _$Error implements Error {
     required TResult Function(ReadyShow value) readyShow,
     required TResult Function(Error value) error,
     required TResult Function(ClearResult value) noTest,
+    required TResult Function(InvalidId value) invalidId,
   }) {
     return error(this);
   }
@@ -490,6 +512,7 @@ class _$Error implements Error {
     TResult? Function(ReadyShow value)? readyShow,
     TResult? Function(Error value)? error,
     TResult? Function(ClearResult value)? noTest,
+    TResult? Function(InvalidId value)? invalidId,
   }) {
     return error?.call(this);
   }
@@ -501,6 +524,7 @@ class _$Error implements Error {
     TResult Function(ReadyShow value)? readyShow,
     TResult Function(Error value)? error,
     TResult Function(ClearResult value)? noTest,
+    TResult Function(InvalidId value)? invalidId,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -556,6 +580,7 @@ class _$ClearResult implements ClearResult {
     required TResult Function(TestWithResults results) readyShow,
     required TResult Function(String? message, TestInfo info) error,
     required TResult Function() noTest,
+    required TResult Function(String? message) invalidId,
   }) {
     return noTest();
   }
@@ -567,6 +592,7 @@ class _$ClearResult implements ClearResult {
     TResult? Function(TestWithResults results)? readyShow,
     TResult? Function(String? message, TestInfo info)? error,
     TResult? Function()? noTest,
+    TResult? Function(String? message)? invalidId,
   }) {
     return noTest?.call();
   }
@@ -578,6 +604,7 @@ class _$ClearResult implements ClearResult {
     TResult Function(TestWithResults results)? readyShow,
     TResult Function(String? message, TestInfo info)? error,
     TResult Function()? noTest,
+    TResult Function(String? message)? invalidId,
     required TResult orElse(),
   }) {
     if (noTest != null) {
@@ -593,6 +620,7 @@ class _$ClearResult implements ClearResult {
     required TResult Function(ReadyShow value) readyShow,
     required TResult Function(Error value) error,
     required TResult Function(ClearResult value) noTest,
+    required TResult Function(InvalidId value) invalidId,
   }) {
     return noTest(this);
   }
@@ -604,6 +632,7 @@ class _$ClearResult implements ClearResult {
     TResult? Function(ReadyShow value)? readyShow,
     TResult? Function(Error value)? error,
     TResult? Function(ClearResult value)? noTest,
+    TResult? Function(InvalidId value)? invalidId,
   }) {
     return noTest?.call(this);
   }
@@ -615,6 +644,7 @@ class _$ClearResult implements ClearResult {
     TResult Function(ReadyShow value)? readyShow,
     TResult Function(Error value)? error,
     TResult Function(ClearResult value)? noTest,
+    TResult Function(InvalidId value)? invalidId,
     required TResult orElse(),
   }) {
     if (noTest != null) {
@@ -626,4 +656,148 @@ class _$ClearResult implements ClearResult {
 
 abstract class ClearResult implements TestResultState {
   const factory ClearResult() = _$ClearResult;
+}
+
+/// @nodoc
+abstract class _$$InvalidIdCopyWith<$Res> {
+  factory _$$InvalidIdCopyWith(_$InvalidId value, $Res Function(_$InvalidId) then) = __$$InvalidIdCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? message});
+}
+
+/// @nodoc
+class __$$InvalidIdCopyWithImpl<$Res> extends _$TestResultStateCopyWithImpl<$Res, _$InvalidId>
+    implements _$$InvalidIdCopyWith<$Res> {
+  __$$InvalidIdCopyWithImpl(_$InvalidId _value, $Res Function(_$InvalidId) _then) : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_$InvalidId(
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InvalidId implements InvalidId {
+  const _$InvalidId({this.message});
+
+  @override
+  final String? message;
+
+  @override
+  String toString() {
+    return 'TestResultState.invalidId(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InvalidId &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InvalidIdCopyWith<_$InvalidId> get copyWith => __$$InvalidIdCopyWithImpl<_$InvalidId>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TestInfo info) loading,
+    required TResult Function(TestWithResults results) readyShow,
+    required TResult Function(String? message, TestInfo info) error,
+    required TResult Function() noTest,
+    required TResult Function(String? message) invalidId,
+  }) {
+    return invalidId(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(TestInfo info)? loading,
+    TResult? Function(TestWithResults results)? readyShow,
+    TResult? Function(String? message, TestInfo info)? error,
+    TResult? Function()? noTest,
+    TResult? Function(String? message)? invalidId,
+  }) {
+    return invalidId?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TestInfo info)? loading,
+    TResult Function(TestWithResults results)? readyShow,
+    TResult Function(String? message, TestInfo info)? error,
+    TResult Function()? noTest,
+    TResult Function(String? message)? invalidId,
+    required TResult orElse(),
+  }) {
+    if (invalidId != null) {
+      return invalidId(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoadingResults value) loading,
+    required TResult Function(ReadyShow value) readyShow,
+    required TResult Function(Error value) error,
+    required TResult Function(ClearResult value) noTest,
+    required TResult Function(InvalidId value) invalidId,
+  }) {
+    return invalidId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoadingResults value)? loading,
+    TResult? Function(ReadyShow value)? readyShow,
+    TResult? Function(Error value)? error,
+    TResult? Function(ClearResult value)? noTest,
+    TResult? Function(InvalidId value)? invalidId,
+  }) {
+    return invalidId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadingResults value)? loading,
+    TResult Function(ReadyShow value)? readyShow,
+    TResult Function(Error value)? error,
+    TResult Function(ClearResult value)? noTest,
+    TResult Function(InvalidId value)? invalidId,
+    required TResult orElse(),
+  }) {
+    if (invalidId != null) {
+      return invalidId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidId implements TestResultState {
+  const factory InvalidId({final String? message}) = _$InvalidId;
+
+  String? get message;
+  @JsonKey(ignore: true)
+  _$$InvalidIdCopyWith<_$InvalidId> get copyWith => throw _privateConstructorUsedError;
 }

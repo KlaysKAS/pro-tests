@@ -7,7 +7,7 @@ import 'package:sentry_flutter/sentry_flutter.dart';
 
 class TestCreateDeleteServiceImpl extends TestCreateDeleteService {
   final _myOwnedTestsUrl = '/tests/owned';
-  final _myTestsUrl = '/tests/invited';
+  final _myTestsUrl = '/tests/submitted';
   final _createTestUrl = '/tests';
   final _createTestQuestionURL = '/questions';
   final _deleteTestURL = '/tests';

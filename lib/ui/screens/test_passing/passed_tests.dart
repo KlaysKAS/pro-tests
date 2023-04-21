@@ -4,11 +4,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:pro_tests/domain/models/test_info/test_info.dart';
-import 'package:pro_tests/domain/models/test_lists/test_lists.dart';
 import 'package:pro_tests/main.dart';
 import 'package:pro_tests/ui/router/routes.dart';
 import 'package:pro_tests/ui/screens/test_passing/widgets/test_result_widget.dart';
-import 'package:pro_tests/ui/states/test_list_state/test_list_stete.dart';
 import 'package:pro_tests/ui/theme/const.dart';
 import 'package:pro_tests/ui/widgets/main_button.dart';
 import 'package:pro_tests/ui/widgets/modal_qr_link.dart';
@@ -45,11 +43,7 @@ class _PassedTestScreenState extends ConsumerState<PassedTestScreen> {
       key == 'qr' ? context.goNamed(AppRoutes.attemptTest.name) : showMyDialog();
     }
 
-    final state = TestListState.readyShow(TestLists(my: [
-      TestInfo(7, 'title', 'description', 'author'),
-      TestInfo(14, 'title', 'description', 'author'),
-      TestInfo(15, 'title', 'description', 'author'),
-    ], myOwn: []));
+    final state = ref.watch(serviceLocator.testListStateNotifier);
 
     return Scaffold(
       body: SafeArea(
@@ -120,7 +114,8 @@ class _Content extends StatelessWidget {
             test: tests[index],
             onDetailPressed: (test) => context.goNamed(
               AppRoutes.testResults.name,
-              params: {'testId': '${tests[index]}'},
+              params: {'testId': '${tests[index].id}'},
+              extra: test,
             ),
           ),
         ),

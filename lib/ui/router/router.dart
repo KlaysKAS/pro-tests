@@ -61,7 +61,10 @@ class AppRouter {
           GoRoute(
             path: '${AppRoutes.testResults.name}/:testId',
             name: AppRoutes.testResults.name,
-            builder: (context, state) => const TestResultsScreen(),
+            builder: (context, state) => TestResultsScreen(
+              id: state.params['testId'] ?? 'asdf',
+              test: state.extra,
+            ),
           ),
         ],
       ),

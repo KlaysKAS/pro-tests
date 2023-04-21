@@ -13,4 +13,6 @@ class TestResultState with _$TestResultState {
   const factory TestResultState.error({String? message, required TestInfo info}) = Error;
 
   const factory TestResultState.noTest() = ClearResult;
+
+  const factory TestResultState.invalidId({String? message}) = InvalidId;
 }
