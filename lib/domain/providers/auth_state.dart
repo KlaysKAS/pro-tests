@@ -64,6 +64,8 @@ class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
     return false;
   }
 
+  //вы тут завязались на состояние ui
+  //так делать не нужно, состояние бизнес фичи не должно знать про 'существование экрана регистрации'
   void openRegisterForm() {
     _updateState(_initialSignUpState);
   }
@@ -72,6 +74,9 @@ class AuthenticationStateNotifier extends StateNotifier<AuthenticationState> {
     _updateState(_initialState);
   }
 
+  //а еще лучше к роутеру не обращаться в бизнес-логике.
+  //если очень хочется - лучше сделать отдельную обертку-менеджер которая будет содержать
+  //StateNotifier, дергать нужные методы и управлять состоянием роутинга извне.
   void signOut() {
     _updateState(_initialState);
     serviceLocator.tokenManager.deleteToken();

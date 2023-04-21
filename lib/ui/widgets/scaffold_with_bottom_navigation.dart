@@ -23,6 +23,8 @@ class _BottomNavState extends State<ScaffoldWithBottomNav> {
     super.initState();
   }
 
+  //didUpdateWidget забыли
+
   @override
   Widget build(context) {
     final text = AppLocalizations.of(context)!;

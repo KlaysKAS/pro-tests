@@ -26,6 +26,7 @@ class TestCreationStateNotifier extends StateNotifier<TestWithQuestion> {
         somethingWentWrong: () => 'something',
       );
     } catch (e, s) {
+      //тут кажется надо состояние обновить на ошибку?
       await Sentry.captureException(e, stackTrace: s);
     }
     return 'something';

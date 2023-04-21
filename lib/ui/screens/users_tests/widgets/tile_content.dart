@@ -31,6 +31,7 @@ class _TileContent extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    //У вас есть экстеншн на String toText()
                     Text(test.title),
                     const SizedBox(height: 8),
                     Text(text.homeTestQuestionsNum('WIP')),

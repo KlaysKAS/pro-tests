@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pro_tests/data/model/question_result/question_result.dart';
 
 void main() {
+  //тесты на модели не нужны :)
   group('Question result model testing', () {
     test('Test factory method', () {
       const questionResult = QuestionResult(id: 0, question: 'quest1', answer: '1', isRight: true);

@@ -21,6 +21,8 @@ class PassedTestScreen extends ConsumerWidget {
     // final PassedTestState state = ref.watch(passedTestStateProvider);
     // final tests = state.tests
     final text = AppLocalizations.of(context)!;
+    //это точно не должно лежать в build функции
+    //такок лучше в утилиты вынести, это явно чаще пригодится
     Future<void> showMyDialog() async {
       return showDialog<void>(
         context: context,

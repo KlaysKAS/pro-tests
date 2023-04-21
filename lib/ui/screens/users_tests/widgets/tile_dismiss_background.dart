@@ -16,6 +16,9 @@ class _TileDismissBackground extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(Const.paddingBetweenSmall),
           child: SvgPicture.asset(
+            //ассеты можно генерить в константы
+            //так в разы удобнее
+            //посмотрите пакет https://pub.dev/packages/flutter_gen
             'assets/delete.svg',
             theme: SvgTheme(currentColor: theme.colorScheme.onSecondary),
           ),

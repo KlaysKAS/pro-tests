@@ -32,6 +32,11 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
     );
   }
 
+  //почему helper-методы - плохо
+  //https://www.youtube.com/watch?v=IOyq-eTRhvo - коротко
+  //https://www.youtube.com/watch?v=PNJDqt3Z_7Q - подробно и с примерами
+  //
+
   Widget _signInPage(_) => _loginPage();
 
   Widget _signInLoadingPage(_) {
@@ -76,6 +81,7 @@ class _AuthScreenState extends ConsumerState<AuthScreen> {
     return RegisterScreen(registerControllers);
   }
 
+  //dispose и остальные методы ЖЦ виджета лучше писать до build
   @override
   void dispose() {
     registerControllers.dispose();
