@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:pro_tests/domain/exceptions/internet_exception.dart';
 import 'package:pro_tests/domain/models/question/question.dart';
@@ -51,6 +52,7 @@ class _TestAttemptScreenState extends ConsumerState<TestAttemptScreen> {
   Widget build(BuildContext context) {
     final state = ref.watch(serviceLocator.testAttemptStateNotifier);
     final notifier = ref.read(serviceLocator.testAttemptStateNotifier.notifier);
+    final locale = AppLocalizations.of(context)!;
     if (state == null || _loadingTest) {
       return const Scaffold(
         body: Center(
@@ -95,14 +97,25 @@ class _TestAttemptScreenState extends ConsumerState<TestAttemptScreen> {
               MainButton(
                 btnText: 'Закончить',
                 onPressed: () async {
-                  final ready = await notifier.sendTest();
-                  if (ready) {
+                  final message = await notifier.sendTest();
+                  if (message == null) {
                     await ref.read(serviceLocator.testResultsStateNotifier.notifier).chooseTest(state.testInfo);
                     AppRouter.router.replaceNamed(
                       AppRoutes.testResults.routeName,
                       params: {'testId': state.testInfo.id.toString()},
                     );
-                  } else {}
+                  } else {
+                    switch (message) {
+                      case 'internet':
+                        Fluttertoast.showToast(msg: locale.badConnection);
+                        break;
+                      case 'something':
+                        Fluttertoast.showToast(msg: locale.badConnection);
+                        break;
+                      default:
+                        Fluttertoast.showToast(msg: locale.badConnection);
+                    }
+                  }
                 },
               )
             else

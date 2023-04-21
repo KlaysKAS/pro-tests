@@ -5,6 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:pro_tests/domain/models/question/question.dart';
 import 'package:pro_tests/main.dart';
+import 'package:pro_tests/ui/router/router.dart';
 import 'package:pro_tests/ui/theme/const.dart';
 import 'package:pro_tests/ui/widgets/custom_radio_button.dart';
 import 'package:pro_tests/ui/widgets/main_button.dart';
@@ -49,6 +50,7 @@ class _TestEditScreenState extends ConsumerState<TestEditScreen> {
         leading: IconButton(
           onPressed: () {
             ref.read(serviceLocator.testCreationStateNotifier.notifier).closeTest();
+            AppRouter.router.pop();
           },
           icon: const Icon(Icons.arrow_back),
         ),
