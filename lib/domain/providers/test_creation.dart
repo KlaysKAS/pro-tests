@@ -34,8 +34,10 @@ class TestCreationStateNotifier extends StateNotifier<TestWithQuestion> {
   Future<String?> addQuestion(Question question) async {
     try {
       final quest = await repo.addQuestion(state.test.id, question);
-      final list = state.question;
-      _updateState(state.copyWith(question: list..add(quest)));
+      final newList = <Question>[];
+      newList.addAll(state.question);
+      newList.add(quest);
+      _updateState(state.copyWith(question: newList));
       return null;
     } on InternetException catch (e) {
       return e.whenOrNull(
