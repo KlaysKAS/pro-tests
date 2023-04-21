@@ -3,23 +3,32 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:pro_tests/data/model/test_results/test_results.dart';
+import 'package:pro_tests/domain/models/test_info/test_info.dart';
+import 'package:pro_tests/domain/models/test_lists/test_lists.dart';
+import 'package:pro_tests/main.dart';
 import 'package:pro_tests/ui/router/routes.dart';
 import 'package:pro_tests/ui/screens/test_passing/widgets/test_result_widget.dart';
+import 'package:pro_tests/ui/states/test_list_state/test_list_stete.dart';
 import 'package:pro_tests/ui/theme/const.dart';
 import 'package:pro_tests/ui/widgets/main_button.dart';
 import 'package:pro_tests/ui/widgets/modal_qr_link.dart';
 import 'package:pro_tests/ui/widgets/test_code_dialog.dart';
 
-class PassedTestScreen extends ConsumerWidget {
+class PassedTestScreen extends ConsumerStatefulWidget {
   const PassedTestScreen({super.key});
+  @override
+  ConsumerState<PassedTestScreen> createState() => _PassedTestScreenState();
+}
 
-  final tests = const <TestResults>[];
+class _PassedTestScreenState extends ConsumerState<PassedTestScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration.zero, () => ref.read(serviceLocator.testListStateNotifier.notifier).getMyTests());
+  }
 
   @override
-  Widget build(context, ref) {
-    // final PassedTestState state = ref.watch(passedTestStateProvider);
-    // final tests = state.tests
+  Widget build(context) {
     final text = AppLocalizations.of(context)!;
     Future<void> showMyDialog() async {
       return showDialog<void>(
@@ -36,6 +45,12 @@ class PassedTestScreen extends ConsumerWidget {
       key == 'qr' ? context.goNamed(AppRoutes.attemptTest.name) : showMyDialog();
     }
 
+    final state = TestListState.readyShow(TestLists(my: [
+      TestInfo(7, 'title', 'description', 'author'),
+      TestInfo(14, 'title', 'description', 'author'),
+      TestInfo(15, 'title', 'description', 'author'),
+    ], myOwn: []));
+
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -48,14 +63,13 @@ class PassedTestScreen extends ConsumerWidget {
               ),
             ),
             Expanded(
-              // Replace with commented code
-              child: (true)
-                  // child: (state.state == state.ready)
-                  ? _Content(
-                      tests: tests,
-                    )
-                  // ignore: dead_code
-                  : const Placeholder(),
+              child: state.when(
+                loading: (tests) => const Placeholder(),
+                readyShow: (tests) => _Content(
+                  tests: tests.my,
+                ),
+                error: (tests, message) => Center(child: Text(message ?? '')),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: Const.paddingBetweenSmall),
@@ -88,7 +102,7 @@ class PassedTestScreen extends ConsumerWidget {
 }
 
 class _Content extends StatelessWidget {
-  final List<TestResults> tests;
+  final List<TestInfo> tests;
 
   const _Content({
     required this.tests,
@@ -100,11 +114,14 @@ class _Content extends StatelessWidget {
 
     if (tests.isNotEmpty) {
       return ListView.separated(
-        itemBuilder: (context, index) => TestResultWidget(
-          result: tests[index],
-          onDetailPressed: () => context.goNamed(
-            AppRoutes.testDetails.name,
-            params: {'testId': '${tests[index]}'},
+        itemBuilder: (context, index) => ProviderScope(
+          parent: ProviderContainer(),
+          child: TestResultWidget(
+            test: tests[index],
+            onDetailPressed: (test) => context.goNamed(
+              AppRoutes.testResults.name,
+              params: {'testId': '${tests[index]}'},
+            ),
           ),
         ),
         separatorBuilder: (context, index) => const SizedBox(

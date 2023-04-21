@@ -6,7 +6,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:pro_tests/data/services/auth_service.dart';
 import 'package:pro_tests/data/services/test_create_delete_service_impl.dart';
 import 'package:pro_tests/data/services/test_get_passing_results_service_imp.dart';
-import 'package:pro_tests/domain/models/test_lists/test_lists.dart';
 import 'package:pro_tests/domain/models/test_with_question/test_with_questions.dart';
 import 'package:pro_tests/domain/providers/auth_state.dart';
 import 'package:pro_tests/domain/providers/service_locator.dart';

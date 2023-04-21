@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:pro_tests/data/model/test_results/test_results.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pro_tests/domain/models/test_info/test_info.dart';
+import 'package:pro_tests/domain/models/test_with_results/test_with_results.dart';
+import 'package:pro_tests/ext.dart';
+import 'package:pro_tests/main.dart';
 import 'package:pro_tests/ui/theme/const.dart';
 import 'package:pro_tests/ui/widgets/detail_button.dart';
 import 'package:pro_tests/ui/widgets/test_icon.dart';
@@ -8,37 +12,53 @@ import 'package:pro_tests/ui/widgets/tile_container.dart';
 
 part 'tile_content.dart';
 
-class TestResultWidget extends StatelessWidget {
-  final TestResults result;
-  final VoidCallback onDetailPressed;
+class TestResultWidget extends ConsumerStatefulWidget {
+  final TestInfo test;
+  final void Function(TestWithResults? test) onDetailPressed;
+  // final ServiceLocator localLocator;
 
   const TestResultWidget({
     super.key,
-    required this.result,
+    required this.test,
+    // required this.localLocator,
     required this.onDetailPressed,
   });
 
-  int get _rightAmount =>
-      result.questions.fold<int>(0, (previousValue, element) => previousValue + (element.isRight ? 1 : 0));
+  @override
+  ConsumerState<ConsumerStatefulWidget> createState() => _TestResultWidgetState();
+}
 
-  /// Calculate rightAnswers/questions
-  double _calcRate() => _rightAmount.toDouble() / result.questions.length.toDouble();
+class _TestResultWidgetState extends ConsumerState<TestResultWidget> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(
+      Duration.zero,
+      // () => ref.read(widget.localLocator.testResultsStateNotifier.notifier).chooseTest(widget.test),
+      () => ref.read(serviceLocator.testResultsStateNotifier.notifier).chooseTest(widget.test),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    final rate = _calcRate();
-    final color = rate < Const.testResultLowerBound
-        ? Const.wrongAnswerColor
-        : rate < Const.testResultUpperBound
-            ? Const.primaryColor
-            : Const.rightAnswerColor;
+    // final state = ref.watch(widget.localLocator.testResultsStateNotifier);
+    final state = ref.watch(serviceLocator.testResultsStateNotifier);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: Const.paddingBetweenLarge),
-      child: _Tile(
-        onDetailPressed: onDetailPressed,
-        color: color,
-        test: result,
-        rightAmount: _rightAmount,
+      child: state.when(
+        loading: (value) => _Tile(
+          onDetailPressed: widget.onDetailPressed,
+          test: value,
+        ),
+        readyShow: (value) => _Tile(
+          onDetailPressed: widget.onDetailPressed,
+          test: value.test,
+          results: value,
+        ),
+        error: (message, info) => Center(
+          child: message!.toText(),
+        ),
+        noTest: () => const Placeholder(),
       ),
     );
   }

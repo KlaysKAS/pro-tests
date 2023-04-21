@@ -43,7 +43,6 @@ class _TestAttemptScreenState extends ConsumerState<TestAttemptScreen> {
     if (widget.testId != null) {
       final id = int.parse(widget.testId!);
       test = TestInfo(id, 'adoba', 'description', '');
-      // test = ref.read(serviceLocator.testPassing).getTest(widget.testId);
     }
     super.initState();
   }
@@ -51,7 +50,6 @@ class _TestAttemptScreenState extends ConsumerState<TestAttemptScreen> {
   @override
   Widget build(BuildContext context) {
     final Question question = question1;
-    // final Question question = ref.watch(serviceLocator.testPassing);
     final text = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
