@@ -4,7 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:pro_tests/domain/exceptions/internet_exception.dart';
 import 'package:pro_tests/domain/models/question/question.dart';
-import 'package:pro_tests/domain/models/test_info/test_info.dart';
+import 'package:pro_tests/main.dart';
+import 'package:pro_tests/ui/router/router.dart';
+import 'package:pro_tests/ui/router/routes.dart';
 import 'package:pro_tests/ui/theme/const.dart';
 import 'package:pro_tests/ui/widgets/custom_radio_button.dart';
 import 'package:pro_tests/ui/widgets/main_button.dart';
@@ -12,48 +14,56 @@ import 'package:pro_tests/ui/widgets/main_form_input.dart';
 import 'package:pro_tests/ui/widgets/tile_container.dart';
 
 part 'widgets/question_card.dart';
+
 part 'widgets/answers_widgets.dart';
 
 class TestAttemptScreen extends ConsumerStatefulWidget {
   const TestAttemptScreen({
     super.key,
-    this.testId,
+    required this.testId,
   });
 
-  final String? testId;
+  final int testId;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _TestAttemptScreenState();
 }
 
 class _TestAttemptScreenState extends ConsumerState<TestAttemptScreen> {
-  late final TestInfo test;
-  List<int> chosenIndexes = [];
-  String chosenAnswer = '';
-
-  Question question1 = const Question.singleAnswer(
-    id: 0,
-    question: 'question',
-    answers: ['a', 'b', 'c', 'd'],
-    answer: 'a',
-  );
+  bool _loadingTest = false;
 
   @override
   void initState() {
-    if (widget.testId != null) {
-      final id = int.parse(widget.testId!);
-      test = TestInfo(id, 'adoba', 'description', '');
-    }
     super.initState();
+    _loadingTest = true;
+    ref.read(serviceLocator.testAttemptStateNotifier.notifier).beginTest(widget.testId).then((value) {
+      if (mounted) {
+        setState(
+          () {
+            _loadingTest = false;
+          },
+        );
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    final Question question = question1;
+    final state = ref.watch(serviceLocator.testAttemptStateNotifier);
+    final notifier = ref.read(serviceLocator.testAttemptStateNotifier.notifier);
+    if (state == null || _loadingTest) {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
     final text = AppLocalizations.of(context)!;
+    final question = state.questions[state.chosenQuestion];
+    final ans = question.map(singleAnswer: (q) => q.answers, multiAnswer: (q) => q.answers, openAnswer: (q) => []);
     return Scaffold(
       appBar: AppBar(
-        title: Text(test.title),
+        title: Text(state.testInfo.title),
       ),
       body: SafeArea(
         child: Column(
@@ -65,7 +75,7 @@ class _TestAttemptScreenState extends ConsumerState<TestAttemptScreen> {
               child: (question is OpenAnswer)
                   ? _OpenAnswer(
                       onChanged: (answer) {
-                        chosenAnswer = answer;
+                        notifier.answer(question.question, answer);
                       },
                     )
                   : Padding(
@@ -75,16 +85,31 @@ class _TestAttemptScreenState extends ConsumerState<TestAttemptScreen> {
                       child: _ChoiceAnswers(
                         question: question,
                         onChanged: (indexes) {
-                          chosenIndexes = indexes;
+                          notifier.answer(question.question, ans[indexes.first]);
                         },
                       ),
                     ),
             ),
             const SizedBox(height: Const.paddingBetweenStandart),
-            MainButton(
-              btnText: text.passingTestNextBtn,
-              onPressed: _nextQuestion,
-            ),
+            if (state.chosenQuestion == state.questions.length - 1)
+              MainButton(
+                btnText: 'Закончить',
+                onPressed: () async {
+                  final ready = await notifier.sendTest();
+                  if (ready) {
+                    await ref.read(serviceLocator.testResultsStateNotifier.notifier).chooseTest(state.testInfo);
+                    AppRouter.router.replaceNamed(
+                      AppRoutes.testResults.routeName,
+                      params: {'testId': state.testInfo.id.toString()},
+                    );
+                  } else {}
+                },
+              )
+            else
+              MainButton(
+                btnText: text.passingTestNextBtn,
+                onPressed: () => _choseQuest(state.chosenQuestion + 1),
+              ),
             const SizedBox(height: Const.paddingBetweenLarge),
           ],
         ),
@@ -92,7 +117,7 @@ class _TestAttemptScreenState extends ConsumerState<TestAttemptScreen> {
     );
   }
 
-  void _nextQuestion() {
-    // ref.read(serviceLocator.testPassing);
+  void _choseQuest(int index) {
+    ref.read(serviceLocator.testAttemptStateNotifier.notifier).chooseQuestion(index);
   }
 }

@@ -55,7 +55,7 @@ class AppRouter {
             name: AppRoutes.attemptTest.name,
             builder: (context, state) {
               final testId = state.params['testId'] ?? 'Not';
-              return TestAttemptScreen(testId: testId);
+              return TestAttemptScreen(testId: int.parse(testId));
             },
           ),
           GoRoute(

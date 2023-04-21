@@ -21,8 +21,11 @@ import 'package:pro_tests/ui/router/routes.dart';
 import 'package:pro_tests/ui/states/authentication_state/authentication_state.dart';
 import 'package:pro_tests/ui/states/test_list_state/test_list_stete.dart';
 import 'package:pro_tests/ui/states/settings_state/settings_state.dart';
+import 'package:pro_tests/ui/states/test_passing_state/test_passing_state.dart';
 import 'package:pro_tests/ui/states/test_results_state/test_results_state.dart';
 import 'package:sentry_dio/sentry_dio.dart';
+
+import 'test_attempt.dart';
 
 class AppLocator implements ServiceLocator {
   @override
@@ -37,9 +40,8 @@ class AppLocator implements ServiceLocator {
   @override
   late final StateNotifierProvider<AuthenticationStateNotifier, AuthenticationState> authenticationStateNotifier;
 
-  // @override
-  // // TODO: implement testAttemptStateNotifier
-  // TestAttemptStateNotifier get testAttemptStateNotifier => throw UnimplementedError();
+  @override
+  late final StateNotifierProvider<TestAttemptStateNotifier, TestPassingState?> testAttemptStateNotifier;
 
   @override
   late final StateNotifierProvider<TestCreationStateNotifier, TestWithQuestion> testCreationStateNotifier;
@@ -117,6 +119,7 @@ class AppLocator implements ServiceLocator {
     final service = TestGetPassingResultsServiceImpl(dio);
     final repo = TestGetPassingResultRepoImpl(service);
     testResultsStateNotifier = StateNotifierProvider((ref) => TestResultStateNotifier(repo));
+    testAttemptStateNotifier = StateNotifierProvider((ref) => TestAttemptStateNotifier(repo));
   }
 }
 

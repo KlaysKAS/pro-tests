@@ -19,7 +19,7 @@ class TestGetPassingResultsServiceImpl extends TestGetPassingResultsService {
     final url = '$_baseUrl$testId$_questionsPostfix';
     try {
       final response = await dio.get(url);
-      return response.data.map((quest) => Question.fromJson(quest)).toList();
+      return (response.data as List<dynamic>).map((quest) => Question.fromJson(quest)).toList();
     } on DioError catch (e, s) {
       _errorResolver(e, s);
     } catch (e, s) {
@@ -32,8 +32,13 @@ class TestGetPassingResultsServiceImpl extends TestGetPassingResultsService {
   Future<List<Answer>> pushAnswers(int testId, List<Answer> qa) async {
     final url = '$_baseUrl$testId$_answersPostfix';
     try {
-      final response = await dio.post(url, data: qa.map((e) => e.toJson()).toList());
-      return response.data.map((quest) => Answer.fromJson(quest)).toList();
+      final dataRequest = <Map<String, dynamic>>[];
+      for (var i in qa) {
+        dataRequest.add({'title': i.question, 'answer': i.answer});
+      }
+      final response = await dio.post(url, data: dataRequest);
+      final rdata = (response.data as List<dynamic>).map((quest) => Answer.fromJson(quest)).toList();
+      return rdata;
     } on DioError catch (e, s) {
       await Sentry.captureException(e, stackTrace: s);
       _errorResolver(e, s);
