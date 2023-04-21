@@ -38,4 +38,22 @@ class TestResultStateNotifier extends StateNotifier<TestResultState> {
   void clearChoose() {
     _updateState(const TestResultState.noTest());
   }
+
+  Future<void> getTestInfo(int? id) async {
+    if (id == null || id < 0) {
+      _updateState(const TestResultState.invalidId(message: 'Такого Id не может существовать'));
+      return;
+    }
+    try {
+      final testInfo = await repo.getTestInfo(id);
+      _updateState(TestResultState.loading(info: testInfo));
+      return;
+    } catch (e) {
+      _updateState(const TestResultState.noTest());
+    }
+  }
+
+  void initWithTest(TestWithResults test) {
+    _updateState(TestResultState.readyShow(results: test));
+  }
 }

@@ -15,12 +15,10 @@ part 'tile_content.dart';
 class TestResultWidget extends ConsumerStatefulWidget {
   final TestInfo test;
   final void Function(TestWithResults? test) onDetailPressed;
-  // final ServiceLocator localLocator;
 
   const TestResultWidget({
     super.key,
     required this.test,
-    // required this.localLocator,
     required this.onDetailPressed,
   });
 
@@ -34,14 +32,12 @@ class _TestResultWidgetState extends ConsumerState<TestResultWidget> {
     super.initState();
     Future.delayed(
       Duration.zero,
-      // () => ref.read(widget.localLocator.testResultsStateNotifier.notifier).chooseTest(widget.test),
       () => ref.read(serviceLocator.testResultsStateNotifier.notifier).chooseTest(widget.test),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    // final state = ref.watch(widget.localLocator.testResultsStateNotifier);
     final state = ref.watch(serviceLocator.testResultsStateNotifier);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: Const.paddingBetweenLarge),
@@ -59,6 +55,7 @@ class _TestResultWidgetState extends ConsumerState<TestResultWidget> {
           child: message!.toText(),
         ),
         noTest: () => const Placeholder(),
+        invalidId: (message) => const Placeholder(),
       ),
     );
   }

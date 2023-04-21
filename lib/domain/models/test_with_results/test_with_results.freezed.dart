@@ -14,11 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+TestWithResults _$TestWithResultsFromJson(Map<String, dynamic> json) {
+  return _TestWithResults.fromJson(json);
+}
+
 /// @nodoc
 mixin _$TestWithResults {
   TestInfo get test => throw _privateConstructorUsedError;
   List<Answer> get answers => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TestWithResultsCopyWith<TestWithResults> get copyWith => throw _privateConstructorUsedError;
 }
@@ -94,9 +99,11 @@ class __$$_TestWithResultsCopyWithImpl<$Res> extends _$TestWithResultsCopyWithIm
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_TestWithResults implements _TestWithResults {
   const _$_TestWithResults({required this.test, required final List<Answer> answers}) : _answers = answers;
+
+  factory _$_TestWithResults.fromJson(Map<String, dynamic> json) => _$$_TestWithResultsFromJson(json);
 
   @override
   final TestInfo test;
@@ -122,6 +129,7 @@ class _$_TestWithResults implements _TestWithResults {
             const DeepCollectionEquality().equals(other._answers, _answers));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, test, const DeepCollectionEquality().hash(_answers));
 
@@ -130,11 +138,20 @@ class _$_TestWithResults implements _TestWithResults {
   @pragma('vm:prefer-inline')
   _$$_TestWithResultsCopyWith<_$_TestWithResults> get copyWith =>
       __$$_TestWithResultsCopyWithImpl<_$_TestWithResults>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TestWithResultsToJson(
+      this,
+    );
+  }
 }
 
 abstract class _TestWithResults implements TestWithResults {
   const factory _TestWithResults({required final TestInfo test, required final List<Answer> answers}) =
       _$_TestWithResults;
+
+  factory _TestWithResults.fromJson(Map<String, dynamic> json) = _$_TestWithResults.fromJson;
 
   @override
   TestInfo get test;
