@@ -107,5 +107,8 @@
   "passingTestDrawerAppbarTitle": "Вопросы",
   "passingTestDrawerQuestion": "{question}",
 
-  "buttonRetry": "Попробовать ещё"
+  "buttonRetry": "Попробовать ещё",
+
+  "badConnection": "Нет соединение с интернетом",
+  "somethingWentWrong": "Что-то пошло не так"
 }

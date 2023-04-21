@@ -19,7 +19,7 @@ class TestCreateDeleteServiceImpl extends TestCreateDeleteService {
   @override
   Future<Question> addQuestion(int testId, Question question) async {
     try {
-      final res = await dio.post('$_baseUrl/$testId$_createTestQuestionURL', data: question.toJson());
+      final res = await dio.post('$_baseUrl$_createTestUrl/$testId$_createTestQuestionURL', data: question.toJson());
       return Question.fromJson(res.data);
     } on DioError catch (e) {
       _errorResolver(e);
@@ -32,7 +32,7 @@ class TestCreateDeleteServiceImpl extends TestCreateDeleteService {
   @override
   Future<TestInfo> createTest(String name, String description) async {
     try {
-      final res = await dio.post('$_baseUrl$_createTestUrl', data: {'name': name, 'description': description});
+      final res = await dio.post('$_baseUrl$_createTestUrl', data: {'title': name, 'description': description});
       return TestInfo.fromJson(res.data);
     } on DioError catch (e) {
       _errorResolver(e);
