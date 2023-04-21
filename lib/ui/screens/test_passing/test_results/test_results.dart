@@ -22,7 +22,8 @@ class TestResultsScreen extends ConsumerStatefulWidget {
   });
 
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _TestResultsScreenState();
+  ConsumerState<ConsumerStatefulWidget> createState() =>
+      _TestResultsScreenState();
 }
 
 class _TestResultsScreenState extends ConsumerState<TestResultsScreen> {
@@ -34,6 +35,8 @@ class _TestResultsScreenState extends ConsumerState<TestResultsScreen> {
     late final TestWithResults? test;
     if (widget.test is TestWithResults) {
       test = widget.test as TestWithResults;
+    } else {
+      test = null;
     }
     if (test != null && test.test.id != id) {
       context.goNamed(
@@ -55,13 +58,18 @@ class _TestResultsScreenState extends ConsumerState<TestResultsScreen> {
     final state = ref.watch(serviceLocator.testResultsStateNotifier);
     final testInfo = state.whenOrNull(loading: (info) => info);
     if (testInfo != null) {
-      WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((timeStamp) {
+      WidgetsFlutterBinding.ensureInitialized()
+          .addPostFrameCallback((timeStamp) {
         notifier.chooseTest(testInfo);
       });
     }
     return state.when(
-      loading: (info) => TestScaffold(info: info, onBack: () => _onBackPressed(notifier)),
-      readyShow: (twr) => TestScaffold(info: twr.test, answers: twr.answers, onBack: () => _onBackPressed(notifier)),
+      loading: (info) =>
+          TestScaffold(info: info, onBack: () => _onBackPressed(notifier)),
+      readyShow: (twr) => TestScaffold(
+          info: twr.test,
+          answers: twr.answers,
+          onBack: () => _onBackPressed(notifier)),
       error: (msg, info) => Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,

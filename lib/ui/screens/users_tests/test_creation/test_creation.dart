@@ -40,12 +40,14 @@ class _TestCreationScreenState extends ConsumerState<TestCreationScreen> {
 
   @override
   Widget build(context) {
-    final notifier = ref.read(serviceLocator.testCreationStateNotifier.notifier);
+    final notifier =
+        ref.read(serviceLocator.testCreationStateNotifier.notifier);
     final state = ref.watch(serviceLocator.testCreationStateNotifier);
     final text = AppLocalizations.of(context)!;
     final id = state.test.id;
     if (id != -1) {
-      WidgetsFlutterBinding.ensureInitialized().addPostFrameCallback((timeStamp) {
+      WidgetsFlutterBinding.ensureInitialized()
+          .addPostFrameCallback((timeStamp) {
         context.goNamed(AppRoutes.editTest.name, params: {'testId': '$id'});
       });
     }
@@ -65,12 +67,14 @@ class _TestCreationScreenState extends ConsumerState<TestCreationScreen> {
             const Spacer(),
             MainFormInput(
               controller: testTitleController,
-              decoration: InputDecoration(label: Text(text.createTestStartFormTestTitle)),
+              decoration: InputDecoration(
+                  label: Text(text.createTestStartFormTestTitle)),
             ),
             const SizedBox(height: Const.paddingBetweenLarge),
             MainFormInput(
               controller: testDescriptionController,
-              decoration: InputDecoration(label: Text(text.createTestStartFormTestDescribe)),
+              decoration: InputDecoration(
+                  label: Text(text.createTestStartFormTestDescribe)),
               minLines: 4,
               maxLines: 5,
             ),
@@ -83,8 +87,9 @@ class _TestCreationScreenState extends ConsumerState<TestCreationScreen> {
                       setState(() {});
                       final title = testTitleController.text;
                       if (title.isNotEmpty) {
-                        final result =
-                            await notifier.createTest(testTitleController.text, testDescriptionController.text);
+                        final result = await notifier.createTest(
+                            testTitleController.text,
+                            testDescriptionController.text);
                         _notifyAboutError(result);
                       }
                       _isAwait = false;
@@ -101,10 +106,12 @@ class _TestCreationScreenState extends ConsumerState<TestCreationScreen> {
 
   void _notifyAboutError(String? error) {
     if (error == 'something') {
-      Fluttertoast.showToast(msg: AppLocalizations.of(context)!.somethingWentWrong);
+      Fluttertoast.showToast(
+          msg: AppLocalizations.of(context)?.somethingWentWrong ?? '');
     }
     if (error == 'internet') {
-      Fluttertoast.showToast(msg: AppLocalizations.of(context)!.badConnection);
+      Fluttertoast.showToast(
+          msg: AppLocalizations.of(context)?.badConnection ?? '');
     }
   }
 }

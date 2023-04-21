@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pro_tests/domain/models/test_info/test_info.dart';
 import 'package:pro_tests/main.dart';
 import 'package:pro_tests/ui/router/routes.dart';
+import 'package:pro_tests/ui/screens/test_passing/test_results/widgets/skeleton_result.dart';
 import 'package:pro_tests/ui/screens/test_passing/widgets/test_result_widget.dart';
 import 'package:pro_tests/ui/theme/const.dart';
 import 'package:pro_tests/ui/widgets/main_button.dart';
@@ -22,7 +23,11 @@ class _PassedTestScreenState extends ConsumerState<PassedTestScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration.zero, () => ref.read(serviceLocator.testListStateNotifier.notifier).getMyTests());
+    Future.delayed(
+        Duration.zero,
+        () => ref
+            .read(serviceLocator.testListStateNotifier.notifier)
+            .getMyTests());
   }
 
   @override
@@ -40,7 +45,9 @@ class _PassedTestScreenState extends ConsumerState<PassedTestScreen> {
 
     void handleQrOrLink(key) {
       context.pop();
-      key == 'qr' ? context.goNamed(AppRoutes.attemptTest.name) : showMyDialog();
+      key == 'qr'
+          ? context.goNamed(AppRoutes.attemptTest.name)
+          : showMyDialog();
     }
 
     final state = ref.watch(serviceLocator.testListStateNotifier);
@@ -58,7 +65,7 @@ class _PassedTestScreenState extends ConsumerState<PassedTestScreen> {
             ),
             Expanded(
               child: state.when(
-                loading: (tests) => const Placeholder(),
+                loading: (tests) => const SkeletonAnswers(),
                 readyShow: (tests) => _Content(
                   tests: tests.my,
                 ),
@@ -66,7 +73,8 @@ class _PassedTestScreenState extends ConsumerState<PassedTestScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: Const.paddingBetweenSmall),
+              padding: const EdgeInsets.symmetric(
+                  vertical: Const.paddingBetweenSmall),
               child: MainButton(
                 btnText: text.homePassButton,
                 onPressed: () {

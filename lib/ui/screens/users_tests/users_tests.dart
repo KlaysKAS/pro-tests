@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pro_tests/domain/models/test_info/test_info.dart';
 import 'package:pro_tests/main.dart';
 import 'package:pro_tests/ui/router/routes.dart';
+import 'package:pro_tests/ui/screens/test_passing/test_results/widgets/skeleton_result.dart';
 import 'package:pro_tests/ui/screens/users_tests/widgets/user_test_widget.dart';
 import 'package:pro_tests/ui/states/test_list_state/test_list_stete.dart';
 import 'package:pro_tests/ui/theme/const.dart';
@@ -23,7 +24,11 @@ class _UsersTestsScreenState extends ConsumerState<UsersTestsScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration.zero, () => ref.read(serviceLocator.testListStateNotifier.notifier).getMyOwnedTests());
+    Future.delayed(
+        Duration.zero,
+        () => ref
+            .read(serviceLocator.testListStateNotifier.notifier)
+            .getMyOwnedTests());
   }
 
   @override
@@ -43,18 +48,21 @@ class _UsersTestsScreenState extends ConsumerState<UsersTestsScreen> {
             ),
             Expanded(
               child: state.when(
-                loading: (tests) => const CircularProgressIndicator(),
+                loading: (tests) => const SkeletonAnswers(),
                 readyShow: (tests) => _Content(
                   tests: tests.myOwn,
                   onItemDismiss: (index) {
-                    ref.read(serviceLocator.testListStateNotifier.notifier).delete(tests.myOwn[index].id);
+                    ref
+                        .read(serviceLocator.testListStateNotifier.notifier)
+                        .delete(tests.myOwn[index].id);
                   },
                 ),
                 error: (tests, message) => Center(child: Text(message ?? '')),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: Const.paddingBetweenSmall),
+              padding: const EdgeInsets.symmetric(
+                  vertical: Const.paddingBetweenSmall),
               child: MainButton(
                 btnText: text.createTestStartCreateBtn,
                 onPressed: () {
@@ -86,7 +94,9 @@ class _Content extends StatelessWidget {
           itemBuilder: (context, index) => UserTestWidget(
                 key: ValueKey(tests[index].id),
                 test: tests[index],
-                onDetalePressed: (id) => context.goNamed(AppRoutes.testDetails.name, params: {'testId': '$id'}),
+                onDetalePressed: (id) => context.goNamed(
+                    AppRoutes.shareTest.name,
+                    params: {'testId': '$id'}),
                 onDismiss: () => onItemDismiss(index),
               ),
           separatorBuilder: (context, index) => const SizedBox(
