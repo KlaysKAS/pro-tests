@@ -10,7 +10,7 @@ class QuestionMapper {
           id: question.id ?? 0,
           question: question.title,
           answers: question.payload.variants.map((e) => e.answer).toList(),
-          answer: rightAnswer.isEmpty ? rightAnswer.first.answer : null,
+          answer: rightAnswer.isNotEmpty ? rightAnswer.first.answer : null,
         );
     }
     throw UnimplementedError('Question types except single-select isn`t implemented');
