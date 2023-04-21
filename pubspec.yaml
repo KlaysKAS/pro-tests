@@ -53,6 +53,8 @@ dependencies:
   flutter_native_splash: ^2.2.19
   skeletons: ^0.0.3
   settings_ui: ^2.0.2
+  flutter_zxing: ^1.1.2
+  flutter_share_me: ^1.4.0
 
 dev_dependencies:
   flutter_test:

@@ -34,10 +34,12 @@ class AppRouter {
             builder: (context, state) => const TestEditScreen(),
           ),
           GoRoute(
-            path: '${AppRoutes.shareTest.name}/:testId',
-            name: AppRoutes.shareTest.name,
-            builder: (context, state) => const TestShareScreen(),
-          ),
+              path: '${AppRoutes.shareTest.name}/:testId',
+              name: AppRoutes.shareTest.name,
+              builder: (context, state) {
+                final testId = state.params['testId'] ?? 'Not';
+                return TestShareScreen(testId: testId);
+              }),
           GoRoute(
             path: '${AppRoutes.testDetails.name}/:testId',
             name: AppRoutes.testDetails.name,
