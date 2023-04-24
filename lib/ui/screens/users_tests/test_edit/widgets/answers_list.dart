@@ -61,6 +61,9 @@ class _ContentState extends State<_Content> {
   }
 
   Widget _buildItems(BuildContext context, int index) {
+    ///вот тут можно на type сделать switch
+    ///и для каждого типа в enum выделить виджет
+    ///будет читаться лучше
     final text = AppLocalizations.of(context)!;
     if (type != QuestionTypes.free && index < controllers.controllers.length) {
       return Row(

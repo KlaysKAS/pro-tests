@@ -14,6 +14,8 @@ import 'package:pro_tests/domain/providers/app_locator.dart';
 import 'l10n/all_locales.dart';
 import 'ui/theme/themes.dart';
 
+/// 1. Такие константы лучше хранить где нибудь в одном месте, в отдельном файле
+/// 2. Можно использовать --dart-define=sentryUrl=... для того чтобы не хранить константу в коде (а например в секретах actions)
 const sentryDsn = 'https://c27e8e45f55d4374af2a30638b5b4417@o4505034476158976.ingest.sentry.io/4505034480287744';
 
 late final ServiceLocator serviceLocator;
@@ -35,6 +37,8 @@ void main() {
   });
 }
 
+//Лучше в отдельном файле
+//можно прямо папочку app и в нее сложить все связанное с приложением
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 

@@ -33,6 +33,8 @@ class _PassedTestScreenState extends ConsumerState<PassedTestScreen> {
   @override
   Widget build(context) {
     final text = AppLocalizations.of(context)!;
+    //это точно не должно лежать в build функции
+    //такок лучше в утилиты вынести, это явно чаще пригодится
     Future<void> showMyDialog() async {
       return showDialog<void>(
         context: context,

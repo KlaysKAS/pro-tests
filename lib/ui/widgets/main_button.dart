@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pro_tests/ui/theme/const.dart';
 
 class MainButton extends StatelessWidget {
+  // Почему не final String text; :)
   final String btnText;
   final void Function()? onPressed;
   const MainButton({Key? key, required this.btnText, required this.onPressed}) : super(key: key);

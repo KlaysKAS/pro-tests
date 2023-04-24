@@ -8,7 +8,8 @@ class AuthServiceImpl extends AuthService {
 
   final String _signInUrl = '/auth/signin';
   final String _signUpUrl = '/auth/signup';
-
+  //base url можно поместить в dio, при создании объекта.
+  //см DioOptions
   final String _baseUrl = 'https://protests.cfeee1e5e4e00a.ru/api/v1';
 
   AuthServiceImpl(this.dio);

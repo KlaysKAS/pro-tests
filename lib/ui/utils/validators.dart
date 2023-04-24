@@ -3,6 +3,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Validators {
   static final _passRegexp = RegExp(r'^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&?@./\\+\-="]).*$');
 
+  //тут лучше передать не Applocalizations а String
+  // а снаружи как раз брать local.loginFormPasswordEmpty в функцию
+  // Так код почище будет и не завязан на лишний класс.
+  //аналогично для функций ниже
   static String? passwordLoginValidator(String? value, AppLocalizations local) {
     if (value == '') {
       return local.loginFormPasswordEmpty;

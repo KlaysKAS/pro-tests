@@ -11,6 +11,7 @@ import 'package:pro_tests/ui/states/test_list_state/test_list_stete.dart';
 import 'package:pro_tests/ui/theme/const.dart';
 import 'package:pro_tests/ui/widgets/main_button.dart';
 
+//не стал комментить, кажется еще не готово)
 // in this code all commented code is nessesary and
 // should be uncommented as soon as DI is ready
 class UsersTestsScreen extends ConsumerStatefulWidget {

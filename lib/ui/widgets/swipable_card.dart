@@ -25,6 +25,7 @@ class SwipableCard extends StatefulWidget {
 }
 
 class _SwipableCardState extends State<SwipableCard> with TickerProviderStateMixin {
+  //dispose забыли
   late final AnimationController _positionAnimator;
   late final Animation _offsetTween;
   final key = GlobalKey();
@@ -76,6 +77,7 @@ class _SwipableCardState extends State<SwipableCard> with TickerProviderStateMix
     });
   }
 
+  ///лучше поднять наверх
   Offset _localPosition = Offset.zero;
   late double _startValue = _positionAnimator.value;
 
@@ -85,6 +87,9 @@ class _SwipableCardState extends State<SwipableCard> with TickerProviderStateMix
   }
 
   void _dragUpdate(DragUpdateDetails details) {
+    //запятых не хватает
+    //и в целом читать тяжело, можно попробовать вынести в переменные
+    //части приложения
     setState(() {
       _positionAnimator.value = max(
           0.0,
